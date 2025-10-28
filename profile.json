@@ -1,0 +1,192 @@
+{
+  "basics": {
+    "name": "Gunja Pandey",
+    "firstName": "Gunja",
+    "title": "Software Engineer",
+    "imageUrl": "asset/796374E2-D192-431F-B1E1-9FC24A5DF9C2.JPG",
+    "imageAlt": "Gunja Pandey Professional Headshot",
+    "summary": "A results-driven <strong>Software Engineer</strong> specializing in the design and optimization of <strong>high-throughput, enterprise-grade applications</strong> using <strong>Java</strong> and <strong>Spring Boot</strong>. With <strong>two years of hands-on experience</strong>, my focus has been on <strong>architecting scalable solutions</strong>, <strong>resolving critical production challenges</strong>, and elevating code quality standards, consistently driving significant improvements in system reliability and user experience. I am currently pursuing a <strong>Master's in Computer Science</strong> at University College Dublin.",
+    "email": "gunja.pandey@ucdconnect.ie",
+    "copyrightYear": "2025"
+  },
+  "profiles": {
+    "linkedin": "https://linkedin.com/in/gunjapandey",
+    "github": "https://github.com/gunjapandey"
+  },
+  "experience": [
+    {
+      "title": "Software Engineer-II",
+      "company": "Bajaj Finserv Direct Limited",
+      "dates": "July 2023 - Aug 2025",
+      "tech": "Tech: <strong>Java 11</strong>, <strong>Spring Boot 3.5</strong>, AWS, JIRA, Jenkins",
+      "highlights": [
+        "Resolved <strong>50+ production issues</strong> and integrated secure RESTful APIs, significantly improving system reliability and customer experience.",
+        "Optimized the Motor Insurance journey by integrating <strong>Signzy APIs</strong>, resulting in a <strong>33% reduction in costs</strong> and enhanced overall efficiency.",
+        "Collaborated on high-level design, performed in-depth code reviews, and documented the insurance journey with <strong>Structizr DSL</strong>, ensuring high scalability and maintainability."
+      ]
+    },
+    {
+      "title": "Software Engineering Intern",
+      "company": "Bajaj Finserv Direct Limited",
+      "dates": "Jan 2023 - Jun 2023",
+      "tech": "",
+      "highlights": [
+        "Enhanced the Pocket insurance journey by implementing <strong>5 new features</strong> and resolving <strong>20+ bugs</strong>, leading to a <strong>15% increase in user task completion rate</strong> and a <strong>25% reduction in defect rate</strong>.",
+        "Improved code quality using <strong>SonarQube</strong> to cut bugs by <strong>90%</strong> and code smells by <strong>80%</strong>.",
+        "Consistently completed <strong>100%</strong> of assigned user stories within sprint deadlines, improving delivery efficiency."
+      ]
+    }
+  ],
+  "techProfile": [
+    {
+      "category": "Programming Languages",
+      "icon": "code",
+      "skills": [
+        {
+          "name": "Java",
+          "iconHtml": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5\"><path d=\"M10 2a8 8 0 0 0-8 8c0 4.4 3.6 8 8 8h10c2.2 0 4-1.8 4-4v-2c0-2.2-1.8-4-4-4h-2\"/><path d=\"M17 10h.01\"/><path d=\"M7 6c.5-1 1-1.5 1.5-2\"/></svg>"
+        },
+        {
+          "name": "C++",
+          "iconHtml": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z\"/><path d=\"M10 10h4m-2-2v4\"/><path d=\"M15 15h4m-2-2v4\"/></svg>"
+        },
+        {
+          "name": "Python",
+          "iconHtml": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5\"><path d=\"M10.75 3c-.7-.3-1.5-.5-2.25.5-1.5 1-2 1.5-2\"/></svg>"
+        },
+        {
+          "name": "SQL",
+          "iconHtml": "<i data-lucide=\"database\" class=\"w-5 h-5\"></i>"
+        }
+      ]
+    },
+    {
+      "category": "Frameworks & APIs",
+      "icon": "server",
+      "skills": [
+        {
+          "name": "Spring Boot",
+          "iconHtml": "<i data-lucide=\"leaf\" class=\"w-5 h-5 text-green-600\"></i>"
+        },
+        {
+          "name": "JUnit",
+          "iconHtml": "<i data-lucide=\"zap\" class=\"w-5 h-5 text-yellow-600\"></i>"
+        },
+        {
+          "name": "Mockito",
+          "iconHtml": "<i data-lucide=\"shield-check\" class=\"w-5 h-5 text-purple-600\"></i>"
+        },
+        {
+          "name": "REST APIs",
+          "iconHtml": "<i data-lucide=\"route\" class=\"w-5 h-5 text-blue-600\"></i>"
+        }
+      ]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "icon": "cloud",
+      "skills": [
+        {
+          "name": "Docker",
+          "iconHtml": "<i data-lucide=\"box\" class=\"w-5 h-5 text-blue-500\"></i>"
+        },
+        {
+          "name": "Kubernetes",
+          "iconHtml": "<i data-lucide=\"cube\" class=\"w-5 h-5 text-indigo-500\"></i>"
+        },
+        {
+          "name": "AWS",
+          "iconHtml": "<i data-lucide=\"air-vane\" class=\"w-5 h-5 text-yellow-500\"></i>"
+        },
+        {
+          "name": "Git",
+          "iconHtml": "<i data-lucide=\"github\" class=\"w-5 h-5 text-gray-700\"></i>"
+        },
+        {
+          "name": "Jenkins",
+          "iconHtml": "<i data-lucide=\"anchor\" class=\"w-5 h-5 text-orange-500\"></i>"
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master's in Computer Science",
+      "institution": "University College Dublin (UCD)",
+      "dates": "Sep 2025 - Sep 2026",
+      "summary": "Specializing in advanced topics relevant to enterprise architecture and scalable systems.",
+      "coursework": "<strong>Relevant Coursework:</strong> Advanced Software Engineering, Cloud Computing, Content Based Image and Video Retrieval."
+    },
+    {
+      "degree": "Bachelor of Computer Science and Engineering",
+      "institution": "Vellore Institute of Technology Chennai",
+      "dates": "July 2019 - April 2023",
+      "gpa": "GPA: <strong>3.67/4.2</strong>"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Vehicle Detection, Classification and Counting",
+      "icon": "bus",
+      "tech": "Tech: Python3, OpenCV, and NumPy",
+      "highlights": [
+        "Implemented <strong>Gaussian Mixture Modeling (GMM)</strong> for precise classification of vehicles into different categories, ensuring accurate data collection.",
+        "Employed <strong>background subtraction techniques</strong> to filter noise from video streams, enhancing the reliability of object detection.",
+        "Integrated <strong>real-time tracking</strong> with object labeling, bounding box, and center extraction to monitor vehicle movement and generate crucial traffic flow statistics."
+      ]
+    },
+    {
+      "name": "ML Regression for Supermarket Sales Prediction",
+      "icon": "line-chart",
+      "tech": "Tech: Python, Scikit-learn, Pandas (Published at SCRS Conference)",
+      "highlights": [
+        "Conducted a <strong>Performance Comparison of ML Regression Algorithms</strong> (e.g., Linear Regression, Random Forest, SVR) to identify the most accurate model for sales forecasting.",
+        "Analyzed diverse dataset features, including item visibility, store type, and establishment year, resulting in <strong>improved predictive accuracy</strong> for inventory and supply chain management.",
+        "Pre-processed and engineered features to optimize model input, achieving key insights into sales drivers."
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "title": "Chairperson IEEE Women in Engineering",
+      "icon": "users",
+      "organization": "March 2022 - Aug 2023",
+      "summary": "Oversaw society management and mentorship programs, successfully driving a <strong>20% rise</strong> in female tech event participation and engagement."
+    },
+    {
+      "title": "Head of Curation, TEDx VIT Chennai",
+      "icon": "mic-2",
+      "organization": "June 2021 - June 2022",
+      "summary": "Organized and conducted meetings with speakers and performers, helping them in <strong>finalizing scripts</strong> and ensuring high-quality content for TEDx events."
+    },
+    {
+      "title": "Head of Public Relations, IEEE Computer Society",
+      "icon": "megaphone",
+      "organization": "July 2021 - June 2022",
+      "summary": "Responsible for securing sponsorships, marketing initiatives, and managing social media handles to boost club visibility and funding."
+    },
+    {
+      "title": "Chief Editor, The Capsule Magazine",
+      "icon": "edit",
+      "organization": "July 2021 - June 2022",
+      "summary": "Supervised the selection of articles, removal of grammatical errors and plagiarism, and planned publication content for the university newsletter."
+    }
+  ],
+  "achievements": [
+    {
+      "title": "BFDL Documentation Contest Winner",
+      "icon": "trophy",
+      "organization": "Bajaj Finserv Direct Limited | Aug 2023",
+      "summary": "Awarded for comprehensive Pocket Insurance journey documentation using <strong>Structurizr DSL</strong>, recognized for clarity, scalability, and impact on team onboarding and maintenance."
+    },
+    {
+      "title": "Walmart CodeHers 2022",
+      "icon": "award",
+      "organization": "National Coding Challenge | March 2022",
+      "summary": "Shortlisted in the first list of top performers among over <strong>42,000+ candidates</strong>, demonstrating top-tier competitive programming skills."
+    }
+  ],
+  "contact": {
+    "summary": "I'm currently based in Dublin and always open to discussing new opportunities in software engineering, system design, and large-scale applications."
+  }
+}

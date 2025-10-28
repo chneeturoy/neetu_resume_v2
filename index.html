@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Portfolio...</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;0;1&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+heading: ['DM Serif Display', 'serif'],
+sans: ['Inter', 'sans-serif'],
+},
+colors: {
+'vibrant-accent': 'var(--color-primary)', 
+},
+}
+}
+}
+</script>
+<style>
+/* Enable smooth scrolling for an intuitive feel */
+html {
+scroll-behavior: smooth;
+}
+
+/* === Theme Variables (FORMAL DARK BLUE THEME) === */
+:root {
+/* General Theme Colors (Formal, Professional Blue) */
+--color-primary: #2563EB; /* Main Accent: Blue 600 (Corporate Blue) */
+--color-background: #f9fafb; /* Main BG: Very light gray/Off-White */
+--color-card: #ffffff; /* Card BG: Pure White */
+--color-secondary: #e5e7eb; /* Borders: Subtle Gray 200 */
+--color-text-dark: #1f2937; /* Main Text: Dark Gray */
+--color-text-muted: #4b5563; /* Secondary Text: Medium Gray */
+--shadow-rgb: 37, 99, 235; /* RGB for primary color shadow (Blue 600) */
+
+/* Navigation/Button Colors */
+--nav-bg: #1D4ED8; /* Blue 700 (Darker for solid buttons) */
+--nav-hover: #60A5FA; /* Blue 400 (Lighter for hover) */
+
+/* Section Accent Colors (for thematic borders) - Kept bright for contrast */
+--accent-education: #34d399; /* Emerald */
+--accent-experience: #fb923c; /* Orange */
+--accent-projects: #a78bfa; /* Violet */
+--accent-tech: #f87171; /* Red */
+--accent-leadership: #a3a3a3; /* Stone/Gray for Leadership */
+--accent-achievements: #fcd34d; /* Amber for Achievements */
+}
+
+/* Dark Mode Configuration (A soft, easy-on-the-eyes dark mode) */
+body.dark-mode {
+--color-primary: #60A5FA; /* Blue 400 (Lighter accent) */
+--color-background: #1f2937; /* Slate 800 */
+--color-card: #374151; /* Slate 700 */
+--color-secondary: #4b5563; /* Slate 600 */
+--color-text-dark: #f3f4f6; /* Light Gray */
+--color-text-muted: #d1d5db; /* Medium Light Gray */
+--shadow-rgb: 96, 165, 250; /* RGB for primary color shadow (Blue 400) */
+
+--nav-bg: #2563EB; /* Blue 600 */
+--nav-hover: #93C5FD; /* Blue 300 */
+
+--accent-education: #6ee7b7;
+--accent-experience: #fdba74;
+--accent-projects: #c4b5fd;
+--accent-tech: #fca5a5;
+--accent-leadership: #d4d4d4;
+--accent-achievements: #fed7aa;
+}
+
+body {
+background-color: var(--color-background);
+color: var(--color-text-dark);
+font-family: 'Inter', sans-serif;
+transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Section Heading Style */
+.section-heading {
+font-family: 'DM Serif Display', serif;
+padding-left: 1.5rem;
+margin-bottom: 3rem;
+color: var(--color-text-dark);
+font-size: 3rem;
+font-weight: 400;
+/* Use a softer, rounded border for the Pinterest feel */
+border-left: 6px solid var(--section-accent); 
+border-radius: 3px 0 0 3px; 
+transition: border-color 0.4s ease;
+}
+
+/* === Scroll Progress Bar Styling === */
+#scroll-progress {
+position: fixed;
+top: 0;
+left: 0;
+height: 4px;
+background-color: var(--color-primary);
+width: 0%;
+z-index: 55;
+transition: background-color 0.4s ease;
+}
+
+/* === Card Hover Effect: Subtle Lift and Shadow (Softer Shadow) === */
+.interactive-card {
+position: relative;
+z-index: 10;
+transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+background-color: var(--color-card);
+border-color: var(--color-secondary);
+/* Increased border-radius for softer look */
+border-radius: 1.5rem; /* 24px */
+border: 1px solid var(--color-secondary);
+}
+.interactive-card:hover {
+transform: translateY(-6px) scale(1.005);
+/* Softer, more diffused shadow using the new blue primary */
+box-shadow: 0 10px 25px rgba(var(--shadow-rgb), 0.2), 0 3px 6px rgba(var(--shadow-rgb), 0.08);
+}
+
+/* Ensure the hero section card also uses the new rounded style */
+.hero-card {
+border-radius: 2.5rem; /* 40px */
+}
+
+/* === Functional Animation: Nav Links === */
+.nav-link {
+transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.nav-link.active {
+background-color: var(--nav-bg);
+color: white;
+box-shadow: 0 2px 8px rgba(var(--shadow-rgb), 0.4);
+font-weight: 700;
+}
+.nav-link:hover {
+background-color: var(--nav-hover);
+color: white;
+}
+
+/* === Functional Animation: View Switch === */
+.content-view {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+width: 100%;
+}
+.content-view.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* === Scroll Animation Classes === */
+.animated-element {
+opacity: 0;
+transition: opacity 1s ease-out, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+transform: translateY(30px);
+}
+.animated-element.reveal {
+opacity: 1;
+transform: translateY(0);
+}
+</style>
+</head>
+<body class="antialiased">
+
+<div id="scroll-progress"></div>
+
+<header class="sticky top-0 z-50 bg-[var(--color-background)]/90 backdrop-blur-md shadow-md border-b border-[var(--color-secondary)]">
+<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<a id="nav-name" href="#about" class="text-3xl font-heading font-extrabold text-[var(--color-primary)] hover:text-[var(--color-text-dark)] transition duration-200">
+</a>
+<div class="flex items-center space-x-2 sm:space-x-4">
+<div id="portfolio-nav" class="hidden sm:flex sm:space-x-2 font-semibold">
+<a href="#about" data-target="about" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">About</a>
+<a href="#experience" data-target="experience" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">Experience</a>
+<a href="#tech-stack" data-target="tech-stack" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">Tech Profile</a>
+<a href="#projects" data-target="projects" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">Projects</a>
+</div>
+
+<a id="nav-linkedin-btn" href="" target="_blank" class="nav-link px-3 py-2 rounded-full font-medium text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition duration-200 hidden sm:flex items-center">
+<i data-lucide="linkedin" class="w-4 h-4 mr-1"></i> Let's Connect
+</a>
+
+<button onclick="toggleView('contact')" data-view="contact" id="contact-nav-btn" class="nav-link px-3 py-2 rounded-full font-medium text-white bg-[var(--color-primary)] hover:bg-[var(--nav-hover)] transition duration-200">Contact Me</button>
+
+<button id="theme-toggle" class="p-2 rounded-full text-[var(--color-text-dark)] hover:text-[var(--color-primary)] transition duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50">
+<i data-lucide="sun" id="sun-icon" class="w-6 h-6"></i>
+<i data-lucide="moon" id="moon-icon" class="w-6 h-6 hidden"></i>
+</button>
+</div>
+</div>
+</nav>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
+
+<div id="portfolio-view" class="content-view active">
+
+<section id="about" class="py-16 md:py-24">
+<div class="animated-element p-1 w-full h-full">
+<div class="hero-card bg-[var(--color-card)] p-8 sm:p-12 shadow-2xl border border-[var(--color-secondary)] transition duration-300">
+<div class="flex flex-col md:flex-row items-center md:space-x-12">
+<div class="flex justify-center items-center">
+<img 
+id="hero-img"
+src="" 
+alt="" 
+class="w-48 h-48 md:w-60 md:h-60 object-cover rounded-full shadow-xl ring-4 ring-[var(--color-primary)]/50 animated-element"
+style="transition-delay: 0.1s;"
+onerror="this.onerror=null;this.src='https://placehold.co/240x240/2563EB/ffffff?text=GP';"
+/>
+</div>
+
+<div class="text-center md:text-left">
+<h1 id="hero-name" class="text-5xl sm:text-7xl font-heading leading-tight text-[var(--color-text-dark)] mb-4 animated-element">
+</h1>
+<h2 id="hero-title" class="text-2xl sm:text-3xl font-semibold text-[var(--color-text-dark)] mb-6 animated-element" style="transition-delay: 0.2s;">
+</h2>
+<p id="hero-summary" class="text-lg text-[var(--color-text-muted)] max-w-3xl mb-8 animated-element" style="transition-delay: 0.3s;">
+</p>
+
+<div class="flex justify-center md:justify-start space-x-6 animated-element" style="transition-delay: 0.4s;">
+<a id="hero-email-link" href="" class="animated-link flex items-center space-x-2 text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200 font-bold hover:underline">
+<i data-lucide="mail" class="w-5 h-5"></i><span>Email</span>
+</a>
+<a id="hero-linkedin-link" href="" target="_blank" class="animated-link flex items-center space-x-2 text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200 font-bold hover:underline">
+<i data-lucide="linkedin" class="w-5 h-5"></i><span>LinkedIn</span>
+</a>
+<a id="hero-github-link" href="" target="_blank" class="animated-link flex items-center space-x-2 text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200 font-bold hover:underline">
+<i data-lucide="github" class="w-5 h-5"></i><span>GitHub</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<hr class="border-[var(--color-secondary)] my-16" />
+
+<section id="experience" class="py-16">
+<h3 class="section-heading animated-element" style="--section-accent: var(--accent-experience);">Professional Experience</h3>
+<div id="experience-container" class="space-y-10">
+</div>
+</section>
+
+<hr class="border-[var(--color-secondary)] my-16" />
+
+<section id="tech-stack" class="py-16">
+<h3 class="section-heading animated-element" style="--section-accent: var(--accent-tech);">Technical Profile</h3>
+<div id="tech-stack-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+</div>
+</section>
+
+<hr class="border-[var(--color-secondary)] my-16" />
+
+<section id="education" class="py-16">
+<h3 class="section-heading animated-element" style="--section-accent: var(--accent-education);">Education</h3>
+<div id="education-container" class="space-y-8">
+</div>
+</section>
+
+<hr class="border-[var(--color-secondary)] my-16" />
+
+<section id="projects" class="py-16">
+<h3 class="section-heading animated-element" style="--section-accent: var(--accent-projects);">Key Projects</h3>
+<div id="projects-container" class="space-y-8">
+</div>
+</section>
+
+<hr class="border-[var(--color-secondary)] my-16" />
+
+<section id="leadership" class="py-16">
+<h3 class="section-heading animated-element" style="--section-accent: var(--accent-leadership);">Positions of Responsibility / Leadership</h3>
+<div id="leadership-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+</div>
+</section>
+
+<hr class="border-[var(--color-secondary)] my-16" />
+
+<section id="achievements" class="py-16">
+<h3 class="section-heading animated-element" style="--section-accent: var(--accent-achievements);">Key Achievements</h3>
+<div id="achievements-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+</div>
+</section>
+</div>
+
+<div id="contact-view" class="content-view flex flex-col items-center py-24 min-h-[60vh]">
+<div class="animated-element w-full max-w-2xl interactive-card p-10 text-center shadow-2xl">
+<i data-lucide="mail" class="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4"></i>
+<h3 class="text-4xl font-heading text-[var(--color-text-dark)] mb-4">Get In Touch</h3>
+<p id="contact-summary" class="text-lg text-[var(--color-text-muted)] mb-8">
+</p>
+
+<a id="contact-email-link" href="" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-[var(--color-primary)] hover:bg-[var(--nav-bg)] transition duration-300 transform hover:scale-105">
+<i data-lucide="send" class="w-5 h-5 mr-2"></i> Email Me Directly
+</a>
+<p class="text-sm text-[var(--color-text-muted)] mt-6">or connect via LinkedIn for professional updates.</p>
+<div class="flex justify-center space-x-6 mt-4">
+<a id="contact-linkedin-link" href="" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200">
+<i data-lucide="linkedin" class="w-8 h-8"></i>
+</a>
+<a id="contact-github-link" href="" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200">
+<i data-lucide="github" class="w-8 h-8"></i>
+</a>
+</div>
+</div>
+</div>
+</main>
+
+<footer class="bg-[var(--color-card)] border-t border-[var(--color-secondary)] mt-12">
+<div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center text-sm text-[var(--color-text-muted)]">
+<p id="footer-copyright"></p>
+<p>Designed with <span class="text-red-500">&hearts;</span> & Tailwind CSS</p>
+</div>
+</div>
+</footer>
+
+<script>
+// --- Core Application State ---
+let currentView = 'portfolio';
+
+// --- Utility Functions ---
+
+/**
+ * Toggles between the 'portfolio' and 'contact' views.
+ * @param {string} viewName - 'portfolio' or 'contact'
+ */
+function toggleView(viewName) {
+const portfolioView = document.getElementById('portfolio-view');
+const contactView = document.getElementById('contact-view');
+const contactBtn = document.getElementById('contact-nav-btn');
+
+if (viewName === 'contact') {
+portfolioView.classList.remove('active');
+contactView.classList.add('active');
+contactBtn.textContent = 'View Portfolio';
+contactBtn.onclick = () => toggleView('portfolio');
+currentView = 'contact';
+} else {
+contactView.classList.remove('active');
+portfolioView.classList.add('active');
+contactBtn.textContent = 'Contact Me';
+contactBtn.onclick = () => toggleView('contact');
+currentView = 'portfolio';
+}
+// Scroll to top when view changes
+window.scrollTo({ top: 0, behavior: 'smooth' });
+updateActiveNavLink();
+}
+
+/**
+ * Handles the Dark Mode toggle logic.
+ */
+function initializeThemeToggle() {
+const toggleButton = document.getElementById('theme-toggle');
+const sunIcon = document.getElementById('sun-icon');
+const moonIcon = document.getElementById('moon-icon');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Initial state based on OS preference or localStorage
+let isDarkMode = localStorage.getItem('theme') === 'dark' || (localStorage.getItem('theme') === null && prefersDark);
+
+if (isDarkMode) {
+document.body.classList.add('dark-mode');
+sunIcon.classList.add('hidden');
+moonIcon.classList.remove('hidden');
+}
+
+toggleButton.addEventListener('click', () => {
+document.body.classList.toggle('dark-mode');
+isDarkMode = document.body.classList.contains('dark-mode');
+localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+
+sunIcon.classList.toggle('hidden', isDarkMode);
+moonIcon.classList.toggle('hidden', !isDarkMode);
+});
+}
+
+/**
+ * Updates the scroll progress bar based on the scroll position.
+ */
+function updateScrollProgress() {
+const progress = document.getElementById('scroll-progress');
+const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+if (scrollTotal > 0) {
+const scrolled = document.documentElement.scrollTop;
+const progressWidth = (scrolled / scrollTotal) * 100;
+progress.style.width = `${progressWidth}%`;
+}
+}
+
+/**
+ * Updates the active class on navigation links based on visible section.
+ */
+function updateActiveNavLink() {
+if (currentView !== 'portfolio') return;
+
+// Note: Since we are adding Leadership before Achievements, we need to check both.
+const sections = document.querySelectorAll('section[id]:not(#leadership):not(#achievements)');
+const navLinks = document.querySelectorAll('#portfolio-nav a');
+let activeSectionId = 'about';
+
+const scrollPos = window.scrollY + window.innerHeight / 2; // Midpoint of viewport
+
+// Special handling for the Leadership/Achievements block
+const leadershipSection = document.getElementById('leadership');
+const achievementSection = document.getElementById('achievements');
+
+if (leadershipSection && achievementSection) {
+const combinedTop = leadershipSection.offsetTop;
+const combinedBottom = achievementSection.offsetTop + achievementSection.offsetHeight;
+
+// If the scroll position is within the combined Leadership/Achievements block, keep the last major link active (Projects)
+if (scrollPos > combinedTop && scrollPos < combinedBottom) {
+activeSectionId = 'projects'; // Keep Projects highlighted if within the Leadership/Achievements block below it
+}
+}
+
+
+sections.forEach(section => {
+if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+activeSectionId = section.id;
+}
+});
+
+navLinks.forEach(link => {
+link.classList.remove('active');
+// The main nav links target main sections, so we adjust the logic for the last part
+if (link.getAttribute('data-target') === activeSectionId) {
+link.classList.add('active');
+}
+});
+}
+
+/**
+ * Handles the scroll reveal animation for elements.
+ */
+function handleScrollReveal() {
+const elements = document.querySelectorAll('.animated-element:not(.reveal)');
+const triggerBottom = window.innerHeight * 0.9;
+
+elements.forEach(el => {
+const elementTop = el.getBoundingClientRect().top;
+if (elementTop < triggerBottom) {
+el.classList.add('reveal');
+}
+});
+}
+
+
+// =================================================================
+// === NEW: DATA LOADING SCRIPT ===
+// =================================================================
+
+/**
+ * Fetches profile.json and populates the entire page.
+ */
+async function loadProfileData() {
+try {
+const response = await fetch('profile.json');
+if (!response.ok) {
+throw new Error(`HTTP error! status: ${response.status}`);
+}
+const data = await response.json();
+
+// --- Populate Basics & Hero ---
+document.title = `${data.basics.name} | ${data.basics.title} Portfolio`;
+document.getElementById('nav-name').textContent = data.basics.name.toUpperCase();
+document.getElementById('nav-linkedin-btn').href = data.profiles.linkedin;
+document.getElementById('hero-img').src = data.basics.imageUrl;
+document.getElementById('hero-img').alt = data.basics.imageAlt;
+// Use innerHTML to render the <strong> tags from JSON
+document.getElementById('hero-name').innerHTML = `<span class="text-[var(--color-primary)]">${data.basics.firstName}</span> ${data.basics.name.substring(data.basics.firstName.length)}`;
+document.getElementById('hero-title').textContent = data.basics.title;
+document.getElementById('hero-summary').innerHTML = data.basics.summary;
+document.getElementById('hero-email-link').href = `mailto:${data.basics.email}`;
+document.getElementById('hero-linkedin-link').href = data.profiles.linkedin;
+document.getElementById('hero-github-link').href = data.profiles.github;
+
+// --- Populate Experience ---
+const expContainer = document.getElementById('experience-container');
+expContainer.innerHTML = data.experience.map((job, index) => `
+<div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-experience)] animated-element" style="--card-accent: var(--accent-experience); transition-delay: ${index * 0.1}s;">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-xl font-bold text-[var(--color-text-dark)]">${job.title}</h4>
+<p class="text-[var(--accent-experience)] font-medium">${job.company}</p>
+</div>
+<span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${job.dates}</span>
+</div>
+${job.tech ? `<p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${job.tech}</p>` : ''}
+<ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
+${job.highlights.map(hl => `<li>${hl}</li>`).join('')}
+</ul>
+</div>
+`).join('');
+
+// --- Populate Tech Stack ---
+const techContainer = document.getElementById('tech-stack-container');
+techContainer.innerHTML = data.techProfile.map((category, index) => `
+<div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-tech)] animated-element" style="transition-delay: ${index * 0.1}s;">
+<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-3 flex items-center"><i data-lucide="${category.icon}" class="w-5 h-5 mr-2 text-[var(--accent-tech)]"></i> ${category.category}</h4>
+<div class="flex flex-wrap gap-x-4 gap-y-3 text-[var(--color-text-dark)]">
+${category.skills.map(skill => `
+<span class="flex items-center space-x-1 font-semibold">
+${skill.iconHtml}
+<span class="text-[var(--color-text-dark)]">${skill.name}</span>
+</span>
+`).join('')}
+</div>
+</div>
+`).join('');
+
+// --- Populate Education ---
+const eduContainer = document.getElementById('education-container');
+eduContainer.innerHTML = data.education.map((edu, index) => `
+<div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-education)] animated-element" style="transition-delay: ${index * 0.1}s;">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-xl font-bold text-[var(--color-text-dark)]">${edu.degree}</h4>
+<p class="text-[var(--accent-education)] font-medium">${edu.institution}</p>
+</div>
+<span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${edu.dates}</span>
+</div>
+${edu.summary ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.summary}</p>` : ''}
+${edu.coursework ? `<ul class="text-[var(--color-text-muted)] text-sm mt-3"><li>${edu.coursework}</li></ul>` : ''}
+${edu.gpa ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.gpa}</p>` : ''}
+</div>
+`).join('');
+
+// --- Populate Projects ---
+const projContainer = document.getElementById('projects-container');
+projContainer.innerHTML = data.projects.map((proj, index) => `
+<div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-projects)] animated-element" style="transition-delay: ${index * 0.1}s;">
+<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-2 flex items-center"><i data-lucide="${proj.icon}" class="w-5 h-5 mr-2 text-[var(--accent-projects)]"></i> ${proj.name}</h4>
+<p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${proj.tech}</p>
+<ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
+${proj.highlights.map(hl => `<li>${hl}</li>`).join('')}
+</ul>
+</div>
+`).join('');
+
+// --- Populate Leadership ---
+const leadContainer = document.getElementById('leadership-container');
+leadContainer.innerHTML = data.leadership.map((lead, index) => `
+<div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-leadership)] animated-element" style="transition-delay: ${index * 0.1}s;">
+<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${lead.icon}" class="w-5 h-5 mr-2 text-[var(--accent-leadership)]"></i> ${lead.title}</h4>
+<p class="text-[var(--accent-leadership)] font-medium text-sm mb-2">${lead.organization}</p>
+<p class="text-[var(--color-text-muted)] text-sm">${lead.summary}</p>
+</div>
+`).join('');
+
+// --- Populate Achievements ---
+const achieveContainer = document.getElementById('achievements-container');
+achieveContainer.innerHTML = data.achievements.map((item, index) => `
+<div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-achievements)] animated-element" style="transition-delay: ${index * 0.1}s;">
+<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${item.icon}" class="w-5 h-5 mr-2 text-[var(--accent-achievements)]"></i> ${item.title}</h4>
+<p class="text-[var(--accent-achievements)] font-medium text-sm mb-2">${item.organization}</p>
+<p class="text-[var(--color-text-muted)] text-sm">${item.summary}</p>
+</div>
+`).join('');
+
+// --- Populate Contact ---
+document.getElementById('contact-summary').textContent = data.contact.summary;
+document.getElementById('contact-email-link').href = `mailto:${data.basics.email}`;
+document.getElementById('contact-linkedin-link').href = data.profiles.linkedin;
+document.getElementById('contact-github-link').href = data.profiles.github;
+
+// --- Populate Footer ---
+document.getElementById('footer-copyright').textContent = `© ${data.basics.copyrightYear} ${data.basics.name}. All rights reserved.`;
+
+} catch (error) {
+console.error('Error loading profile data:', error);
+document.body.innerHTML = `<div style="text-align: center; padding: 50px; font-family: sans-serif;"><h1>Error</h1><p>Could not load profile.json. Please check the file and try again.</p></div>`;
+}
+}
+
+
+// --- Initialization on Load ---
+window.onload = async function() {
+// *** NEW: Load all dynamic data first ***
+await loadProfileData();
+
+// Initialize Lucide Icons (MUST run after data is loaded)
+lucide.createIcons();
+
+// Initialize Theme Toggle
+initializeThemeToggle();
+
+// Bind scroll events
+window.addEventListener('scroll', updateScrollProgress);
+window.addEventListener('scroll', updateActiveNavLink);
+window.addEventListener('scroll', handleScrollReveal);
+
+// Initial calls
+updateScrollProgress();
+updateActiveNavLink();
+handleScrollReveal(); // This will trigger animations
+
+// Force the initial view to show the portfolio content
+document.getElementById('portfolio-view').classList.add('active');
+
+// Set initial active link (for the 'about' section)
+document.querySelector('#portfolio-nav a[data-target="about"]').classList.add('active');
+};
+</script>
+</body>
+</html>
