@@ -1,10 +1,10 @@
 {
   "basics": {
-    "name": "Gunja Pandey",
+    "name": "Neetu Roy",
     "firstName": "Gunja",
     "title": "Software Engineer",
-    "imageUrl": "asset/796374E2-D192-431F-B1E1-9FC24A5DF9C2.JPG",
-    "imageAlt": "Gunja Pandey Professional Headshot",
+    "imageUrl": "asset/Pic - Neetu Large.jpeg",
+    "imageAlt": "Neetu Roy Professional Headshot",
     "summary": "A results-driven <strong>Software Engineer</strong> specializing in the design and optimization of <strong>high-throughput, enterprise-grade applications</strong> using <strong>Java</strong> and <strong>Spring Boot</strong>. With <strong>two years of hands-on experience</strong>, my focus has been on <strong>architecting scalable solutions</strong>, <strong>resolving critical production challenges</strong>, and elevating code quality standards, consistently driving significant improvements in system reliability and user experience. I am currently pursuing a <strong>Master's in Computer Science</strong> at University College Dublin.",
     "email": "gunja.pandey@ucdconnect.ie",
     "copyrightYear": "2025"
