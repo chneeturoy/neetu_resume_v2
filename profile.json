@@ -1,192 +1,202 @@
 {
   "basics": {
-    "name": "Neetu Roy",
-    "firstName": "Gunja",
-    "title": "Software Engineer",
-    "imageUrl": "asset/Pic - Neetu Large.jpeg",
-    "imageAlt": "Neetu Roy Professional Headshot",
-    "summary": "A results-driven <strong>Software Engineer</strong> specializing in the design and optimization of <strong>high-throughput, enterprise-grade applications</strong> using <strong>Java</strong> and <strong>Spring Boot</strong>. With <strong>two years of hands-on experience</strong>, my focus has been on <strong>architecting scalable solutions</strong>, <strong>resolving critical production challenges</strong>, and elevating code quality standards, consistently driving significant improvements in system reliability and user experience. I am currently pursuing a <strong>Master's in Computer Science</strong> at University College Dublin.",
-    "email": "gunja.pandey@ucdconnect.ie",
+    "name": "Neetu Roy Chanamthabam",
+    "firstName": "Neetu",
+    "title": "Senior IT Project Manager and Lead",
+    "imageUrl": "profile-image.jpg",
+    "imageAlt": "Neetu Roy Chanamthabam Professional Headshot",
+    [cite_start]"summary": "<strong>Senior IT Project Manager and Lead</strong> with 14 years delivering <strong>banking/FinServ transformations</strong>[cite: 4]. [cite_start]Expertise in <strong>Agile, DevOps</strong>, and hybrid Waterfall delivery across multiple streams with 50+ stakeholders[cite: 5]. [cite_start]<strong>AI-enabled</strong> using ChatGPT and Gemini to accelerate planning, risk management, and decision-making[cite: 6]. [cite_start]International exposure (India, US) with strong budgeting, scheduling, and governance[cite: 7].",
+    "email": "neeturoych@gmail.com",
     "copyrightYear": "2025"
   },
   "profiles": {
-    "linkedin": "https://linkedin.com/in/gunjapandey",
-    "github": "https://github.com/gunjapandey"
+    "linkedin": "https://linkedin.com/in/chneeturoy",
+    "github": ""
   },
   "experience": [
     {
-      "title": "Software Engineer-II",
-      "company": "Bajaj Finserv Direct Limited",
-      "dates": "July 2023 - Aug 2025",
-      "tech": "Tech: <strong>Java 11</strong>, <strong>Spring Boot 3.5</strong>, AWS, JIRA, Jenkins",
+      "title": "Assistant Vice President - Project Manager / Delivery Lead",
+      "company": "Barclays Global Service Center, Pune, India",
+      "dates": "Jun 2024 - Aug 2025",
+      [cite_start]"tech": "<strong>Program:</strong> Asia UBS Upgrade Program (UBS 12.x to 14.x) [cite: 12]",
       "highlights": [
-        "Resolved <strong>50+ production issues</strong> and integrated secure RESTful APIs, significantly improving system reliability and customer experience.",
-        "Optimized the Motor Insurance journey by integrating <strong>Signzy APIs</strong>, resulting in a <strong>33% reduction in costs</strong> and enhanced overall efficiency.",
-        "Collaborated on high-level design, performed in-depth code reviews, and documented the insurance journey with <strong>Structizr DSL</strong>, ensuring high scalability and maintainability."
+        [cite_start]"<strong>Scope, governance & cost savings:</strong> defined program scope and delivery strategy; targeted cost savings via automation and streamlined processes[cite: 13].",
+        [cite_start]"<strong>Delivery efficiency:</strong> managed ETL workloads and cross-stream communications; allocated resources to hit milestone targets within budget[cite: 14].",
+        [cite_start]"<strong>AI-driven delivery:</strong> leveraged AI for risk assessment and test optimisation; reduced rework and testing cycles[cite: 15].",
+        [cite_start]"<strong>Stakeholder integration:</strong> coordinated 20-30 downstream integrations and data flows across multiple teams[cite: 16]."
       ]
     },
     {
-      "title": "Software Engineering Intern",
-      "company": "Bajaj Finserv Direct Limited",
-      "dates": "Jan 2023 - Jun 2023",
-      "tech": "",
+      "title": "Technical Project Manager / Scrum Master",
+      "company": "Persistent Systems Ltd., Pune, India",
+      "dates": "Mar 2024 - Jun 2024",
+      [cite_start]"tech": "<strong>Program:</strong> Zebra Technologies modernization (Angular, Flutter) [cite: 18]",
       "highlights": [
-        "Enhanced the Pocket insurance journey by implementing <strong>5 new features</strong> and resolving <strong>20+ bugs</strong>, leading to a <strong>15% increase in user task completion rate</strong> and a <strong>25% reduction in defect rate</strong>.",
-        "Improved code quality using <strong>SonarQube</strong> to cut bugs by <strong>90%</strong> and code smells by <strong>80%</strong>.",
-        "Consistently completed <strong>100%</strong> of assigned user stories within sprint deadlines, improving delivery efficiency."
+        [cite_start]"<strong>Stakeholder engagement:</strong> led client workshops, SOW planning; weekly progress dashboards for milestones[cite: 19].",
+        [cite_start]"<strong>Release & continuous improvement:</strong> orchestrated releases, removed impediments, and drove process improvements[cite: 20]."
+      ]
+    },
+    {
+      "title": "Consultant Specialist (Delivery Lead / Scrum Master)",
+      "company": "HSBC Technology India Ltd., Pune & New York",
+      "dates": "Jul 2011 - Mar 2024",
+      "tech": "Delivered multiple key programs over 13 years.",
+      "highlights": [
+        [cite_start]"<strong>SSDML Integration (2020-2024):</strong> automated data transfers to 200+ downstream systems; reduced manual effort and data latency[cite: 22].",
+        [cite_start]"<strong>Global Platform Replacement (2017-2020):</strong> eliminated dual-entry and EUC inefficiencies; improved governance and data quality[cite: 24].",
+        [cite_start]"<strong>Reuters TOF Demise (2019-2020):</strong> Java adapter development; reduced third-party costs[cite: 25].",
+        [cite_start]"<strong>NORKOM Reconciliation (2016-2017):</strong> requirements gathering, data profiling... onsite delivery in New York[cite: 26].",
+        [cite_start]"<strong>Growth:</strong> progressed from developer to team lead; mentored 50+ professionals; delivered on time with quality[cite: 28]."
       ]
     }
   ],
   "techProfile": [
     {
-      "category": "Programming Languages",
+      "category": "Program & Portfolio Management",
+      "icon": "briefcase",
+      "skills": [
+        {
+          [cite_start]"name": "PMO Setup [cite: 30]",
+          "iconHtml": "<i data-lucide='clipboard-list' class='w-5 h-5 text-blue-500'></i>"
+        },
+        {
+          [cite_start]"name": "Scoping & Planning [cite: 30]",
+          "iconHtml": "<i data-lucide='pencil-ruler' class='w-5 h-5 text-blue-500'></i>"
+        },
+        {
+          [cite_start]"name": "Governance [cite: 30]",
+          "iconHtml": "<i data-lucide='landmark' class='w-5 h-5 text-blue-500'></i>"
+        },
+        {
+          [cite_start]"name": "Budgeting [cite: 30]",
+          "iconHtml": "<i data-lucide='piggy-bank' class='w-5 h-5 text-blue-500'></i>"
+        }
+      ]
+    },
+    {
+      "category": "Program Leadership & Delivery",
+      "icon": "users",
+      "skills": [
+        {
+          [cite_start]"name": "Agile/SAFe [cite: 31]",
+          "iconHtml": "<i data-lucide='repeat' class='w-5 h-5 text-green-500'></i>"
+        },
+        {
+          [cite_start]"name": "Scrum / Kanban [cite: 31]",
+          "iconHtml": "<i data-lucide='layout-dashboard' class='w-5 h-5 text-green-500'></i>"
+        },
+        {
+          [cite_start]"name": "Waterfall Hybrids [cite: 31]",
+          "iconHtml": "<i data-lucide='git-merge' class='w-5 h-5 text-green-500'></i>"
+        },
+        {
+          [cite_start]"name": "Stakeholder Alignment [cite: 31]",
+          "iconHtml": "<i data-lucide='users' class='w-5 h-5 text-green-500'></i>"
+        }
+      ]
+    },
+    {
+      "category": "Tools & Platforms",
+      "icon": "tool",
+      "skills": [
+        {
+          [cite_start]"name": "Jira / Confluence [cite: 37]",
+          "iconHtml": "<i data-lucide='layout-grid' class='w-5 h-5 text-purple-500'></i>"
+        },
+        {
+          [cite_start]"name": "ServiceNow [cite: 37]",
+          "iconHtml": "<i data-lucide='radio-tower' class='w-5 h-5 text-purple-500'></i>"
+        },
+        {
+          [cite_start]"name": "Jenkins / Git [cite: 37]",
+          "iconHtml": "<i data-lucide='git-branch' class='w-5 h-5 text-purple-500'></i>"
+        },
+        {
+          [cite_start]"name": "AI (ChatGPT, Gemini) [cite: 6, 37]",
+          "iconHtml": "<i data-lucide='brain' class='w-5 h-5 text-purple-500'></i>"
+        }
+      ]
+    },
+    {
+      "category": "Technical & Domain Skills",
       "icon": "code",
       "skills": [
         {
-          "name": "Java",
-          "iconHtml": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5\"><path d=\"M10 2a8 8 0 0 0-8 8c0 4.4 3.6 8 8 8h10c2.2 0 4-1.8 4-4v-2c0-2.2-1.8-4-4-4h-2\"/><path d=\"M17 10h.01\"/><path d=\"M7 6c.5-1 1-1.5 1.5-2\"/></svg>"
+          [cite_start]"name": "Java / Spring [cite: 55]",
+          "iconHtml": "<i data-lucide='coffee' class='w-5 h-5 text-red-500'></i>"
         },
         {
-          "name": "C++",
-          "iconHtml": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z\"/><path d=\"M10 10h4m-2-2v4\"/><path d=\"M15 15h4m-2-2v4\"/></svg>"
+          [cite_start]"name": "PL/SQL [cite: 55]",
+          "iconHtml": "<i data-lucide='database' class='w-5 h-5 text-red-500'></i>"
         },
         {
-          "name": "Python",
-          "iconHtml": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5\"><path d=\"M10.75 3c-.7-.3-1.5-.5-2.25.5-1.5 1-2 1.5-2\"/></svg>"
+          [cite_start]"name": "FX / Derivatives [cite: 35]",
+          "iconHtml": "<i data-lucide='area-chart' class='w-5 h-5 text-red-500'></i>"
         },
         {
-          "name": "SQL",
-          "iconHtml": "<i data-lucide=\"database\" class=\"w-5 h-5\"></i>"
-        }
-      ]
-    },
-    {
-      "category": "Frameworks & APIs",
-      "icon": "server",
-      "skills": [
-        {
-          "name": "Spring Boot",
-          "iconHtml": "<i data-lucide=\"leaf\" class=\"w-5 h-5 text-green-600\"></i>"
-        },
-        {
-          "name": "JUnit",
-          "iconHtml": "<i data-lucide=\"zap\" class=\"w-5 h-5 text-yellow-600\"></i>"
-        },
-        {
-          "name": "Mockito",
-          "iconHtml": "<i data-lucide=\"shield-check\" class=\"w-5 h-5 text-purple-600\"></i>"
-        },
-        {
-          "name": "REST APIs",
-          "iconHtml": "<i data-lucide=\"route\" class=\"w-5 h-5 text-blue-600\"></i>"
-        }
-      ]
-    },
-    {
-      "category": "Cloud & DevOps",
-      "icon": "cloud",
-      "skills": [
-        {
-          "name": "Docker",
-          "iconHtml": "<i data-lucide=\"box\" class=\"w-5 h-5 text-blue-500\"></i>"
-        },
-        {
-          "name": "Kubernetes",
-          "iconHtml": "<i data-lucide=\"cube\" class=\"w-5 h-5 text-indigo-500\"></i>"
-        },
-        {
-          "name": "AWS",
-          "iconHtml": "<i data-lucide=\"air-vane\" class=\"w-5 h-5 text-yellow-500\"></i>"
-        },
-        {
-          "name": "Git",
-          "iconHtml": "<i data-lucide=\"github\" class=\"w-5 h-5 text-gray-700\"></i>"
-        },
-        {
-          "name": "Jenkins",
-          "iconHtml": "<i data-lucide=\"anchor\" class=\"w-5 h-5 text-orange-500\"></i>"
+          [cite_start]"name": "FIX Protocols [cite: 35]",
+          "iconHtml": "<i data-lucide='arrow-right-left' class='w-5 h-5 text-red-500'></i>"
         }
       ]
     }
   ],
   "education": [
     {
-      "degree": "Master's in Computer Science",
-      "institution": "University College Dublin (UCD)",
-      "dates": "Sep 2025 - Sep 2026",
-      "summary": "Specializing in advanced topics relevant to enterprise architecture and scalable systems.",
-      "coursework": "<strong>Relevant Coursework:</strong> Advanced Software Engineering, Cloud Computing, Content Based Image and Video Retrieval."
+      "degree": "Master of Science in Project Management (in progress)",
+      "institution": "UCD Smurfit Business School, Dublin, Ireland",
+      "dates": "2025-2026",
+      "summary": "",
+      [cite_start]"coursework": "Studying at Ireland's leading business school. [cite: 9, 58]"
     },
     {
-      "degree": "Bachelor of Computer Science and Engineering",
-      "institution": "Vellore Institute of Technology Chennai",
-      "dates": "July 2019 - April 2023",
-      "gpa": "GPA: <strong>3.67/4.2</strong>"
+      "degree": "B.E. Computer Science",
+      "institution": "G.H. Raisoni College of Engineering, Nagpur University, India",
+      "dates": "2011",
+      [cite_start]"gpa": "[cite: 59]"
     }
   ],
-  "projects": [
-    {
-      "name": "Vehicle Detection, Classification and Counting",
-      "icon": "bus",
-      "tech": "Tech: Python3, OpenCV, and NumPy",
-      "highlights": [
-        "Implemented <strong>Gaussian Mixture Modeling (GMM)</strong> for precise classification of vehicles into different categories, ensuring accurate data collection.",
-        "Employed <strong>background subtraction techniques</strong> to filter noise from video streams, enhancing the reliability of object detection.",
-        "Integrated <strong>real-time tracking</strong> with object labeling, bounding box, and center extraction to monitor vehicle movement and generate crucial traffic flow statistics."
-      ]
-    },
-    {
-      "name": "ML Regression for Supermarket Sales Prediction",
-      "icon": "line-chart",
-      "tech": "Tech: Python, Scikit-learn, Pandas (Published at SCRS Conference)",
-      "highlights": [
-        "Conducted a <strong>Performance Comparison of ML Regression Algorithms</strong> (e.g., Linear Regression, Random Forest, SVR) to identify the most accurate model for sales forecasting.",
-        "Analyzed diverse dataset features, including item visibility, store type, and establishment year, resulting in <strong>improved predictive accuracy</strong> for inventory and supply chain management.",
-        "Pre-processed and engineered features to optimize model input, achieving key insights into sales drivers."
-      ]
-    }
-  ],
+  "projects": [],
   "leadership": [
     {
-      "title": "Chairperson IEEE Women in Engineering",
+      "title": "Creative and Entrepreneurial Careers Committee",
       "icon": "users",
-      "organization": "March 2022 - Aug 2023",
-      "summary": "Oversaw society management and mentorship programs, successfully driving a <strong>20% rise</strong> in female tech event participation and engagement."
+      [cite_start]"organization": "Global Leadership Program, UCD Smurfit Business School [cite: 41]",
+      "summary": "Member of the careers committee for the Global Leadership Program."
     },
     {
-      "title": "Head of Curation, TEDx VIT Chennai",
-      "icon": "mic-2",
-      "organization": "June 2021 - June 2022",
-      "summary": "Organized and conducted meetings with speakers and performers, helping them in <strong>finalizing scripts</strong> and ensuring high-quality content for TEDx events."
-    },
-    {
-      "title": "Head of Public Relations, IEEE Computer Society",
-      "icon": "megaphone",
-      "organization": "July 2021 - June 2022",
-      "summary": "Responsible for securing sponsorships, marketing initiatives, and managing social media handles to boost club visibility and funding."
-    },
-    {
-      "title": "Chief Editor, The Capsule Magazine",
-      "icon": "edit",
-      "organization": "July 2021 - June 2022",
-      "summary": "Supervised the selection of articles, removal of grammatical errors and plagiarism, and planned publication content for the university newsletter."
+      "title": "Project Management Institute (PMI Ireland) Student Club",
+      "icon": "clipboard-check",
+      [cite_start]"organization": "PMI Ireland [cite: 42]",
+      "summary": "Active student member of the PMI Ireland chapter."
     }
   ],
   "achievements": [
     {
-      "title": "BFDL Documentation Contest Winner",
+      "title": "GTT Certificate of Recognition Award",
       "icon": "trophy",
-      "organization": "Bajaj Finserv Direct Limited | Aug 2023",
-      "summary": "Awarded for comprehensive Pocket Insurance journey documentation using <strong>Structurizr DSL</strong>, recognized for clarity, scalability, and impact on team onboarding and maintenance."
+      "organization": "Barclays | [cite_start]Sep 2024 [cite: 43]",
+      "summary": "Recognition award received from Barclays."
     },
     {
-      "title": "Walmart CodeHers 2022",
+      "title": "Professional Scrum Master (PSM I)",
+      "icon": "shield-check",
+      [cite_start]"organization": "2021 [cite: 50]",
+      "summary": "Certified Professional Scrum Master."
+    },
+    {
+      "title": "Pat on the Back Award",
       "icon": "award",
-      "organization": "National Coding Challenge | March 2022",
-      "summary": "Shortlisted in the first list of top performers among over <strong>42,000+ candidates</strong>, demonstrating top-tier competitive programming skills."
+      "organization": "HSBC | [cite_start]2019 [cite: 44]",
+      "summary": "Informal recognition for performance."
+    },
+    {
+      "title": "Star Performer Award",
+      "icon": "star",
+      "organization": "HSBC | [cite_start]2016 [cite: 45]",
+      "summary": "Award for outstanding performance."
     }
   ],
   "contact": {
-    "summary": "I'm currently based in Dublin and always open to discussing new opportunities in software engineering, system design, and large-scale applications."
+    "summary": "Experienced Senior IT Project Manager seeking new opportunities in the Banking/FinServ sector. [cite_start]Open to roles as a Project Manager, Delivery Lead, or IT Program Manager. [cite: 4, 8]"
   }
 }
