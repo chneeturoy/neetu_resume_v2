@@ -5,7 +5,7 @@
     "title": "Senior IT Project Manager and Lead",
     "imageUrl": "Pic - Neetu Large.jpeg",
     "imageAlt": "Neetu Roy Chanamthabam Professional Headshot",
-    [cite_start]"summary": "<strong>Senior IT Project Manager and Lead</strong> with 14 years delivering <strong>banking/FinServ transformations</strong>[cite: 4]. [cite_start]Expertise in <strong>Agile, DevOps</strong>, and hybrid Waterfall delivery across multiple streams with 50+ stakeholders[cite: 5]. [cite_start]<strong>AI-enabled</strong> using ChatGPT and Gemini to accelerate planning, risk management, and decision-making[cite: 6]. [cite_start]International exposure (India, US) with strong budgeting, scheduling, and governance[cite: 7].",
+    "summary": "<strong>Senior IT Project Manager and Lead</strong> with 14 years delivering <strong>banking/FinServ transformations</strong>. Expertise in <strong>Agile, DevOps</strong>, and hybrid Waterfall delivery across multiple streams with 50+ stakeholders. <strong>AI-enabled</strong> using ChatGPT and Gemini to accelerate planning, risk management, and decision-making. International exposure (India, US) with strong budgeting, scheduling, and governance.",
     "email": "neeturoych@gmail.com",
     "copyrightYear": "2025"
   },
@@ -18,22 +18,22 @@
       "title": "Assistant Vice President - Project Manager / Delivery Lead",
       "company": "Barclays Global Service Center, Pune, India",
       "dates": "Jun 2024 - Aug 2025",
-      [cite_start]"tech": "<strong>Program:</strong> Asia UBS Upgrade Program (UBS 12.x to 14.x) [cite: 12]",
+      "tech": "<strong>Program:</strong> Asia UBS Upgrade Program (UBS 12.x to 14.x)",
       "highlights": [
-        [cite_start]"<strong>Scope, governance & cost savings:</strong> defined program scope and delivery strategy; targeted cost savings via automation and streamlined processes[cite: 13].",
-        [cite_start]"<strong>Delivery efficiency:</strong> managed ETL workloads and cross-stream communications; allocated resources to hit milestone targets within budget[cite: 14].",
-        [cite_start]"<strong>AI-driven delivery:</strong> leveraged AI for risk assessment and test optimisation; reduced rework and testing cycles[cite: 15].",
-        [cite_start]"<strong>Stakeholder integration:</strong> coordinated 20-30 downstream integrations and data flows across multiple teams[cite: 16]."
+        "<strong>Scope, governance & cost savings:</strong> defined program scope and delivery strategy; targeted cost savings via automation and streamlined processes.",
+        "<strong>Delivery efficiency:</strong> managed ETL workloads and cross-stream communications; allocated resources to hit milestone targets within budget.",
+        "<strong>AI-driven delivery:</strong> leveraged AI for risk assessment and test optimisation; reduced rework and testing cycles.",
+        "<strong>Stakeholder integration:</strong> coordinated 20-30 downstream integrations and data flows across multiple teams."
       ]
     },
     {
       "title": "Technical Project Manager / Scrum Master",
       "company": "Persistent Systems Ltd., Pune, India",
       "dates": "Mar 2024 - Jun 2024",
-      [cite_start]"tech": "<strong>Program:</strong> Zebra Technologies modernization (Angular, Flutter) [cite: 18]",
+      "tech": "<strong>Program:</strong> Zebra Technologies modernization (Angular, Flutter)",
       "highlights": [
-        [cite_start]"<strong>Stakeholder engagement:</strong> led client workshops, SOW planning; weekly progress dashboards for milestones[cite: 19].",
-        [cite_start]"<strong>Release & continuous improvement:</strong> orchestrated releases, removed impediments, and drove process improvements[cite: 20]."
+        "<strong>Stakeholder engagement:</strong> led client workshops, SOW planning; weekly progress dashboards for milestones.",
+        "<strong>Release & continuous improvement:</strong> orchestrated releases, removed impediments, and drove process improvements."
       ]
     },
     {
@@ -42,11 +42,11 @@
       "dates": "Jul 2011 - Mar 2024",
       "tech": "Delivered multiple key programs over 13 years.",
       "highlights": [
-        [cite_start]"<strong>SSDML Integration (2020-2024):</strong> automated data transfers to 200+ downstream systems; reduced manual effort and data latency[cite: 22].",
-        [cite_start]"<strong>Global Platform Replacement (2017-2020):</strong> eliminated dual-entry and EUC inefficiencies; improved governance and data quality[cite: 24].",
-        [cite_start]"<strong>Reuters TOF Demise (2019-2020):</strong> Java adapter development; reduced third-party costs[cite: 25].",
-        [cite_start]"<strong>NORKOM Reconciliation (2016-2017):</strong> requirements gathering, data profiling... onsite delivery in New York[cite: 26].",
-        [cite_start]"<strong>Growth:</strong> progressed from developer to team lead; mentored 50+ professionals; delivered on time with quality[cite: 28]."
+        "<strong>SSDML Integration (2020-2024):</strong> automated data transfers to 200+ downstream systems; reduced manual effort and data latency.",
+        "<strong>Global Platform Replacement (2017-2020):</strong> eliminated dual-entry and EUC inefficiencies; improved governance and data quality.",
+        "<strong>Reuters TOF Demise (2019-2020):</strong> Java adapter development; reduced third-party costs.",
+        "<strong>NORKOM Reconciliation (2016-2017):</strong> requirements gathering, data profiling... onsite delivery in New York.",
+        "<strong>Growth:</strong> progressed from developer to team lead; mentored 50+ professionals; delivered on time with quality."
       ]
     }
   ],
@@ -56,19 +56,19 @@
       "icon": "briefcase",
       "skills": [
         {
-          [cite_start]"name": "PMO Setup [cite: 30]",
+          "name": "PMO Setup",
           "iconHtml": "<i data-lucide='clipboard-list' class='w-5 h-5 text-blue-500'></i>"
         },
         {
-          [cite_start]"name": "Scoping & Planning [cite: 30]",
+          "name": "Scoping & Planning",
           "iconHtml": "<i data-lucide='pencil-ruler' class='w-5 h-5 text-blue-500'></i>"
         },
         {
-          [cite_start]"name": "Governance [cite: 30]",
+          "name": "Governance",
           "iconHtml": "<i data-lucide='landmark' class='w-5 h-5 text-blue-500'></i>"
         },
         {
-          [cite_start]"name": "Budgeting [cite: 30]",
+          "name": "Budgeting",
           "iconHtml": "<i data-lucide='piggy-bank' class='w-5 h-5 text-blue-500'></i>"
         }
       ]
@@ -78,19 +78,19 @@
       "icon": "users",
       "skills": [
         {
-          [cite_start]"name": "Agile/SAFe [cite: 31]",
+          "name": "Agile/SAFe",
           "iconHtml": "<i data-lucide='repeat' class='w-5 h-5 text-green-500'></i>"
         },
         {
-          [cite_start]"name": "Scrum / Kanban [cite: 31]",
+          "name": "Scrum / Kanban",
           "iconHtml": "<i data-lucide='layout-dashboard' class='w-5 h-5 text-green-500'></i>"
         },
         {
-          [cite_start]"name": "Waterfall Hybrids [cite: 31]",
+          "name": "Waterfall Hybrids",
           "iconHtml": "<i data-lucide='git-merge' class='w-5 h-5 text-green-500'></i>"
         },
         {
-          [cite_start]"name": "Stakeholder Alignment [cite: 31]",
+          "name": "Stakeholder Alignment",
           "iconHtml": "<i data-lucide='users' class='w-5 h-5 text-green-500'></i>"
         }
       ]
@@ -100,19 +100,19 @@
       "icon": "tool",
       "skills": [
         {
-          [cite_start]"name": "Jira / Confluence [cite: 37]",
+          "name": "Jira / Confluence",
           "iconHtml": "<i data-lucide='layout-grid' class='w-5 h-5 text-purple-500'></i>"
         },
         {
-          [cite_start]"name": "ServiceNow [cite: 37]",
+          "name": "ServiceNow",
           "iconHtml": "<i data-lucide='radio-tower' class='w-5 h-5 text-purple-500'></i>"
         },
         {
-          [cite_start]"name": "Jenkins / Git [cite: 37]",
+          "name": "Jenkins / Git",
           "iconHtml": "<i data-lucide='git-branch' class='w-5 h-5 text-purple-500'></i>"
         },
         {
-          [cite_start]"name": "AI (ChatGPT, Gemini) [cite: 6, 37]",
+          "name": "AI (ChatGPT, Gemini)",
           "iconHtml": "<i data-lucide='brain' class='w-5 h-5 text-purple-500'></i>"
         }
       ]
@@ -122,19 +122,19 @@
       "icon": "code",
       "skills": [
         {
-          [cite_start]"name": "Java / Spring [cite: 55]",
+          "name": "Java / Spring",
           "iconHtml": "<i data-lucide='coffee' class='w-5 h-5 text-red-500'></i>"
         },
         {
-          [cite_start]"name": "PL/SQL [cite: 55]",
+          "name": "PL/SQL",
           "iconHtml": "<i data-lucide='database' class='w-5 h-5 text-red-500'></i>"
         },
         {
-          [cite_start]"name": "FX / Derivatives [cite: 35]",
+          "name": "FX / Derivatives",
           "iconHtml": "<i data-lucide='area-chart' class='w-5 h-5 text-red-500'></i>"
         },
         {
-          [cite_start]"name": "FIX Protocols [cite: 35]",
+          "name": "FIX Protocols",
           "iconHtml": "<i data-lucide='arrow-right-left' class='w-5 h-5 text-red-500'></i>"
         }
       ]
@@ -146,13 +146,13 @@
       "institution": "UCD Smurfit Business School, Dublin, Ireland",
       "dates": "2025-2026",
       "summary": "",
-      [cite_start]"coursework": "Studying at Ireland's leading business school. [cite: 9, 58]"
+      "coursework": "Studying at Ireland's leading business school."
     },
     {
       "degree": "B.E. Computer Science",
       "institution": "G.H. Raisoni College of Engineering, Nagpur University, India",
       "dates": "2011",
-      [cite_start]"gpa": "[cite: 59]"
+      "gpa": ""
     }
   ],
   "projects": [],
@@ -160,13 +160,13 @@
     {
       "title": "Creative and Entrepreneurial Careers Committee",
       "icon": "users",
-      [cite_start]"organization": "Global Leadership Program, UCD Smurfit Business School [cite: 41]",
+      "organization": "Global Leadership Program, UCD Smurfit Business School",
       "summary": "Member of the careers committee for the Global Leadership Program."
     },
     {
       "title": "Project Management Institute (PMI Ireland) Student Club",
       "icon": "clipboard-check",
-      [cite_start]"organization": "PMI Ireland [cite: 42]",
+      "organization": "PMI Ireland",
       "summary": "Active student member of the PMI Ireland chapter."
     }
   ],
@@ -174,29 +174,29 @@
     {
       "title": "GTT Certificate of Recognition Award",
       "icon": "trophy",
-      "organization": "Barclays | [cite_start]Sep 2024 [cite: 43]",
+      "organization": "Barclays | Sep 2024",
       "summary": "Recognition award received from Barclays."
     },
     {
       "title": "Professional Scrum Master (PSM I)",
       "icon": "shield-check",
-      [cite_start]"organization": "2021 [cite: 50]",
+      "organization": "2021",
       "summary": "Certified Professional Scrum Master."
     },
     {
       "title": "Pat on the Back Award",
       "icon": "award",
-      "organization": "HSBC | [cite_start]2019 [cite: 44]",
+      "organization": "HSBC | 2019",
       "summary": "Informal recognition for performance."
     },
     {
       "title": "Star Performer Award",
       "icon": "star",
-      "organization": "HSBC | [cite_start]2016 [cite: 45]",
+      "organization": "HSBC | 2016",
       "summary": "Award for outstanding performance."
     }
   ],
   "contact": {
-    "summary": "Experienced Senior IT Project Manager seeking new opportunities in the Banking/FinServ sector. [cite_start]Open to roles as a Project Manager, Delivery Lead, or IT Program Manager. [cite: 4, 8]"
+    "summary": "Experienced Senior IT Project Manager seeking new opportunities in the Banking/FinServ sector. Open to roles as a Project Manager, Delivery Lead, or IT Program Manager."
   }
 }
