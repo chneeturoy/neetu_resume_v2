@@ -166,6 +166,14 @@ transform: translateY(30px);
 opacity: 1;
 transform: translateY(0);
 }
+
+/* Hide sections if their container is empty */
+:empty {
+  display: none;
+}
+section:has(:empty) {
+  display: none;
+}
 </style>
 </head>
 <body class="antialiased">
@@ -215,7 +223,7 @@ src=""
 alt="" 
 class="w-48 h-48 md:w-60 md:h-60 object-cover rounded-full shadow-xl ring-4 ring-[var(--color-primary)]/50 animated-element"
 style="transition-delay: 0.1s;"
-onerror="this.onerror=null;this.src='https://placehold.co/240x240/2563EB/ffffff?text=GP';"
+onerror="this.onerror=null;this.src='https://placehold.co/240x240/2563EB/ffffff?text=NR';"
 />
 </div>
 
@@ -405,29 +413,14 @@ progress.style.width = `${progressWidth}%`;
 function updateActiveNavLink() {
 if (currentView !== 'portfolio') return;
 
-// Note: Since we are adding Leadership before Achievements, we need to check both.
-const sections = document.querySelectorAll('section[id]:not(#leadership):not(#achievements)');
+const sections = document.querySelectorAll('#portfolio-view section[id]');
 const navLinks = document.querySelectorAll('#portfolio-nav a');
 let activeSectionId = 'about';
 
 const scrollPos = window.scrollY + window.innerHeight / 2; // Midpoint of viewport
 
-// Special handling for the Leadership/Achievements block
-const leadershipSection = document.getElementById('leadership');
-const achievementSection = document.getElementById('achievements');
-
-if (leadershipSection && achievementSection) {
-const combinedTop = leadershipSection.offsetTop;
-const combinedBottom = achievementSection.offsetTop + achievementSection.offsetHeight;
-
-// If the scroll position is within the combined Leadership/Achievements block, keep the last major link active (Projects)
-if (scrollPos > combinedTop && scrollPos < combinedBottom) {
-activeSectionId = 'projects'; // Keep Projects highlighted if within the Leadership/Achievements block below it
-}
-}
-
-
 sections.forEach(section => {
+  if (!section.offsetParent) return; // Skip hidden sections
 if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
 activeSectionId = section.id;
 }
@@ -435,7 +428,6 @@ activeSectionId = section.id;
 
 navLinks.forEach(link => {
 link.classList.remove('active');
-// The main nav links target main sections, so we adjust the logic for the last part
 if (link.getAttribute('data-target') === activeSectionId) {
 link.classList.add('active');
 }
@@ -463,6 +455,18 @@ el.classList.add('reveal');
 // =================================================================
 
 /**
+ * Utility to safely set href attribute only if value exists
+ */
+function setSafeHref(element, url, isMail = false) {
+  if (element && url) {
+    element.href = isMail ? `mailto:${url}` : url;
+    element.style.display = ''; // Show element
+  } else if (element) {
+    element.style.display = 'none'; // Hide element
+  }
+}
+
+/**
  * Fetches profile.json and populates the entire page.
  */
 async function loadProfileData() {
@@ -476,105 +480,127 @@ const data = await response.json();
 // --- Populate Basics & Hero ---
 document.title = `${data.basics.name} | ${data.basics.title} Portfolio`;
 document.getElementById('nav-name').textContent = data.basics.name.toUpperCase();
-document.getElementById('nav-linkedin-btn').href = data.profiles.linkedin;
+setSafeHref(document.getElementById('nav-linkedin-btn'), data.profiles.linkedin);
 document.getElementById('hero-img').src = data.basics.imageUrl;
 document.getElementById('hero-img').alt = data.basics.imageAlt;
-// Use innerHTML to render the <strong> tags from JSON
 document.getElementById('hero-name').innerHTML = `<span class="text-[var(--color-primary)]">${data.basics.firstName}</span> ${data.basics.name.substring(data.basics.firstName.length)}`;
 document.getElementById('hero-title').textContent = data.basics.title;
 document.getElementById('hero-summary').innerHTML = data.basics.summary;
-document.getElementById('hero-email-link').href = `mailto:${data.basics.email}`;
-document.getElementById('hero-linkedin-link').href = data.profiles.linkedin;
-document.getElementById('hero-github-link').href = data.profiles.github;
+setSafeHref(document.getElementById('hero-email-link'), data.basics.email, true);
+setSafeHref(document.getElementById('hero-linkedin-link'), data.profiles.linkedin);
+setSafeHref(document.getElementById('hero-github-link'), data.profiles.github);
+
 
 // --- Populate Experience ---
 const expContainer = document.getElementById('experience-container');
-expContainer.innerHTML = data.experience.map((job, index) => `
-<div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-experience)] animated-element" style="--card-accent: var(--accent-experience); transition-delay: ${index * 0.1}s;">
-<div class="flex justify-between items-start mb-2">
-<div>
-<h4 class="text-xl font-bold text-[var(--color-text-dark)]">${job.title}</h4>
-<p class="text-[var(--accent-experience)] font-medium">${job.company}</p>
-</div>
-<span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${job.dates}</span>
-</div>
-${job.tech ? `<p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${job.tech}</p>` : ''}
-<ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
-${job.highlights.map(hl => `<li>${hl}</li>`).join('')}
-</ul>
-</div>
-`).join('');
+if (data.experience && data.experience.length > 0) {
+  expContainer.innerHTML = data.experience.map((job, index) => `
+  <div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-experience)] animated-element" style="--card-accent: var(--accent-experience); transition-delay: ${index * 0.1}s;">
+  <div class="flex justify-between items-start mb-2">
+  <div>
+  <h4 class="text-xl font-bold text-[var(--color-text-dark)]">${job.title}</h4>
+  <p class="text-[var(--accent-experience)] font-medium">${job.company}</p>
+  </div>
+  <span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${job.dates}</span>
+  </div>
+  ${job.tech ? `<p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${job.tech}</p>` : ''}
+  <ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
+  ${job.highlights.map(hl => `<li>${hl}</li>`).join('')}
+  </ul>
+  </div>
+  `).join('');
+}
 
 // --- Populate Tech Stack ---
 const techContainer = document.getElementById('tech-stack-container');
-techContainer.innerHTML = data.techProfile.map((category, index) => `
-<div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-tech)] animated-element" style="transition-delay: ${index * 0.1}s;">
-<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-3 flex items-center"><i data-lucide="${category.icon}" class="w-5 h-5 mr-2 text-[var(--accent-tech)]"></i> ${category.category}</h4>
-<div class="flex flex-wrap gap-x-4 gap-y-3 text-[var(--color-text-dark)]">
-${category.skills.map(skill => `
-<span class="flex items-center space-x-1 font-semibold">
-${skill.iconHtml}
-<span class="text-[var(--color-text-dark)]">${skill.name}</span>
-</span>
-`).join('')}
-</div>
-</div>
-`).join('');
+if (data.techProfile && data.techProfile.length > 0) {
+  techContainer.innerHTML = data.techProfile.map((category, index) => `
+  <div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-tech)] animated-element" style="transition-delay: ${index * 0.1}s;">
+  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-3 flex items-center"><i data-lucide="${category.icon}" class="w-5 h-5 mr-2 text-[var(--accent-tech)]"></i> ${category.category}</h4>
+  <div class="flex flex-wrap gap-x-4 gap-y-3 text-[var(--color-text-dark)]">
+  ${category.skills.map(skill => `
+  <span class="flex items-center space-x-1 font-semibold">
+  ${skill.iconHtml}
+  <span class="text-[var(--color-text-dark)]">${skill.name}</span>
+  </span>
+  `).join('')}
+  </div>
+  </div>
+  `).join('');
+}
 
 // --- Populate Education ---
 const eduContainer = document.getElementById('education-container');
-eduContainer.innerHTML = data.education.map((edu, index) => `
-<div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-education)] animated-element" style="transition-delay: ${index * 0.1}s;">
-<div class="flex justify-between items-start mb-2">
-<div>
-<h4 class="text-xl font-bold text-[var(--color-text-dark)]">${edu.degree}</h4>
-<p class="text-[var(--accent-education)] font-medium">${edu.institution}</p>
-</div>
-<span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${edu.dates}</span>
-</div>
-${edu.summary ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.summary}</p>` : ''}
-${edu.coursework ? `<ul class="text-[var(--color-text-muted)] text-sm mt-3"><li>${edu.coursework}</li></ul>` : ''}
-${edu.gpa ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.gpa}</p>` : ''}
-</div>
-`).join('');
+if (data.education && data.education.length > 0) {
+  eduContainer.innerHTML = data.education.map((edu, index) => `
+  <div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-education)] animated-element" style="transition-delay: ${index * 0.1}s;">
+  <div class="flex justify-between items-start mb-2">
+  <div>
+  <h4 class="text-xl font-bold text-[var(--color-text-dark)]">${edu.degree}</h4>
+  <p class="text-[var(--accent-education)] font-medium">${edu.institution}</p>
+  </div>
+  <span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${edu.dates}</span>
+  </div>
+  ${edu.summary ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.summary}</p>` : ''}
+  ${edu.coursework ? `<ul class="text-[var(--color-text-muted)] text-sm mt-3"><li>${edu.coursework}</li></ul>` : ''}
+  ${edu.gpa ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.gpa}</p>` : ''}
+  </div>
+  `).join('');
+}
 
 // --- Populate Projects ---
 const projContainer = document.getElementById('projects-container');
-projContainer.innerHTML = data.projects.map((proj, index) => `
-<div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-projects)] animated-element" style="transition-delay: ${index * 0.1}s;">
-<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-2 flex items-center"><i data-lucide="${proj.icon}" class="w-5 h-5 mr-2 text-[var(--accent-projects)]"></i> ${proj.name}</h4>
-<p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${proj.tech}</p>
-<ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
-${proj.highlights.map(hl => `<li>${hl}</li>`).join('')}
-</ul>
-</div>
-`).join('');
+if (data.projects && data.projects.length > 0) {
+  projContainer.innerHTML = data.projects.map((proj, index) => `
+  <div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-projects)] animated-element" style="transition-delay: ${index * 0.1}s;">
+  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-2 flex items-center"><i data-lucide="${proj.icon}" class="w-5 h-5 mr-2 text-[var(--accent-projects)]"></i> ${proj.name}</h4>
+  <p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${proj.tech}</p>
+  <ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
+  ${proj.highlights.map(hl => `<li>${hl}</li>`).join('')}
+  </ul>
+  </div>
+  `).join('');
+} else {
+  // Hide projects section if no projects
+  document.getElementById('projects').style.display = 'none';
+  document.querySelector('a[href="#projects"]').style.display = 'none';
+}
+
 
 // --- Populate Leadership ---
 const leadContainer = document.getElementById('leadership-container');
-leadContainer.innerHTML = data.leadership.map((lead, index) => `
-<div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-leadership)] animated-element" style="transition-delay: ${index * 0.1}s;">
-<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${lead.icon}" class="w-5 h-5 mr-2 text-[var(--accent-leadership)]"></i> ${lead.title}</h4>
-<p class="text-[var(--accent-leadership)] font-medium text-sm mb-2">${lead.organization}</p>
-<p class="text-[var(--color-text-muted)] text-sm">${lead.summary}</p>
-</div>
-`).join('');
+if (data.leadership && data.leadership.length > 0) {
+  leadContainer.innerHTML = data.leadership.map((lead, index) => `
+  <div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-leadership)] animated-element" style="transition-delay: ${index * 0.1}s;">
+  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${lead.icon}" class="w-5 h-5 mr-2 text-[var(--accent-leadership)]"></i> ${lead.title}</h4>
+  <p class="text-[var(--accent-leadership)] font-medium text-sm mb-2">${lead.organization}</p>
+  <p class="text-[var(--color-text-muted)] text-sm">${lead.summary}</p>
+  </div>
+  `).join('');
+} else {
+  document.getElementById('leadership').style.display = 'none';
+}
 
 // --- Populate Achievements ---
 const achieveContainer = document.getElementById('achievements-container');
-achieveContainer.innerHTML = data.achievements.map((item, index) => `
-<div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-achievements)] animated-element" style="transition-delay: ${index * 0.1}s;">
-<h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${item.icon}" class="w-5 h-5 mr-2 text-[var(--accent-achievements)]"></i> ${item.title}</h4>
-<p class="text-[var(--accent-achievements)] font-medium text-sm mb-2">${item.organization}</p>
-<p class="text-[var(--color-text-muted)] text-sm">${item.summary}</p>
-</div>
-`).join('');
+if (data.achievements && data.achievements.length > 0) {
+  achieveContainer.innerHTML = data.achievements.map((item, index) => `
+  <div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-achievements)] animated-element" style="transition-delay: ${index * 0.1}s;">
+  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${item.icon}" class="w-5 h-5 mr-2 text-[var(--accent-achievements)]"></i> ${item.title}</h4>
+  <p class="text-[var(--accent-achievements)] font-medium text-sm mb-2">${item.organization}</p>
+  <p class="text-[var(--color-text-muted)] text-sm">${item.summary}</p>
+  </div>
+  `).join('');
+} else {
+  document.getElementById('achievements').style.display = 'none';
+}
 
 // --- Populate Contact ---
 document.getElementById('contact-summary').textContent = data.contact.summary;
-document.getElementById('contact-email-link').href = `mailto:${data.basics.email}`;
-document.getElementById('contact-linkedin-link').href = data.profiles.linkedin;
-document.getElementById('contact-github-link').href = data.profiles.github;
+setSafeHref(document.getElementById('contact-email-link'), data.basics.email, true);
+setSafeHref(document.getElementById('contact-linkedin-link'), data.profiles.linkedin);
+setSafeHref(document.getElementById('contact-github-link'), data.profiles.github);
+
 
 // --- Populate Footer ---
 document.getElementById('footer-copyright').textContent = `© ${data.basics.copyrightYear} ${data.basics.name}. All rights reserved.`;
