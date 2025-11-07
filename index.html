@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neetu Roy Chanamthabam - Senior IT Project Manager</title>
+    <title>Neetu Roy - Master’s Student at UCD Blackrock</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,12 +25,6 @@
             background: #94a3b8; /* slate-400 */
             border-radius: 4px;
         }
-        .dark ::-webkit-scrollbar-track {
-            background: #1e293b; /* slate-800 */
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #475569; /* slate-600 */
-        }
 
         /* Set base font */
         body {
@@ -47,53 +41,46 @@
             color: #2563eb; /* text-blue-600 */
             font-weight: 600;
         }
-        .dark .nav-link-active {
-            color: #60a5fa; /* text-blue-400 */
+
+        /* On-scroll animation classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
     
-    <!-- Dark Mode Immediate-load Script -->
-    <script>
-        // Prevents flash of unstyled content (FOUC)
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-500 antialiased">
+ <body class="bg-slate-50 text-slate-700 transition-colors duration-500 antialiased">
 
     <!-- ========== HEADER ========== -->
-    <header class="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-700 transition-colors duration-500">
+   <header class="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/70 border-b border-slate-200 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo / Name -->
                 <a href="#home" class="flex-shrink-0">
-                    <span class="text-xl font-bold text-slate-900 dark:text-white">Neetu Roy Chanamthabam</span>
+                   <span class="text-xl font-bold text-slate-900">Neetu Roy Chanamthabam</span>
                 </a>
                 
                 <!-- Navigation -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
-                    <a href="#experience" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
-                    <a href="#skills" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
-                    <a href="#education" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
-                    <a href="#contact" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+                   <a href="#about" class="nav-link text-base font-medium text-slate-600 hover:text-blue-600 transition-colors">About</a>
+                   <a href="#experience" class="nav-link text-base font-medium text-slate-600 hover:text-blue-600 transition-colors">Experience</a>
+                   <a href="#skills" class="nav-link text-base font-medium text-slate-600 hover:text-blue-600 transition-colors">Skills</a>
+                   <a href="#education" class="nav-link text-base font-medium text-slate-600 hover:text-blue-600 transition-colors">Education</a>
+                   <a href="#contact" class="nav-link text-base font-medium text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
                 </nav>
                 
-                <!-- Dark Mode Toggle -->
                 <div class="flex items-center">
-                    <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg p-2.5 transition-colors">
-                        <!-- Sun Icon (show in dark mode) -->
-                        <svg id="theme-toggle-sun" class="hidden dark:block h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-1.636 6.364l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 01-1.414 1.414zM4.95 6.343a1 1 0 010-1.414l.707-.707a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.343 14.95l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414z"></path></svg>
-                        <!-- Moon Icon (show in light mode) -->
-                        <svg id="theme-toggle-moon" class="block dark:hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                    </button>
                     <!-- Mobile Menu Button (placeholder) -->
-                    <div class="md:hidden ml-3">
-                        <button class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Open menu">
+                   <div class="md:hidden">
+                       <button class="p-2 rounded-md text-slate-500 hover:bg-slate-100" aria-label="Open menu">
                             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                         </button>
                     </div>
@@ -109,17 +96,17 @@
         <section id="home" class="min-h-screen flex items-center justify-center py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div class="space-y-6">
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                   <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900">
                         Neetu Roy Chanamthabam
                     </h1>
                     
                     <h2 class="text-3xl md:text-5xl font-semibold">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
-                            Senior IT Project Manager
+                       <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">
+                           Project Management Master’s Student at UCD
                         </span>
                     </h2>
                     
-                    <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-300">
+                   <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600">
                         Delivering complex banking & FinServ transformations with 14 years of expertise in Agile, DevOps, and AI-driven project delivery.
                     </p>
                     
@@ -128,7 +115,7 @@
                             <svg class="w-5 h-5" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
                             LinkedIn
                         </a>
-                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-lg text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-105">
+                       <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-base font-medium rounded-lg text-slate-700 bg-white hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-105">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             Contact Me
                         </a>
@@ -143,21 +130,21 @@
             <!-- ========== ABOUT ME SECTION ========== -->
             <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
                         About Me
                     </h2>
-                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">14 Years of Driving Transformation</p>
+                   <p class="mt-4 text-lg text-blue-600 font-semibold">14 Years of Driving Transformation</p>
                 </div>
                 
-                <div class="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-300 space-y-6 text-left md:text-center">
-                    <p>
+               <div class="max-w-3xl mx-auto text-lg text-slate-600 space-y-6 text-left md:text-center">
+                    <p class="reveal-on-scroll">
                         I am a Senior IT Project Manager and Delivery Lead with 14 years of proven success in delivering large-scale banking and FinServ transformations. My expertise lies in managing complex, multi-stream programs using Agile, DevOps, and hybrid Waterfall methodologies, coordinating with 50+ stakeholders across international teams (India, US).
                     </p>
-                    <p>
+                    <p class="reveal-on-scroll" style="transition-delay: 100ms;">
                         I am proficient in leveraging AI tools like ChatGPT and Gemini to accelerate planning, optimize risk management, and enhance decision-making. With a strong foundation in budgeting, scheduling, and governance, my focus is always on delivering measurable results and driving efficiency.
                     </p>
-                    <p>
-                        Currently, I am enhancing my strategic capabilities by pursuing an <strong class="font-semibold text-slate-800 dark:text-white">MSc in Project Management at UCD Smurfit Business School</strong>, complementing my practical experience with formal, executive-level training.
+                    <p class="reveal-on-scroll" style="transition-delay: 200ms;">
+                       Currently, I am enhancing my strategic capabilities by pursuing an <strong class="font-semibold text-slate-800">MSc in Project Management at UCD Smurfit Business School</strong>, complementing my practical experience with formal, executive-level training.
                     </p>
                 </div>
             </section>
@@ -165,41 +152,41 @@
             <!-- ========== EXPERIENCE SECTION ========== -->
             <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
                         Career Experience
                     </h2>
-                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">My Professional Journey</p>
-                </div>
+                   <p class="mt-4 text-lg text-blue-600 font-semibold">My Professional Journey</p>
+               </div>
 
-                <ol class="relative border-l-2 border-blue-500 dark:border-blue-400 ml-4 md:ml-0 md:border-l-0 md:border-r-2 md:text-right">                  
+               <ol class="relative border-l-2 border-blue-500 ml-4 md:ml-0 md:border-l-0 md:border-r-2 md:text-right">                  
                     <!-- Barclays -->
-                    <li class="mb-10 ml-8 md:ml-0 md:mr-8">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white dark:ring-slate-900 dark:bg-blue-900">
-                            <svg class="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
-                        </span>
-                        <h3 class="flex items-center md:justify-end text-2xl font-semibold text-slate-900 dark:text-white">
+                    <li class="mb-10 ml-8 md:ml-0 md:mr-8 reveal-on-scroll">
+                       <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white">
+                           <svg class="w-3 h-3 text-blue-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                       </span>
+                       <h3 class="flex items-center md:justify-end text-2xl font-semibold text-slate-900">
                             Assistant Vice President - Project Manager
-                            <span class="bg-blue-100 text-blue-800 text-sm font-medium ml-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 md:hidden">Latest</span>
+                           <span class="bg-blue-100 text-blue-800 text-sm font-medium ml-2 px-2.5 py-0.5 rounded md:hidden">Latest</span>
                         </h3>
-                        <p class="block text-lg font-normal leading-none text-slate-500 dark:text-slate-400">Barclays Global Service Center, Pune</p>
-                        <time class="block mb-4 text-base font-normal leading-none text-slate-400 dark:text-slate-500">Jun 2024 - Aug 2025</time>
-                        <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-slate-200 dark:border-slate-700 text-left">
-                            <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-2">Asia UBS Upgrade Program (12.x to 14.x)</h4>
-                            <ul class="space-y-3 text-base text-slate-600 dark:text-slate-300">
+                       <p class="block text-lg font-normal leading-none text-slate-500">Barclays Global Service Center, Pune</p>
+                       <time class="block mb-4 text-base font-normal leading-none text-slate-400">Jun 2024 - Aug 2025</time>
+                       <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 text-left">
+                           <h4 class="text-lg font-semibold text-blue-700 mb-2">Asia UBS Upgrade Program (12.x to 14.x)</h4>
+                           <ul class="space-y-3 text-base text-slate-600">
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Defined program scope, delivery strategy, and risk-based go/no-go decisions for a zero-impact cutover.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Leveraged AI for risk assessment and test optimisation, reducing rework and testing cycles.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Managed ETL workloads and coordinated 20-30 downstream integrations across multiple teams.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Targeted cost savings via automation and streamlined processes, allocating resources to hit milestones within budget.</span>
                                 </li>
                             </ul>
@@ -207,26 +194,26 @@
                     </li>
                     
                     <!-- Persistent Systems -->
-                    <li class="mb-10 ml-8 md:ml-0 md:mr-8">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white dark:ring-slate-900 dark:bg-blue-900">
-                            <svg class="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
-                        </span>
-                        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">Technical Project Manager / Scrum Master</h3>
-                        <p class="block text-lg font-normal leading-none text-slate-500 dark:text-slate-400">Persistent Systems Ltd., Pune</p>
-                        <time class="block mb-4 text-base font-normal leading-none text-slate-400 dark:text-slate-500">Mar 2024 - Jun 2024</time>
-                        <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-slate-200 dark:border-slate-700 text-left">
-                            <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-2">Zebra Technologies Modernization</h4>
-                            <ul class="space-y-3 text-base text-slate-600 dark:text-slate-300">
+                    <li class="mb-10 ml-8 md:ml-0 md:mr-8 reveal-on-scroll" style="transition-delay: 100ms;">
+                       <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white">
+                           <svg class="w-3 h-3 text-blue-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                       </span>
+                       <h3 class="text-2xl font-semibold text-slate-900">Technical Project Manager / Scrum Master</h3>
+                       <p class="block text-lg font-normal leading-none text-slate-500">Persistent Systems Ltd., Pune</p>
+                       <time class="block mb-4 text-base font-normal leading-none text-slate-400">Mar 2024 - Jun 2024</time>
+                       <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 text-left">
+                           <h4 class="text-lg font-semibold text-blue-700 mb-2">Zebra Technologies Modernization</h4>
+                           <ul class="space-y-3 text-base text-slate-600">
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Led client workshops, SOW planning, and managed a modular architecture build (Angular, Flutter).</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Implemented DevOps pipelines to accelerate releases.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Orchestrated releases, removed impediments, and drove continuous process improvements.</span>
                                 </li>
                             </ul>
@@ -234,32 +221,32 @@
                     </li>
                     
                     <!-- HSBC -->
-                    <li class="mb-10 ml-8 md:ml-0 md:mr-8">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white dark:ring-slate-900 dark:bg-blue-900">
-                           <svg class="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
-                        </span>
-                        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">Consultant Specialist (Delivery Lead / Scrum Master)</h3>
-                        <p class="block text-lg font-normal leading-none text-slate-500 dark:text-slate-400">HSBC Technology India Ltd., Pune & New York</p>
-                        <time class="block mb-4 text-base font-normal leading-none text-slate-400 dark:text-slate-500">Jul 2011 - Mar 2024</time>
-                        <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-slate-200 dark:border-slate-700 text-left space-y-4">
-                            <p class="text-base text-slate-600 dark:text-slate-300">Progressed from Developer to Team Lead, mentoring 50+ professionals and delivering numerous high-impact projects over 12+ years.</p>
+                    <li class="mb-10 ml-8 md:ml-0 md:mr-8 reveal-on-scroll" style="transition-delay: 200ms;">
+                       <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white">
+                          <svg class="w-3 h-3 text-blue-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                       </span>
+                       <h3 class="text-2xl font-semibold text-slate-900">Consultant Specialist (Delivery Lead / Scrum Master)</h3>
+                       <p class="block text-lg font-normal leading-none text-slate-500">HSBC Technology India Ltd., Pune & New York</p>
+                       <time class="block mb-4 text-base font-normal leading-none text-slate-400">Jul 2011 - Mar 2024</time>
+                       <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 text-left space-y-4">
+                           <p class="text-base text-slate-600">Progressed from Developer to Team Lead, mentoring 50+ professionals and delivering numerous high-impact projects over 12+ years.</p>
                             
-                            <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400">Key Projects:</h4>
-                            <ul class="space-y-3 text-base text-slate-600 dark:text-slate-300">
+                           <h4 class="text-lg font-semibold text-blue-700">Key Projects:</h4>
+                           <ul class="space-y-3 text-base text-slate-600">
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span><strong>SSDML Integration (2020-2024):</strong> Automated data transfers to 200+ downstream systems, reducing manual effort and data latency.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span><strong>Global Platform Replacement (2017-2020):</strong> Eliminated dual-entry and EUC inefficiencies, improving governance and data quality.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span><strong>Reuters TOF Demise (2019-2020):</strong> Led Java adapter development to reduce third-party costs.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span><strong>NORKOM Reconciliation (2016-2017):</strong> Managed requirements, data profiling, and offshore coordination for onsite delivery in New York.</span>
                                 </li>
                             </ul>
@@ -271,77 +258,77 @@
             <!-- ========== CORE COMPETENCIES / SKILLS SECTION ========== -->
             <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
                         Core Competencies
                     </h2>
-                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">My Expertise & Toolkit</p>
+                   <p class="mt-4 text-lg text-blue-600 font-semibold">My Expertise & Toolkit</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Skill Card -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 reveal-on-scroll">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                           <div class="bg-blue-100 text-blue-600 rounded-full p-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m10 0h-5.5m0 0v5.5m0-5.5L12 3.5m0 0l-2.5 2.5M12 3.5V6"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Program Leadership</h3>
-                        </div>
-                        <p class="mt-4 text-slate-600 dark:text-slate-300">Agile/SAFe, Scrum, Kanban, Waterfall hybrids, release management, and stakeholder alignment.</p>
-                    </div>
+                           <h3 class="text-xl font-bold text-slate-900">Program Leadership</h3>
+                       </div>
+                       <p class="mt-4 text-slate-600">Agile/SAFe, Scrum, Kanban, Waterfall hybrids, release management, and stakeholder alignment.</p>
+                   </div>
 
-                    <!-- Skill Card -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                   <!-- Skill Card -->
+                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 reveal-on-scroll" style="transition-delay: 100ms;">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                           <div class="bg-blue-100 text-blue-600 rounded-full p-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H3a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-2m0 0V5a2 2 0 012-2h4a2 2 0 012 2v10m-6 0v2a4 4 0 004 4h3a2 2 0 002-2v-4a2 2 0 00-2-2h-4a2 2 0 00-2 2z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Portfolio Management</h3>
-                        </div>
-                        <p class="mt-4 text-slate-600 dark:text-slate-300">PMO setup, scoping, planning, governance, budgeting, and KPI tracking.</p>
-                    </div>
+                           <h3 class="text-xl font-bold text-slate-900">Portfolio Management</h3>
+                       </div>
+                       <p class="mt-4 text-slate-600">PMO setup, scoping, planning, governance, budgeting, and KPI tracking.</p>
+                   </div>
 
-                    <!-- Skill Card -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                   <!-- Skill Card -->
+                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 reveal-on-scroll" style="transition-delay: 200ms;">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                           <div class="bg-blue-100 text-blue-600 rounded-full p-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0c-1.657 0-3-.895-3-2s1.343-2 3-2 3-.895 3-2-1.343-2-3-2m0 8c1.11 0 2.08-.402 2.599-1M12 16v1m0-1v-8"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Banking Domain</h3>
-                        </div>
-                        <p class="mt-4 text-slate-600 dark:text-slate-300">Deep expertise in FX, Derivatives, FIX Protocols, Investment Banking, and Portfolio Management.</p>
-                    </div>
+                           <h3 class="text-xl font-bold text-slate-900">Banking Domain</h3>
+                       </div>
+                       <p class="mt-4 text-slate-600">Deep expertise in FX, Derivatives, FIX Protocols, Investment Banking, and Portfolio Management.</p>
+                   </div>
 
-                    <!-- Skill Card -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                   <!-- Skill Card -->
+                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 reveal-on-scroll">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                           <div class="bg-blue-100 text-blue-600 rounded-full p-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m0 0v-6a2 2 0 00-2-2h-2a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Tools & Platforms</h3>
-                        </div>
-                        <p class="mt-4 text-slate-600 dark:text-slate-300">Jira, Confluence, ServiceNow, Git, Jenkins, Ansible, Control-M, Smart sheet, ChatGPT, Gemini.</p>
-                    </div>
+                           <h3 class="text-xl font-bold text-slate-900">Tools & Platforms</h3>
+                       </div>
+                       <p class="mt-4 text-slate-600">Jira, Confluence, ServiceNow, Git, Jenkins, Ansible, Control-M, Smart sheet, ChatGPT, Gemini.</p>
+                   </div>
 
-                    <!-- Skill Card -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                   <!-- Skill Card -->
+                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 reveal-on-scroll" style="transition-delay: 100ms;">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                           <div class="bg-blue-100 text-blue-600 rounded-full p-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2.586a8.472 8.472 0 00-5.434-6.046m-3.4-3.398a8.472 8.472 0 00-6.046 5.434m14.88 3.402a8.472 8.472 0 01-5.434 6.046m3.4 3.398a8.472 8.472 0 01-6.046-5.434m-3.4-3.402A8.472 8.472 0 018.5 4.078M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Transformation</h3>
-                        </div>
-                        <p class="mt-4 text-slate-600 dark:text-slate-300">Data migration, system modernization, and automation for cost savings and faster delivery.</p>
-                    </div>
+                           <h3 class="text-xl font-bold text-slate-900">Transformation</h3>
+                       </div>
+                       <p class="mt-4 text-slate-600">Data migration, system modernization, and automation for cost savings and faster delivery.</p>
+                   </div>
 
-                    <!-- Skill Card -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                   <!-- Skill Card -->
+                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 reveal-on-scroll" style="transition-delay: 200ms;">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                           <div class="bg-blue-100 text-blue-600 rounded-full p-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.28-1.26-.743-1.676M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.28-1.26.743-1.676M12 12c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM6.9 8.015c.9-.43 1.918-.665 3.015-.665s2.115.235 3.015.665M12 12c-.083 0-.164.002-.245.005M12 12c.083 0 .164.002.245.005M12 12v.005"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Stakeholder Management</h3>
-                        </div>
-                        <p class="mt-4 text-slate-600 dark:text-slate-300">Global cross-functional teams, vendor relations, and offshore/onshore coordination.</p>
+                           <h3 class="text-xl font-bold text-slate-900">Stakeholder Management</h3>
+                       </div>
+                       <p class="mt-4 text-slate-600">Global cross-functional teams, vendor relations, and offshore/onshore coordination.</p>
                     </div>
                 </div>
             </section>
@@ -349,60 +336,60 @@
             <!-- ========== EDUCATION, AWARDS & CERTS ========== -->
             <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
                         Education & Credentials
                     </h2>
-                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">My Academic & Professional Qualifications</p>
+                   <p class="mt-4 text-lg text-blue-600 font-semibold">My Academic & Professional Qualifications</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     
                     <!-- Education -->
-                    <div class="lg:col-span-1">
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                            <svg class="w-7 h-7 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m0 0A5.002 5.002 0 0112 21a5.002 5.002 0 01-4.998-5.251M12 17.747A5.002 5.002 0 0116.998 12.5c0-1.666-.83-3.14-2.073-4.037m-1.853 8.284A5.002 5.002 0 0012 21a5.002 5.002 0 004.998-5.251M12 17.747A5.002 5.002 0 007.002 12.5c0-1.666.83-3.14 2.073-4.037m1.853 8.284A5.002 5.002 0 0112 3a5.002 5.002 0 014.998 5.251M12 3A5.002 5.002 0 007.002 8.251m1.853 8.284A5.002 5.002 0 0112 3c0 1.666-.83 3.14-2.073 4.037M12 3v14.747"></path></svg>
+                    <div class="lg:col-span-1 reveal-on-scroll">
+                       <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                           <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m0 0A5.002 5.002 0 0112 21a5.002 5.002 0 01-4.998-5.251M12 17.747A5.002 5.002 0 0116.998 12.5c0-1.666-.83-3.14-2.073-4.037m-1.853 8.284A5.002 5.002 0 0012 21a5.002 5.002 0 004.998-5.251M12 17.747A5.002 5.002 0 007.002 12.5c0-1.666.83-3.14 2.073-4.037m1.853 8.284A5.002 5.002 0 0112 3a5.002 5.002 0 014.998 5.251M12 3A5.002 5.002 0 007.002 8.251m1.853 8.284A5.002 5.002 0 0112 3c0 1.666-.83 3.14-2.073 4.037M12 3v14.747"></path></svg>
                             Education
                         </h3>
                         <div class="space-y-6">
-                            <div class="p-5 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
-                                <h4 class="text-lg font-semibold text-slate-800 dark:text-white">Master of Science in Project Management</h4>
-                                <p class="text-slate-500 dark:text-slate-400">UCD Smurfit Business School, Dublin</p>
-                                <p class="text-sm text-slate-400 dark:text-slate-500">(In progress, 2025-2026)</p>
-                            </div>
-                            <div class="p-5 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
-                                <h4 class="text-lg font-semibold text-slate-800 dark:text-white">B.E. Computer Science</h4>
-                                <p class="text-slate-500 dark:text-slate-400">G.H. Raisoni College of Engineering, Nagpur University</p>
-                                <p class="text-sm text-slate-400 dark:text-slate-500">(2011)</p>
-                            </div>
+                           <div class="p-5 bg-white rounded-lg shadow-sm border border-slate-200">
+                               <h4 class="text-lg font-semibold text-slate-800">Master of Science in Project Management</h4>
+                               <p class="text-slate-500">UCD Smurfit Business School, Dublin</p>
+                               <p class="text-sm text-slate-400">(In progress, 2025-2026)</p>
+                           </div>
+                           <div class="p-5 bg-white rounded-lg shadow-sm border border-slate-200">
+                               <h4 class="text-lg font-semibold text-slate-800">B.E. Computer Science</h4>
+                               <p class="text-slate-500">G.H. Raisoni College of Engineering, Nagpur University</p>
+                               <p class="text-sm text-slate-400">(2011)</p>
+                           </div>
                         </div>
                     </div>
 
                     <!-- Certifications -->
-                    <div class="lg:col-span-1">
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                            <svg class="w-7 h-7 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <div class="lg:col-span-1 reveal-on-scroll" style="transition-delay: 100ms;">
+                       <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                           <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                             Certifications
                         </h3>
                         <div class="space-y-3">
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Professional Scrum Master (PSM I) - 2021</p>
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Certified Java Proficient - HSBC, 2016</p>
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Certified Java Learner - HSBC, 2012</p>
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">LOMA 280 - Insurance Certification - 2012</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">Professional Scrum Master (PSM I) - 2021</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">Certified Java Proficient - HSBC, 2016</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">Certified Java Learner - HSBC, 2012</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">LOMA 280 - Insurance Certification - 2012</p>
                         </div>
                     </div>
 
                     <!-- Awards -->
-                    <div class="lg:col-span-1">
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-                            <svg class="w-7 h-7 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H2m0 0h5m0 0v-5a1 1 0 011-1h4a1 1 0 011 1v5m-5 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m0 0V5a2 2 0 012-2h2a2 2 0 012 2v16m0 0h-2"></path></svg>
+                    <div class="lg:col-span-1 reveal-on-scroll" style="transition-delay: 200ms;">
+                       <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                           <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H2m0 0h5m0 0v-5a1 1 0 011-1h4a1 1 0 011 1v5m-5 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m0 0V5a2 2 0 012-2h2a2 2 0 012 2v16m0 0h-2"></path></svg>
                             Awards & Achievements
                         </h3>
                         <div class="space-y-3">
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Creative & Entrepreneurial Careers Committee, UCD</p>
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">PMI Ireland Student Club Member</p>
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">GTT Certificate of Recognition - Barclays, 2024</p>
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Pat on the Back Award - HSBC, 2019</p>
-                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Star Performer Award - HSBC, 2016</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">Creative & Entrepreneurial Careers Committee, UCD</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">PMI Ireland Student Club Member</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">GTT Certificate of Recognition - Barclays, 2024</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">Pat on the Back Award - HSBC, 2019</p>
+                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium">Star Performer Award - HSBC, 2016</p>
                         </div>
                     </div>
                 </div>
@@ -410,12 +397,12 @@
 
             <!-- ========== CONTACT SECTION ========== -->
             <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 text-white rounded-2xl shadow-xl overflow-hidden p-12 md:p-16">
+               <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-xl overflow-hidden p-12 md:p-16 reveal-on-scroll">
                     <div class="text-center">
                         <h2 class="text-4xl md:text-5xl font-extrabold">
                             Get in Touch
                         </h2>
-                        <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-blue-100 dark:text-blue-200">
+                       <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-blue-100">
                             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                         </p>
                         
@@ -441,19 +428,19 @@
     </main>
     
     <!-- ========== FOOTER ========== -->
-    <footer class="bg-slate-100 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700">
+   <footer class="bg-slate-100 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-sm text-slate-500 dark:text-slate-400">
+               <p class="text-sm text-slate-500">
                     &copy; <span id="current-year"></span> Neetu Roy Chanamthabam. All rights reserved.
                 </p>
                 
                 <div class="flex space-x-6">
-                    <a href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                   <a href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-600 transition-colors">
                         <span class="sr-only">LinkedIn</span>
-                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
+                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/200DEC/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
                     </a>
-                    <a href="mailto:neeturoych@gmail.com" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                   <a href="mailto:neeturoych@gmail.com" class="text-slate-400 hover:text-blue-600 transition-colors">
                         <span class="sr-only">Email</span>
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
                     </a>
@@ -465,64 +452,66 @@
     
     <!-- ========== JAVASCRIPT ========== -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // NOTE: Removed DOMContentLoaded wrapper to ensure scripts fire reliably
+        
+       
+        // --- Active Nav Link on Scroll ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a.nav-link');
 
-            // --- Dark Mode Toggle ---
-            const themeToggleBtn = document.getElementById('theme-toggle');
+        const observerOptions = {
+            root: null, // relative to viewport
+            rootMargin: '-50% 0px -50% 0px', // trigger at the vertical center of the viewport
+            threshold: 0
+        };
 
-            themeToggleBtn.addEventListener('click', () => {
-                // Toggle dark class on <html>
-                document.documentElement.classList.toggle('dark');
-                
-                // Update localStorage
-                if (document.documentElement.classList.contains('dark')) {
-                    localStorage.theme = 'dark';
-                } else {
-                    localStorage.theme = 'light';
-                }
-                
-                // No need to setIconState(), Tailwind handles it!
-            });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(link => {
+                        link.classList.remove('nav-link-active');
+                    });
 
-            
-            // --- Active Nav Link on Scroll ---
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a.nav-link');
-
-            const observerOptions = {
-                root: null, // relative to viewport
-                rootMargin: '-50% 0px -50% 0px', // trigger at the vertical center of the viewport
-                threshold: 0
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        
-                        // Remove active class from all links
-                        navLinks.forEach(link => {
-                            link.classList.remove('nav-link-active');
-                        });
-
-                        // Add active class to the corresponding link
-                        const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-                        if (activeLink) {
-                            activeLink.classList.add('nav-link-active');
-                        }
+                    // Add active class to the corresponding link
+                    const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('nav-link-active');
                     }
-                });
-            }, observerOptions);
-
-            // Observe each section
-            sections.forEach(section => {
-                observer.observe(section);
+                }
             });
+        }, observerOptions);
 
-            
-            // --- Set Current Year in Footer ---
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Observe each section
+        sections.forEach(section => {
+            observer.observe(section);
         });
+
+        
+        // --- On-Scroll Animations ---
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+
+        // --- Set Current Year in Footer ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
     </script>
 
 </body>
