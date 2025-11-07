@@ -1,644 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading Portfolio...</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;0;1&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neetu Roy Chanamthabam - Senior IT Project Manager</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom scrollbar (optional but nice) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; /* slate-100 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8; /* slate-400 */
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569; /* slate-600 */
+        }
 
-<script>
-tailwind.config = {
-theme: {
-extend: {
-fontFamily: {
-heading: ['DM Serif Display', 'serif'],
-sans: ['Inter', 'sans-serif'],
-},
-colors: {
-'vibrant-accent': 'var(--color-primary)', 
-},
-}
-}
-}
-</script>
-<style>
-/* Enable smooth scrolling for an intuitive feel */
-html {
-scroll-behavior: smooth;
-}
+        /* Set base font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
 
-/* === Theme Variables (FORMAL DARK BLUE THEME) === */
-:root {
-/* General Theme Colors (Formal, Professional Blue) */
---color-primary: #2563EB; /* Main Accent: Blue 600 (Corporate Blue) */
---color-background: #f9fafb; /* Main BG: Very light gray/Off-White */
---color-card: #ffffff; /* Card BG: Pure White */
---color-secondary: #e5e7eb; /* Borders: Subtle Gray 200 */
---color-text-dark: #1f2937; /* Main Text: Dark Gray */
---color-text-muted: #4b5563; /* Secondary Text: Medium Gray */
---shadow-rgb: 37, 99, 235; /* RGB for primary color shadow (Blue 600) */
-
-/* Navigation/Button Colors */
---nav-bg: #1D4ED8; /* Blue 700 (Darker for solid buttons) */
---nav-hover: #60A5FA; /* Blue 400 (Lighter for hover) */
-
-/* Section Accent Colors (for thematic borders) - Kept bright for contrast */
---accent-education: #34d399; /* Emerald */
---accent-experience: #fb923c; /* Orange */
---accent-projects: #a78bfa; /* Violet */
---accent-tech: #f87171; /* Red */
---accent-leadership: #a3a3a3; /* Stone/Gray for Leadership */
---accent-achievements: #fcd34d; /* Amber for Achievements */
-}
-
-/* Dark Mode Configuration (A soft, easy-on-the-eyes dark mode) */
-body.dark-mode {
---color-primary: #60A5FA; /* Blue 400 (Lighter accent) */
---color-background: #1f2937; /* Slate 800 */
---color-card: #374151; /* Slate 700 */
---color-secondary: #4b5563; /* Slate 600 */
---color-text-dark: #f3f4f6; /* Light Gray */
---color-text-muted: #d1d5db; /* Medium Light Gray */
---shadow-rgb: 96, 165, 250; /* RGB for primary color shadow (Blue 400) */
-
---nav-bg: #2563EB; /* Blue 600 */
---nav-hover: #93C5FD; /* Blue 300 */
-
---accent-education: #6ee7b7;
---accent-experience: #fdba74;
---accent-projects: #c4b5fd;
---accent-tech: #fca5a5;
---accent-leadership: #d4d4d4;
---accent-achievements: #fed7aa;
-}
-
-body {
-background-color: var(--color-background);
-color: var(--color-text-dark);
-font-family: 'Inter', sans-serif;
-transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-/* Section Heading Style */
-.section-heading {
-font-family: 'DM Serif Display', serif;
-padding-left: 1.5rem;
-margin-bottom: 3rem;
-color: var(--color-text-dark);
-font-size: 3rem;
-font-weight: 400;
-/* Use a softer, rounded border for the Pinterest feel */
-border-left: 6px solid var(--section-accent); 
-border-radius: 3px 0 0 3px; 
-transition: border-color 0.4s ease;
-}
-
-/* === Scroll Progress Bar Styling === */
-#scroll-progress {
-position: fixed;
-top: 0;
-left: 0;
-height: 4px;
-background-color: var(--color-primary);
-width: 0%;
-z-index: 55;
-transition: background-color 0.4s ease;
-}
-
-/* === Card Hover Effect: Subtle Lift and Shadow (Softer Shadow) === */
-.interactive-card {
-position: relative;
-z-index: 10;
-transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-background-color: var(--color-card);
-border-color: var(--color-secondary);
-/* Increased border-radius for softer look */
-border-radius: 1.5rem; /* 24px */
-border: 1px solid var(--color-secondary);
-}
-.interactive-card:hover {
-transform: translateY(-6px) scale(1.005);
-/* Softer, more diffused shadow using the new blue primary */
-box-shadow: 0 10px 25px rgba(var(--shadow-rgb), 0.2), 0 3px 6px rgba(var(--shadow-rgb), 0.08);
-}
-
-/* Ensure the hero section card also uses the new rounded style */
-.hero-card {
-border-radius: 2.5rem; /* 40px */
-}
-
-/* === Functional Animation: Nav Links === */
-.nav-link {
-transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-.nav-link.active {
-background-color: var(--nav-bg);
-color: white;
-box-shadow: 0 2px 8px rgba(var(--shadow-rgb), 0.4);
-font-weight: 700;
-}
-.nav-link:hover {
-background-color: var(--nav-hover);
-color: white;
-}
-
-/* === Functional Animation: View Switch === */
-.content-view {
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-width: 100%;
-}
-.content-view.active {
-opacity: 1;
-transform: translateY(0);
-}
-
-/* === Scroll Animation Classes === */
-.animated-element {
-opacity: 0;
-transition: opacity 1s ease-out, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-transform: translateY(30px);
-}
-.animated-element.reveal {
-opacity: 1;
-transform: translateY(0);
-}
-
-/* Hide sections if their container is empty */
-:empty {
-  display: none;
-}
-section:has(:empty) {
-  display: none;
-}
-</style>
+        /* Add padding-top to account for sticky header when navigating */
+        html {
+            scroll-padding-top: 80px; /* Adjust based on header height */
+        }
+        
+        /* Active nav link style */
+        .nav-link-active {
+            color: #2563eb; /* text-blue-600 */
+            font-weight: 600;
+        }
+        .dark .nav-link-active {
+            color: #60a5fa; /* text-blue-400 */
+        }
+    </style>
+    
+    <!-- Dark Mode Immediate-load Script -->
+    <script>
+        // Prevents flash of unstyled content (FOUC)
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body class="antialiased">
-
-<div id="scroll-progress"></div>
-
-<header class="sticky top-0 z-50 bg-[var(--color-background)]/90 backdrop-blur-md shadow-md border-b border-[var(--color-secondary)]">
-<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-16">
-<a id="nav-name" href="#about" class="text-3xl font-heading font-extrabold text-[var(--color-primary)] hover:text-[var(--color-text-dark)] transition duration-200">
-</a>
-<div class="flex items-center space-x-2 sm:space-x-4">
-<div id="portfolio-nav" class="hidden sm:flex sm:space-x-2 font-semibold">
-<a href="#about" data-target="about" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">About</a>
-<a href="#experience" data-target="experience" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">Experience</a>
-<a href="#tech-stack" data-target="tech-stack" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">Tech Profile</a>
-<a href="#projects" data-target="projects" class="nav-link px-3 py-2 rounded-full text-[var(--color-text-dark)]">Projects</a>
-</div>
-
-<a id="nav-linkedin-btn" href="" target="_blank" class="nav-link px-3 py-2 rounded-full font-medium text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition duration-200 hidden sm:flex items-center">
-<i data-lucide="linkedin" class="w-4 h-4 mr-1"></i> Let's Connect
-</a>
-
-<button onclick="toggleView('contact')" data-view="contact" id="contact-nav-btn" class="nav-link px-3 py-2 rounded-full font-medium text-white bg-[var(--color-primary)] hover:bg-[var(--nav-hover)] transition duration-200">Contact Me</button>
-
-<button id="theme-toggle" class="p-2 rounded-full text-[var(--color-text-dark)] hover:text-[var(--color-primary)] transition duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50">
-<i data-lucide="sun" id="sun-icon" class="w-6 h-6"></i>
-<i data-lucide="moon" id="moon-icon" class="w-6 h-6 hidden"></i>
-</button>
-</div>
-</div>
-</nav>
-</header>
-
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
-
-<div id="portfolio-view" class="content-view active">
-
-<section id="about" class="py-16 md:py-24">
-<div class="animated-element p-1 w-full h-full">
-<div class="hero-card bg-[var(--color-card)] p-8 sm:p-12 shadow-2xl border border-[var(--color-secondary)] transition duration-300">
-<div class="flex flex-col md:flex-row items-center md:space-x-12">
-<div class="flex justify-center items-center">
-<img 
-id="hero-img"
-src="" 
-alt="" 
-class="w-48 h-48 md:w-60 md:h-60 object-cover rounded-full shadow-xl ring-4 ring-[var(--color-primary)]/50 animated-element"
-style="transition-delay: 0.1s;"
-onerror="this.onerror=null;this.src='https://placehold.co/240x240/2563EB/ffffff?text=NR';"
-/>
-</div>
-
-<div class="text-center md:text-left">
-<h1 id="hero-name" class="text-5xl sm:text-7xl font-heading leading-tight text-[var(--color-text-dark)] mb-4 animated-element">
-</h1>
-<h2 id="hero-title" class="text-2xl sm:text-3xl font-semibold text-[var(--color-text-dark)] mb-6 animated-element" style="transition-delay: 0.2s;">
-</h2>
-<p id="hero-summary" class="text-lg text-[var(--color-text-muted)] max-w-3xl mb-8 animated-element" style="transition-delay: 0.3s;">
-</p>
-
-<div class="flex justify-center md:justify-start space-x-6 animated-element" style="transition-delay: 0.4s;">
-<a id="hero-email-link" href="" class="animated-link flex items-center space-x-2 text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200 font-bold hover:underline">
-<i data-lucide="mail" class="w-5 h-5"></i><span>Email</span>
-</a>
-<a id="hero-linkedin-link" href="" target="_blank" class="animated-link flex items-center space-x-2 text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200 font-bold hover:underline">
-<i data-lucide="linkedin" class="w-5 h-5"></i><span>LinkedIn</span>
-</a>
-<a id="hero-github-link" href="" target="_blank" class="animated-link flex items-center space-x-2 text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200 font-bold hover:underline">
-<i data-lucide="github" class="w-5 h-5"></i><span>GitHub</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<hr class="border-[var(--color-secondary)] my-16" />
-
-<section id="experience" class="py-16">
-<h3 class="section-heading animated-element" style="--section-accent: var(--accent-experience);">Professional Experience</h3>
-<div id="experience-container" class="space-y-10">
-</div>
-</section>
-
-<hr class="border-[var(--color-secondary)] my-16" />
-
-<section id="tech-stack" class="py-16">
-<h3 class="section-heading animated-element" style="--section-accent: var(--accent-tech);">Technical Profile</h3>
-<div id="tech-stack-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-</div>
-</section>
-
-<hr class="border-[var(--color-secondary)] my-16" />
-
-<section id="education" class="py-16">
-<h3 class="section-heading animated-element" style="--section-accent: var(--accent-education);">Education</h3>
-<div id="education-container" class="space-y-8">
-</div>
-</section>
-
-<hr class="border-[var(--color-secondary)] my-16" />
-
-<section id="projects" class="py-16">
-<h3 class="section-heading animated-element" style="--section-accent: var(--accent-projects);">Key Projects</h3>
-<div id="projects-container" class="space-y-8">
-</div>
-</section>
-
-<hr class="border-[var(--color-secondary)] my-16" />
-
-<section id="leadership" class="py-16">
-<h3 class="section-heading animated-element" style="--section-accent: var(--accent-leadership);">Positions of Responsibility / Leadership</h3>
-<div id="leadership-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-</div>
-</section>
-
-<hr class="border-[var(--color-secondary)] my-16" />
-
-<section id="achievements" class="py-16">
-<h3 class="section-heading animated-element" style="--section-accent: var(--accent-achievements);">Key Achievements</h3>
-<div id="achievements-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-</div>
-</section>
-</div>
-
-<div id="contact-view" class="content-view flex flex-col items-center py-24 min-h-[60vh]">
-<div class="animated-element w-full max-w-2xl interactive-card p-10 text-center shadow-2xl">
-<i data-lucide="mail" class="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4"></i>
-<h3 class="text-4xl font-heading text-[var(--color-text-dark)] mb-4">Get In Touch</h3>
-<p id="contact-summary" class="text-lg text-[var(--color-text-muted)] mb-8">
-</p>
-
-<a id="contact-email-link" href="" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-[var(--color-primary)] hover:bg-[var(--nav-bg)] transition duration-300 transform hover:scale-105">
-<i data-lucide="send" class="w-5 h-5 mr-2"></i> Email Me Directly
-</a>
-<p class="text-sm text-[var(--color-text-muted)] mt-6">or connect via LinkedIn for professional updates.</p>
-<div class="flex justify-center space-x-6 mt-4">
-<a id="contact-linkedin-link" href="" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200">
-<i data-lucide="linkedin" class="w-8 h-8"></i>
-</a>
-<a id="contact-github-link" href="" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--nav-bg)] transition duration-200">
-<i data-lucide="github" class="w-8 h-8"></i>
-</a>
-</div>
-</div>
-</div>
-</main>
-
-<footer class="bg-[var(--color-card)] border-t border-[var(--color-secondary)] mt-12">
-<div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center text-sm text-[var(--color-text-muted)]">
-<p id="footer-copyright"></p>
-<p>Designed with <span class="text-red-500">&hearts;</span> & Tailwind CSS</p>
-</div>
-</div>
-</footer>
-
-<script>
-// --- Core Application State ---
-let currentView = 'portfolio';
-
-// --- Utility Functions ---
-
-/**
- * Toggles between the 'portfolio' and 'contact' views.
- * @param {string} viewName - 'portfolio' or 'contact'
- */
-function toggleView(viewName) {
-const portfolioView = document.getElementById('portfolio-view');
-const contactView = document.getElementById('contact-view');
-const contactBtn = document.getElementById('contact-nav-btn');
-
-if (viewName === 'contact') {
-portfolioView.classList.remove('active');
-contactView.classList.add('active');
-contactBtn.textContent = 'View Portfolio';
-contactBtn.onclick = () => toggleView('portfolio');
-currentView = 'contact';
-} else {
-contactView.classList.remove('active');
-portfolioView.classList.add('active');
-contactBtn.textContent = 'Contact Me';
-contactBtn.onclick = () => toggleView('contact');
-currentView = 'portfolio';
-}
-// Scroll to top when view changes
-window.scrollTo({ top: 0, behavior: 'smooth' });
-updateActiveNavLink();
-}
-
-/**
- * Handles the Dark Mode toggle logic.
- */
-function initializeThemeToggle() {
-const toggleButton = document.getElementById('theme-toggle');
-const sunIcon = document.getElementById('sun-icon');
-const moonIcon = document.getElementById('moon-icon');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-// Initial state based on OS preference or localStorage
-let isDarkMode = localStorage.getItem('theme') === 'dark' || (localStorage.getItem('theme') === null && prefersDark);
-
-if (isDarkMode) {
-document.body.classList.add('dark-mode');
-sunIcon.classList.add('hidden');
-moonIcon.classList.remove('hidden');
-}
-
-toggleButton.addEventListener('click', () => {
-document.body.classList.toggle('dark-mode');
-isDarkMode = document.body.classList.contains('dark-mode');
-localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-
-sunIcon.classList.toggle('hidden', isDarkMode);
-moonIcon.classList.toggle('hidden', !isDarkMode);
-});
-}
-
-/**
- * Updates the scroll progress bar based on the scroll position.
- */
-function updateScrollProgress() {
-const progress = document.getElementById('scroll-progress');
-const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-if (scrollTotal > 0) {
-const scrolled = document.documentElement.scrollTop;
-const progressWidth = (scrolled / scrollTotal) * 100;
-progress.style.width = `${progressWidth}%`;
-}
-}
-
-/**
- * Updates the active class on navigation links based on visible section.
- */
-function updateActiveNavLink() {
-if (currentView !== 'portfolio') return;
-
-const sections = document.querySelectorAll('#portfolio-view section[id]');
-const navLinks = document.querySelectorAll('#portfolio-nav a');
-let activeSectionId = 'about';
-
-const scrollPos = window.scrollY + window.innerHeight / 2; // Midpoint of viewport
-
-sections.forEach(section => {
-  if (!section.offsetParent) return; // Skip hidden sections
-if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
-activeSectionId = section.id;
-}
-});
-
-navLinks.forEach(link => {
-link.classList.remove('active');
-if (link.getAttribute('data-target') === activeSectionId) {
-link.classList.add('active');
-}
-});
-}
-
-/**
- * Handles the scroll reveal animation for elements.
- */
-function handleScrollReveal() {
-const elements = document.querySelectorAll('.animated-element:not(.reveal)');
-const triggerBottom = window.innerHeight * 0.9;
-
-elements.forEach(el => {
-const elementTop = el.getBoundingClientRect().top;
-if (elementTop < triggerBottom) {
-el.classList.add('reveal');
-}
-});
-}
-
-
-// =================================================================
-// === NEW: DATA LOADING SCRIPT ===
-// =================================================================
-
-/**
- * Utility to safely set href attribute only if value exists
- */
-function setSafeHref(element, url, isMail = false) {
-  if (element && url) {
-    element.href = isMail ? `mailto:${url}` : url;
-    element.style.display = ''; // Show element
-  } else if (element) {
-    element.style.display = 'none'; // Hide element
-  }
-}
-
-/**
- * Fetches profile.json and populates the entire page.
- */
-async function loadProfileData() {
-try {
-const response = await fetch('profile.json');
-if (!response.ok) {
-throw new Error(`HTTP error! status: ${response.status}`);
-}
-const data = await response.json();
-
-// --- Populate Basics & Hero ---
-document.title = `${data.basics.name} | ${data.basics.title} Portfolio`;
-document.getElementById('nav-name').textContent = data.basics.name.toUpperCase();
-setSafeHref(document.getElementById('nav-linkedin-btn'), data.profiles.linkedin);
-document.getElementById('hero-img').src = data.basics.imageUrl;
-document.getElementById('hero-img').alt = data.basics.imageAlt;
-document.getElementById('hero-name').innerHTML = `<span class="text-[var(--color-primary)]">${data.basics.firstName}</span> ${data.basics.name.substring(data.basics.firstName.length)}`;
-document.getElementById('hero-title').textContent = data.basics.title;
-document.getElementById('hero-summary').innerHTML = data.basics.summary;
-setSafeHref(document.getElementById('hero-email-link'), data.basics.email, true);
-setSafeHref(document.getElementById('hero-linkedin-link'), data.profiles.linkedin);
-setSafeHref(document.getElementById('hero-github-link'), data.profiles.github);
-
-
-// --- Populate Experience ---
-const expContainer = document.getElementById('experience-container');
-if (data.experience && data.experience.length > 0) {
-  expContainer.innerHTML = data.experience.map((job, index) => `
-  <div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-experience)] animated-element" style="--card-accent: var(--accent-experience); transition-delay: ${index * 0.1}s;">
-  <div class="flex justify-between items-start mb-2">
-  <div>
-  <h4 class="text-xl font-bold text-[var(--color-text-dark)]">${job.title}</h4>
-  <p class="text-[var(--accent-experience)] font-medium">${job.company}</p>
-  </div>
-  <span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${job.dates}</span>
-  </div>
-  ${job.tech ? `<p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${job.tech}</p>` : ''}
-  <ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
-  ${job.highlights.map(hl => `<li>${hl}</li>`).join('')}
-  </ul>
-  </div>
-  `).join('');
-}
-
-// --- Populate Tech Stack ---
-const techContainer = document.getElementById('tech-stack-container');
-if (data.techProfile && data.techProfile.length > 0) {
-  techContainer.innerHTML = data.techProfile.map((category, index) => `
-  <div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-tech)] animated-element" style="transition-delay: ${index * 0.1}s;">
-  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-3 flex items-center"><i data-lucide="${category.icon}" class="w-5 h-5 mr-2 text-[var(--accent-tech)]"></i> ${category.category}</h4>
-  <div class="flex flex-wrap gap-x-4 gap-y-3 text-[var(--color-text-dark)]">
-  ${category.skills.map(skill => `
-  <span class="flex items-center space-x-1 font-semibold">
-  ${skill.iconHtml}
-  <span class="text-[var(--color-text-dark)]">${skill.name}</span>
-  </span>
-  `).join('')}
-  </div>
-  </div>
-  `).join('');
-}
-
-// --- Populate Education ---
-const eduContainer = document.getElementById('education-container');
-if (data.education && data.education.length > 0) {
-  eduContainer.innerHTML = data.education.map((edu, index) => `
-  <div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-education)] animated-element" style="transition-delay: ${index * 0.1}s;">
-  <div class="flex justify-between items-start mb-2">
-  <div>
-  <h4 class="text-xl font-bold text-[var(--color-text-dark)]">${edu.degree}</h4>
-  <p class="text-[var(--accent-education)] font-medium">${edu.institution}</p>
-  </div>
-  <span class="text-sm text-[var(--color-text-muted)] bg-[var(--color-secondary)] px-3 py-1 rounded-full font-semibold">${edu.dates}</span>
-  </div>
-  ${edu.summary ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.summary}</p>` : ''}
-  ${edu.coursework ? `<ul class="text-[var(--color-text-muted)] text-sm mt-3"><li>${edu.coursework}</li></ul>` : ''}
-  ${edu.gpa ? `<p class="text-[var(--color-text-muted)] mt-2">${edu.gpa}</p>` : ''}
-  </div>
-  `).join('');
-}
-
-// --- Populate Projects ---
-const projContainer = document.getElementById('projects-container');
-if (data.projects && data.projects.length > 0) {
-  projContainer.innerHTML = data.projects.map((proj, index) => `
-  <div class="interactive-card p-8 shadow-lg border-t-6 border-[var(--accent-projects)] animated-element" style="transition-delay: ${index * 0.1}s;">
-  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-2 flex items-center"><i data-lucide="${proj.icon}" class="w-5 h-5 mr-2 text-[var(--accent-projects)]"></i> ${proj.name}</h4>
-  <p class="text-[var(--color-text-muted)] italic mb-4 text-sm">${proj.tech}</p>
-  <ul class="list-disc list-outside space-y-3 pl-5 text-[var(--color-text-dark)] text-sm">
-  ${proj.highlights.map(hl => `<li>${hl}</li>`).join('')}
-  </ul>
-  </div>
-  `).join('');
-} else {
-  // Hide projects section if no projects
-  document.getElementById('projects').style.display = 'none';
-  document.querySelector('a[href="#projects"]').style.display = 'none';
-}
-
-
-// --- Populate Leadership ---
-const leadContainer = document.getElementById('leadership-container');
-if (data.leadership && data.leadership.length > 0) {
-  leadContainer.innerHTML = data.leadership.map((lead, index) => `
-  <div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-leadership)] animated-element" style="transition-delay: ${index * 0.1}s;">
-  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${lead.icon}" class="w-5 h-5 mr-2 text-[var(--accent-leadership)]"></i> ${lead.title}</h4>
-  <p class="text-[var(--accent-leadership)] font-medium text-sm mb-2">${lead.organization}</p>
-  <p class="text-[var(--color-text-muted)] text-sm">${lead.summary}</p>
-  </div>
-  `).join('');
-} else {
-  document.getElementById('leadership').style.display = 'none';
-}
-
-// --- Populate Achievements ---
-const achieveContainer = document.getElementById('achievements-container');
-if (data.achievements && data.achievements.length > 0) {
-  achieveContainer.innerHTML = data.achievements.map((item, index) => `
-  <div class="interactive-card p-6 shadow-lg border-l-6 border-[var(--accent-achievements)] animated-element" style="transition-delay: ${index * 0.1}s;">
-  <h4 class="text-xl font-bold text-[var(--color-text-dark)] mb-1 flex items-center"><i data-lucide="${item.icon}" class="w-5 h-5 mr-2 text-[var(--accent-achievements)]"></i> ${item.title}</h4>
-  <p class="text-[var(--accent-achievements)] font-medium text-sm mb-2">${item.organization}</p>
-  <p class="text-[var(--color-text-muted)] text-sm">${item.summary}</p>
-  </div>
-  `).join('');
-} else {
-  document.getElementById('achievements').style.display = 'none';
-}
-
-// --- Populate Contact ---
-document.getElementById('contact-summary').textContent = data.contact.summary;
-setSafeHref(document.getElementById('contact-email-link'), data.basics.email, true);
-setSafeHref(document.getElementById('contact-linkedin-link'), data.profiles.linkedin);
-setSafeHref(document.getElementById('contact-github-link'), data.profiles.github);
-
-
-// --- Populate Footer ---
-document.getElementById('footer-copyright').textContent = `© ${data.basics.copyrightYear} ${data.basics.name}. All rights reserved.`;
-
-} catch (error) {
-console.error('Error loading profile data:', error);
-document.body.innerHTML = `<div style="text-align: center; padding: 50px; font-family: sans-serif;"><h1>Error</h1><p>Could not load profile.json. Please check the file and try again.</p></div>`;
-}
-}
-
-
-// --- Initialization on Load ---
-window.onload = async function() {
-// *** NEW: Load all dynamic data first ***
-await loadProfileData();
-
-// Initialize Lucide Icons (MUST run after data is loaded)
-lucide.createIcons();
-
-// Initialize Theme Toggle
-initializeThemeToggle();
-
-// Bind scroll events
-window.addEventListener('scroll', updateScrollProgress);
-window.addEventListener('scroll', updateActiveNavLink);
-window.addEventListener('scroll', handleScrollReveal);
-
-// Initial calls
-updateScrollProgress();
-updateActiveNavLink();
-handleScrollReveal(); // This will trigger animations
-
-// Force the initial view to show the portfolio content
-document.getElementById('portfolio-view').classList.add('active');
-
-// Set initial active link (for the 'about' section)
-document.querySelector('#portfolio-nav a[data-target="about"]').classList.add('active');
-};
-</script>
+
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-500 antialiased">
+
+    <!-- ========== HEADER ========== -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-slate-700 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Name -->
+                <a href="#home" class="flex-shrink-0">
+                    <span class="text-xl font-bold text-slate-900 dark:text-white">Neetu Roy Chanamthabam</span>
+                </a>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+                    <a href="#experience" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
+                    <a href="#skills" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
+                    <a href="#education" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
+                    <a href="#contact" class="nav-link text-base font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Dark Mode Toggle -->
+                <div class="flex items-center">
+                    <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg p-2.5 transition-colors">
+                        <!-- Sun Icon (show in dark mode) -->
+                        <svg id="theme-toggle-sun" class="hidden dark:block h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-1.636 6.364l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 01-1.414 1.414zM4.95 6.343a1 1 0 010-1.414l.707-.707a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.343 14.95l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414z"></path></svg>
+                        <!-- Moon Icon (show in light mode) -->
+                        <svg id="theme-toggle-moon" class="block dark:hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    </button>
+                    <!-- Mobile Menu Button (placeholder) -->
+                    <div class="md:hidden ml-3">
+                        <button class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Open menu">
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+
+        <!-- ========== HERO SECTION ========== -->
+        <section id="home" class="min-h-screen flex items-center justify-center py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="space-y-6">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                        Neetu Roy Chanamthabam
+                    </h1>
+                    
+                    <h2 class="text-3xl md:text-5xl font-semibold">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
+                            Senior IT Project Manager
+                        </span>
+                    </h2>
+                    
+                    <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-300">
+                        Delivering complex banking & FinServ transformations with 14 years of expertise in Agile, DevOps, and AI-driven project delivery.
+                    </p>
+                    
+                    <div class="flex justify-center gap-4 pt-4">
+                        <a href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-105">
+                            <svg class="w-5 h-5" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
+                            LinkedIn
+                        </a>
+                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-lg text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-105">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Container for all content sections -->
+        <div class="space-y-24 md:space-y-32 my-24 md:my-32">
+
+            <!-- ========== ABOUT ME SECTION ========== -->
+            <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                        About Me
+                    </h2>
+                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">14 Years of Driving Transformation</p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-300 space-y-6 text-left md:text-center">
+                    <p>
+                        I am a Senior IT Project Manager and Delivery Lead with 14 years of proven success in delivering large-scale banking and FinServ transformations. My expertise lies in managing complex, multi-stream programs using Agile, DevOps, and hybrid Waterfall methodologies, coordinating with 50+ stakeholders across international teams (India, US).
+                    </p>
+                    <p>
+                        I am proficient in leveraging AI tools like ChatGPT and Gemini to accelerate planning, optimize risk management, and enhance decision-making. With a strong foundation in budgeting, scheduling, and governance, my focus is always on delivering measurable results and driving efficiency.
+                    </p>
+                    <p>
+                        Currently, I am enhancing my strategic capabilities by pursuing an <strong class="font-semibold text-slate-800 dark:text-white">MSc in Project Management at UCD Smurfit Business School</strong>, complementing my practical experience with formal, executive-level training.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ========== EXPERIENCE SECTION ========== -->
+            <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                        Career Experience
+                    </h2>
+                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">My Professional Journey</p>
+                </div>
+
+                <ol class="relative border-l-2 border-blue-500 dark:border-blue-400 ml-4 md:ml-0 md:border-l-0 md:border-r-2 md:text-right">                  
+                    <!-- Barclays -->
+                    <li class="mb-10 ml-8 md:ml-0 md:mr-8">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white dark:ring-slate-900 dark:bg-blue-900">
+                            <svg class="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                        </span>
+                        <h3 class="flex items-center md:justify-end text-2xl font-semibold text-slate-900 dark:text-white">
+                            Assistant Vice President - Project Manager
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium ml-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 md:hidden">Latest</span>
+                        </h3>
+                        <p class="block text-lg font-normal leading-none text-slate-500 dark:text-slate-400">Barclays Global Service Center, Pune</p>
+                        <time class="block mb-4 text-base font-normal leading-none text-slate-400 dark:text-slate-500">Jun 2024 - Aug 2025</time>
+                        <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-slate-200 dark:border-slate-700 text-left">
+                            <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-2">Asia UBS Upgrade Program (12.x to 14.x)</h4>
+                            <ul class="space-y-3 text-base text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>Defined program scope, delivery strategy, and risk-based go/no-go decisions for a zero-impact cutover.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>Leveraged AI for risk assessment and test optimisation, reducing rework and testing cycles.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>Managed ETL workloads and coordinated 20-30 downstream integrations across multiple teams.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>Targeted cost savings via automation and streamlined processes, allocating resources to hit milestones within budget.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <!-- Persistent Systems -->
+                    <li class="mb-10 ml-8 md:ml-0 md:mr-8">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white dark:ring-slate-900 dark:bg-blue-900">
+                            <svg class="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                        </span>
+                        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">Technical Project Manager / Scrum Master</h3>
+                        <p class="block text-lg font-normal leading-none text-slate-500 dark:text-slate-400">Persistent Systems Ltd., Pune</p>
+                        <time class="block mb-4 text-base font-normal leading-none text-slate-400 dark:text-slate-500">Mar 2024 - Jun 2024</time>
+                        <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-slate-200 dark:border-slate-700 text-left">
+                            <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-2">Zebra Technologies Modernization</h4>
+                            <ul class="space-y-3 text-base text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>Led client workshops, SOW planning, and managed a modular architecture build (Angular, Flutter).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>Implemented DevOps pipelines to accelerate releases.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span>Orchestrated releases, removed impediments, and drove continuous process improvements.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <!-- HSBC -->
+                    <li class="mb-10 ml-8 md:ml-0 md:mr-8">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 md:left-auto md:-right-3 ring-8 ring-white dark:ring-slate-900 dark:bg-blue-900">
+                           <svg class="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                        </span>
+                        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">Consultant Specialist (Delivery Lead / Scrum Master)</h3>
+                        <p class="block text-lg font-normal leading-none text-slate-500 dark:text-slate-400">HSBC Technology India Ltd., Pune & New York</p>
+                        <time class="block mb-4 text-base font-normal leading-none text-slate-400 dark:text-slate-500">Jul 2011 - Mar 2024</time>
+                        <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-slate-200 dark:border-slate-700 text-left space-y-4">
+                            <p class="text-base text-slate-600 dark:text-slate-300">Progressed from Developer to Team Lead, mentoring 50+ professionals and delivering numerous high-impact projects over 12+ years.</p>
+                            
+                            <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400">Key Projects:</h4>
+                            <ul class="space-y-3 text-base text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>SSDML Integration (2020-2024):</strong> Automated data transfers to 200+ downstream systems, reducing manual effort and data latency.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Global Platform Replacement (2017-2020):</strong> Eliminated dual-entry and EUC inefficiencies, improving governance and data quality.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Reuters TOF Demise (2019-2020):</strong> Led Java adapter development to reduce third-party costs.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>NORKOM Reconciliation (2016-2017):</strong> Managed requirements, data profiling, and offshore coordination for onsite delivery in New York.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- ========== CORE COMPETENCIES / SKILLS SECTION ========== -->
+            <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                        Core Competencies
+                    </h2>
+                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">My Expertise & Toolkit</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Skill Card -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m10 0h-5.5m0 0v5.5m0-5.5L12 3.5m0 0l-2.5 2.5M12 3.5V6"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Program Leadership</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300">Agile/SAFe, Scrum, Kanban, Waterfall hybrids, release management, and stakeholder alignment.</p>
+                    </div>
+
+                    <!-- Skill Card -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H3a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-2m0 0V5a2 2 0 012-2h4a2 2 0 012 2v10m-6 0v2a4 4 0 004 4h3a2 2 0 002-2v-4a2 2 0 00-2-2h-4a2 2 0 00-2 2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Portfolio Management</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300">PMO setup, scoping, planning, governance, budgeting, and KPI tracking.</p>
+                    </div>
+
+                    <!-- Skill Card -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0c-1.657 0-3-.895-3-2s1.343-2 3-2 3-.895 3-2-1.343-2-3-2m0 8c1.11 0 2.08-.402 2.599-1M12 16v1m0-1v-8"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Banking Domain</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300">Deep expertise in FX, Derivatives, FIX Protocols, Investment Banking, and Portfolio Management.</p>
+                    </div>
+
+                    <!-- Skill Card -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m0 0v-6a2 2 0 00-2-2h-2a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Tools & Platforms</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300">Jira, Confluence, ServiceNow, Git, Jenkins, Ansible, Control-M, Smart sheet, ChatGPT, Gemini.</p>
+                    </div>
+
+                    <!-- Skill Card -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2.586a8.472 8.472 0 00-5.434-6.046m-3.4-3.398a8.472 8.472 0 00-6.046 5.434m14.88 3.402a8.472 8.472 0 01-5.434 6.046m3.4 3.398a8.472 8.472 0 01-6.046-5.434m-3.4-3.402A8.472 8.472 0 018.5 4.078M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Transformation</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300">Data migration, system modernization, and automation for cost savings and faster delivery.</p>
+                    </div>
+
+                    <!-- Skill Card -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-200 dark:hover:shadow-blue-900/50 dark:border dark:border-slate-700">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full p-3">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.28-1.26-.743-1.676M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.28-1.26.743-1.676M12 12c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM6.9 8.015c.9-.43 1.918-.665 3.015-.665s2.115.235 3.015.665M12 12c-.083 0-.164.002-.245.005M12 12c.083 0 .164.002.245.005M12 12v.005"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Stakeholder Management</h3>
+                        </div>
+                        <p class="mt-4 text-slate-600 dark:text-slate-300">Global cross-functional teams, vendor relations, and offshore/onshore coordination.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== EDUCATION, AWARDS & CERTS ========== -->
+            <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                        Education & Credentials
+                    </h2>
+                    <p class="mt-4 text-lg text-blue-600 dark:text-blue-400 font-semibold">My Academic & Professional Qualifications</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    
+                    <!-- Education -->
+                    <div class="lg:col-span-1">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                            <svg class="w-7 h-7 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m0 0A5.002 5.002 0 0112 21a5.002 5.002 0 01-4.998-5.251M12 17.747A5.002 5.002 0 0116.998 12.5c0-1.666-.83-3.14-2.073-4.037m-1.853 8.284A5.002 5.002 0 0012 21a5.002 5.002 0 004.998-5.251M12 17.747A5.002 5.002 0 007.002 12.5c0-1.666.83-3.14 2.073-4.037m1.853 8.284A5.002 5.002 0 0112 3a5.002 5.002 0 014.998 5.251M12 3A5.002 5.002 0 007.002 8.251m1.853 8.284A5.002 5.002 0 0112 3c0 1.666-.83 3.14-2.073 4.037M12 3v14.747"></path></svg>
+                            Education
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+                                <h4 class="text-lg font-semibold text-slate-800 dark:text-white">Master of Science in Project Management</h4>
+                                <p class="text-slate-500 dark:text-slate-400">UCD Smurfit Business School, Dublin</p>
+                                <p class="text-sm text-slate-400 dark:text-slate-500">(In progress, 2025-2026)</p>
+                            </div>
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+                                <h4 class="text-lg font-semibold text-slate-800 dark:text-white">B.E. Computer Science</h4>
+                                <p class="text-slate-500 dark:text-slate-400">G.H. Raisoni College of Engineering, Nagpur University</p>
+                                <p class="text-sm text-slate-400 dark:text-slate-500">(2011)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="lg:col-span-1">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                            <svg class="w-7 h-7 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            Certifications
+                        </h3>
+                        <div class="space-y-3">
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Professional Scrum Master (PSM I) - 2021</p>
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Certified Java Proficient - HSBC, 2016</p>
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Certified Java Learner - HSBC, 2012</p>
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">LOMA 280 - Insurance Certification - 2012</p>
+                        </div>
+                    </div>
+
+                    <!-- Awards -->
+                    <div class="lg:col-span-1">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                            <svg class="w-7 h-7 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H2m0 0h5m0 0v-5a1 1 0 011-1h4a1 1 0 011 1v5m-5 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m0 0V5a2 2 0 012-2h2a2 2 0 012 2v16m0 0h-2"></path></svg>
+                            Awards & Achievements
+                        </h3>
+                        <div class="space-y-3">
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Creative & Entrepreneurial Careers Committee, UCD</p>
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">PMI Ireland Student Club Member</p>
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">GTT Certificate of Recognition - Barclays, 2024</p>
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Pat on the Back Award - HSBC, 2019</p>
+                            <p class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium">Star Performer Award - HSBC, 2016</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== CONTACT SECTION ========== -->
+            <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 text-white rounded-2xl shadow-xl overflow-hidden p-12 md:p-16">
+                    <div class="text-center">
+                        <h2 class="text-4xl md:text-5xl font-extrabold">
+                            Get in Touch
+                        </h2>
+                        <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-blue-100 dark:text-blue-200">
+                            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                        </p>
+                        
+                        <div class="mt-10 flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8">
+                            <!-- Email -->
+                            <a href="mailto:neeturoych@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 border border-transparent text-lg font-medium rounded-lg text-blue-700 bg-white hover:bg-blue-50 transition-all transform hover:scale-105">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                neeturoych@gmail.com
+                            </a>
+                            
+                            <!-- Phone -->
+                            <div class="inline-flex items-center gap-3 px-8 py-4 text-lg font-medium rounded-lg text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.042 11.042 0 005.516 5.516l1.154-2.308a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                (+353) 0894671634
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div> <!-- End content sections wrapper -->
+
+    </main>
+    
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-slate-100 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    &copy; <span id="current-year"></span> Neetu Roy Chanamthabam. All rights reserved.
+                </p>
+                
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
+                    </a>
+                    <a href="mailto:neeturoych@gmail.com" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        <span class="sr-only">Email</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Dark Mode Toggle ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle dark class on <html>
+                document.documentElement.classList.toggle('dark');
+                
+                // Update localStorage
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+                
+                // No need to setIconState(), Tailwind handles it!
+            });
+
+            
+            // --- Active Nav Link on Scroll ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a.nav-link');
+
+            const observerOptions = {
+                root: null, // relative to viewport
+                rootMargin: '-50% 0px -50% 0px', // trigger at the vertical center of the viewport
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        
+                        // Remove active class from all links
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-link-active');
+                        });
+
+                        // Add active class to the corresponding link
+                        const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('nav-link-active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe each section
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            
+            // --- Set Current Year in Footer ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+
 </body>
 </html>
