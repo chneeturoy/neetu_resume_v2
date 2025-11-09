@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neetu Roy — Project Manager Empowering Teams with Clarity, Purpose & Empathy</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ivory: #fffaf0;
+      --rose-50: #fff1f2;
+      --rose-100: #fde8ea;
+      --rose-200: #f9d6d9;
+      --rose: #f7bfc3;
+      --peach-gold:#ffd7b5;
+      --accent-dark:#8a3b3f; /* deep rose-gold */
+      --muted:#6b6b6b;
+    }
+    html { scroll-padding-top: 84px; }
+    body { font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: var(--ivory); color: #1f2937; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3,h4 { font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    /* shimmer for name */
+    .name-shimmer {
+      background: linear-gradient(90deg, #8a3b3f, #f7bfc3, #ffd7b5, #8a3b3f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 300% 100%;
+      animation: shimmer 8s linear infinite;
+    }
+    @keyframes shimmer { 0% { background-position: 0% 50% } 50% { background-position: 100% 50% } 100% { background-position: 0% 50% } }
+
+    /* soft cards */
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(139,77,82,0.06);
+      border: 1px solid rgba(139,77,82,0.06);
+    }
+
+    .pill {
+      background: linear-gradient(90deg,var(--rose-100),var(--peach-gold));
+      color: var(--accent-dark);
+      font-weight:600;
+      padding:6px 12px;
+      border-radius:999px;
+      display:inline-block;
+    }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: all .7s cubic-bezier(.2,.9,.2,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* small helpers */
+    a.btn { display:inline-flex; align-items:center; gap:.6rem; padding:.6rem 1rem; border-radius:10px; font-weight:600; text-decoration:none; }
+    a.btn--primary { background: linear-gradient(90deg,var(--rose),var(--peach-gold)); color: white; box-shadow: 0 6px 18px rgba(247,191,195,0.18); }
+    a.btn--muted { background: #fff; border:1px solid rgba(139,77,82,0.08); color: var(--accent-dark); }
+
+    /* responsive image */
+    .headshot { width:100%; height:100%; object-fit:cover; border-radius:12px; }
+
+    footer { color: #6b6b6b; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur-sm border-b border-rose-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <span class="text-lg font-bold" style="color:var(--accent-dark)">Neetu Roy</span>
+        <span class="hidden sm:inline-block text-sm text-muted">• Project Manager</span>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="text-rose-800 hover:underline">About</a>
+        <a href="#experience" class="text-rose-800 hover:underline">Experience</a>
+        <a href="#skills" class="text-rose-800 hover:underline">Skills</a>
+        <a href="#education" class="text-rose-800 hover:underline">Education</a>
+        <a href="#contact" class="text-rose-800 hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="min-h-[72vh] flex items-center">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal" style="transition-delay:100ms;">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight name-shimmer">Neetu Roy</h1>
+          <p class="mt-4 italic text-lg text-rose-700">“Lead with logic, connect with heart.”</p>
+          <p class="mt-2 text-base md:text-lg text-gray-700 max-w-xl">Turning complexity into clarity — with empathy, purpose, and calm.</p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="btn btn--primary" href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer">
+              <!-- LinkedIn icon (simple) -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden class="opacity-90"><path d="M4.98 3.5A2.5 2.5 0 1 0 4.98 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.6v1.7h.05c.5-.95 1.74-1.95 3.58-1.95 3.83 0 4.53 2.5 4.53 5.74V21H17v-5.2c0-1.24-.02-2.83-1.72-2.83-1.72 0-1.98 1.34-1.98 2.73V21H9V9z" fill="white"/></svg>
+              LinkedIn
+            </a>
+
+            <a class="btn btn--muted" href="mailto:neeturoych@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden class="opacity-90"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v.2L12 13 3 7.2V7z"/><path d="M21 8.8v8.2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.8l9 5 9-5z" fill="#8a3b3f"/></svg>
+              Email Me
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay:200ms;">
+          <div class="card p-4">
+            <img src="DSC01788.jpg" alt="Neetu Roy headshot" class="headshot" onerror="this.src='https://placehold.co/600x600/fff1f2/8a3b3f?text=Neetu+Roy'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & PERSONAL -->
+    <section id="about" class="py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div class="reveal card p-6">
+            <h2 class="text-2xl font-bold text-rose-800 mb-3">About Me</h2>
+            <p class="text-gray-700">I’m a Senior IT Project Manager and Delivery Lead with 14+ years delivering complex banking & FinServ transformations. I combine practical program experience with a growing strategic lens through an MSc in Project Management at UCD Smurfit Business School. My focus is to deliver measurable outcomes while nurturing teams that are emotionally aware and resilient.</p>
+
+            <div class="mt-5">
+              <span class="pill">Empathy-first Leadership</span>
+              <span class="pill" style="margin-left:.5rem">AI-enabled Delivery</span>
+            </div>
+          </div>
+
+          <div class="reveal p-6">
+            <h3 class="text-xl font-semibold text-rose-800">The Person Behind the Professional</h3>
+            <p class="mt-3 text-gray-700">Leadership began early for me — I was a <strong>class captain</strong> and a <strong>house representative</strong> at school, and I led many college projects that sparked my passion for collaboration and accountability. That early leadership taught me fairness, clarity, and the calm to guide others.</p>
+
+            <p class="mt-3 text-gray-700">Away from work I’m a <strong>fashion enthusiast</strong>, a stickler for cleanliness and organisation (yes — a little OCD for order!), and deeply family-oriented. These personal traits — creativity, discipline and warmth — shape how I show up as a manager: organised, present, and human.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEYOND WORK & VALUES -->
+    <section class="py-8 bg-[linear-gradient(90deg,#fffaf0,#fff6f3)]">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-start">
+        <div class="reveal p-6 card">
+          <h3 class="text-xl font-semibold text-rose-800">Beyond Work</h3>
+          <p class="mt-3 text-gray-700">I enjoy photography, creative design, and spending sunny moments with my family. Creative hobbies help me keep perspective and bring a human-centred approach back to my teams and projects.</p>
+        </div>
+
+        <div class="reveal p-6 card">
+          <h3 class="text-xl font-semibold text-rose-800">Core Values</h3>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-800">Empathy</span>
+            <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-800">Integrity</span>
+            <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-800">Curiosity</span>
+            <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-800">Calm Leadership</span>
+            <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-800">Growth</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-8 reveal">
+          <h2 class="text-3xl font-extrabold text-rose-800">Career Experience</h2>
+          <p class="text-gray-600 mt-2">A snapshot of roles and impact across my 14-year journey</p>
+        </div>
+
+        <ol class="space-y-8">
+          <!-- Barclays -->
+          <li class="reveal card p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-semibold">Assistant Vice President - Project Manager</h3>
+                <p class="text-sm text-gray-500">Barclays Global Service Center, Pune • Jun 2024 – Aug 2025</p>
+              </div>
+              <span class="text-sm text-rose-700 font-semibold">Latest</span>
+            </div>
+            <div class="mt-4 text-gray-700">
+              <h4 class="font-semibold text-rose-800">Asia UBS Upgrade Program (12.x → 14.x)</h4>
+              <ul class="mt-2 list-disc list-inside space-y-1">
+                <li>Defined program scope, delivery strategy and risk-based go/no-go decisions.</li>
+                <li>Leveraged AI for risk assessment and test optimisation, reducing rework cycles.</li>
+                <li>Coordinated ETL workloads and 20+ downstream integrations across teams.</li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- Persistent -->
+          <li class="reveal card p-6">
+            <h3 class="text-xl font-semibold">Technical Project Manager / Scrum Master</h3>
+            <p class="text-sm text-gray-500">Persistent Systems Ltd., Pune • Mar 2024 – Jun 2024</p>
+            <div class="mt-4 text-gray-700">
+              <h4 class="font-semibold text-rose-800">Zebra Technologies Modernization</h4>
+              <ul class="mt-2 list-disc list-inside space-y-1">
+                <li>Led client workshops, SOW planning and modular architecture delivery.</li>
+                <li>Implemented DevOps pipelines to accelerate releases and reduce lead time.</li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- HSBC -->
+          <li class="reveal card p-6">
+            <h3 class="text-xl font-semibold">Consultant Specialist (Delivery Lead / Scrum Master)</h3>
+            <p class="text-sm text-gray-500">HSBC Technology India Ltd., Pune & New York • Jul 2011 – Mar 2024</p>
+            <div class="mt-4 text-gray-700">
+              <p>Progressed from Developer to Team Lead, mentoring 50+ professionals and delivering many high-impact programs.</p>
+              <h4 class="mt-3 font-semibold text-rose-800">Key Projects</h4>
+              <ul class="mt-2 list-disc list-inside space-y-1">
+                <li><strong>SSDML Integration (2020–2024):</strong> Automated transfers to 200+ downstream systems—cutting manual effort and latency.</li>
+                <li><strong>Global Platform Replacement (2017–2020):</strong> Removed duplicate processes and improved governance & data quality.</li>
+                <li><strong>NORKOM Reconciliation (2016–2017):</strong> Managed requirements, data profiling and onsite delivery coordination in New York.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SKILLS & TOOLS -->
+    <section id="skills" class="py-12 bg-[linear-gradient(90deg,#fffaf0,#fff6f3)]">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-6 reveal">
+          <h2 class="text-3xl font-extrabold text-rose-800">Core Competencies</h2>
+          <p class="text-gray-600 mt-2">Toolkit, domain expertise and delivery strengths</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card p-6 reveal">
+            <h4 class="font-semibold text-rose-800">Program Leadership</h4>
+            <p class="mt-2 text-gray-700">Agile/SAFe, Scrum, Kanban, hybrid models, release & change coordination.</p>
+          </div>
+          <div class="card p-6 reveal">
+            <h4 class="font-semibold text-rose-800">Portfolio Management</h4>
+            <p class="mt-2 text-gray-700">PMO setup, governance, budget control and KPI tracking.</p>
+          </div>
+          <div class="card p-6 reveal">
+            <h4 class="font-semibold text-rose-800">Delivery Governance</h4>
+            <p class="mt-2 text-gray-700">Risk mitigation, dependency management and measurable outcomes.</p>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 card reveal">
+          <h4 class="font-semibold text-rose-800">Tools & Platforms</h4>
+          <div class="mt-4 flex flex-wrap gap-4 items-center text-sm text-gray-700">
+            <span class="px-3 py-1 rounded-md bg-rose-50">Java</span>
+            <span class="px-3 py-1 rounded-md bg-rose-50">Python</span>
+            <span class="px-3 py-1 rounded-md bg-rose-50">Jira / Confluence</span>
+            <span class="px-3 py-1 rounded-md bg-rose-50">ChatGPT / Gemini</span>
+            <span class="px-3 py-1 rounded-md bg-rose-50">Git / Jenkins</span>
+            <span class="px-3 py-1 rounded-md bg-rose-50">Smartsheet / ServiceNow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTS -->
+    <section id="education" class="py-12">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+        <div class="card p-6 reveal">
+          <h4 class="font-semibold text-rose-800">Education</h4>
+          <p class="mt-2 text-gray-700"><strong>MSc in Project Management</strong>, UCD Smurfit Business School (2025–2026)</p>
+          <p class="mt-1 text-gray-700"><strong>B.E. Computer Science</strong>, G.H. Raisoni College of Engineering (2011)</p>
+        </div>
+
+        <div class="card p-6 reveal">
+          <h4 class="font-semibold text-rose-800">Certifications</h4>
+          <ul class="mt-2 text-gray-700 list-disc list-inside">
+            <li>Professional Scrum Master (PSM I) — 2021</li>
+            <li>Certified Java Proficient — HSBC, 2016</li>
+            <li>LOMA 280 — Insurance Certification, 2012</li>
+          </ul>
+        </div>
+
+        <div class="card p-6 reveal">
+          <h4 class="font-semibold text-rose-800">Awards & Recognition</h4>
+          <ul class="mt-2 text-gray-700 list-disc list-inside">
+            <li>Creative & Entrepreneurial Careers Committee — UCD</li>
+            <li>GTT Certificate of Recognition — Barclays, 2024</li>
+            <li>Pat on the Back Award — HSBC, 2019</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAL REFLECTION -->
+    <section id="reflection" class="py-12 bg-[linear-gradient(90deg,#fff6f3,#fffaf0)]">
+      <div class="max-w-4xl mx-auto px-6 text-center reveal">
+        <h2 class="text-3xl font-extrabold text-rose-800 mb-4">Personal Reflection</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Every phase of my journey — from leading classroom teams as a young student to managing global delivery programs — has shaped my belief that leadership isn’t about control, but connection. I find joy in helping people feel seen, heard, and valued. My calm nature, eye for detail, and empathy help me build trust and balance even in high-pressure environments. At my core, I’m driven by purpose — to keep learning, leading, and creating spaces where others can thrive alongside me.
+        </p>
+        <p class="mt-6 font-semibold text-rose-800">— Neetu 🌼 | Calm Leader, Creative Thinker, Empathetic Soul</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-12">
+      <div class="max-w-4xl mx-auto px-6 text-center reveal">
+        <h2 class="text-3xl font-extrabold text-rose-800 mb-3">Get in Touch</h2>
+        <p class="text-gray-700 mb-4">I’m always open to meaningful conversations, collaborations, and opportunities to learn and grow together.</p>
+        <div class="flex justify-center gap-4">
+          <a class="btn btn--primary" href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn--muted" href="mailto:neeturoych@gmail.com">Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-rose-50 mt-8">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="text-sm text-gray-500">© <span id="year"></span> Neetu Roy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          o.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
