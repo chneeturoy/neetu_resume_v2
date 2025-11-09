@@ -14,656 +14,355 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9; /* slate-100 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #94a3b8; /* slate-400 */
-            border-radius: 4px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
 
-        /* Set base font */
-        body {
-            font-family: 'DM Sans', sans-serif;
-        }
-        /* Set heading font */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Manrope', sans-serif;
-        }
+        body { font-family: 'DM Sans', sans-serif; }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Manrope', sans-serif; }
+        html { scroll-padding-top: 80px; }
 
-        /* Add padding-top to account for sticky header when navigating */
-        html {
-            scroll-padding-top: 80px; /* Adjust based on header height */
-        }
-        
-        /* Keyframes for animated gradient text */
-        @keyframes shimmer {
-            0% { background-position: -500% 50%; }
-            100% { background-position: 500% 50%; }
-        }
-        .animate-shimmer {
-            background-image: linear-gradient(to right, #4f46e5, #7c3aed, #db2777, #7c3aed, #4f46e5);
-            background-size: 500% 100%;
-            animation: shimmer 10s linear infinite;
-        }
-        
-        /* Keyframes for pulse animation (scroll-down arrow) */
-        @keyframes pulse-y {
-            0%, 100% {
-                transform: translateY(0);
-                opacity: 0.7;
-            }
-            50% {
-                transform: translateY(8px);
-                opacity: 1;
-            }
-        }
-        .animate-pulse-y {
-            animation: pulse-y 2s infinite;
-        }
+        @keyframes shimmer { 0% { background-position: -500% 50%; } 100% { background-position: 500% 50%; } }
+        .animate-shimmer { background-image: linear-gradient(to right, #4f46e5, #7c3aed, #db2777, #7c3aed, #4f46e5); background-size: 500% 100%; animation: shimmer 10s linear infinite; }
+        @keyframes pulse-y { 0%,100%{transform:translateY(0);opacity:0.7}50%{transform:translateY(8px);opacity:1} }
+        .animate-pulse-y { animation: pulse-y 2s infinite; }
 
-        /* --- Keyframes for Hero Load-in Animation --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        /* --- Hero Animation Utility Classes --- */
-        .animate-fadeInDown { animation: fadeInDown 1s ease-out both; }
-        .animate-fadeInUp { animation: fadeInUp 1s ease-out both; }
-        .animate-fadeIn { animation: fadeIn 1s ease-out both; }
-        .animate-zoomIn { animation: zoomIn 0.8s ease-out both; }
+        @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
+        @keyframes fadeInUp { from { opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+        @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+        @keyframes zoomIn { from {opacity:0; transform:scale(0.95);} to {opacity:1; transform:scale(1);} }
+        .animate-fadeInDown{animation:fadeInDown 1s ease-out both;}
+        .animate-fadeInUp{animation:fadeInUp 1s ease-out both;}
+        .animate-fadeIn{animation:fadeIn 1s ease-out both;}
+        .animate-zoomIn{animation:zoomIn .8s ease-out both;}
 
-        /* --- On-scroll animation classes --- */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, transform;
-        }
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal-on-scroll { opacity:0; transform:translateY(30px); transition: opacity .8s ease-out, transform .8s ease-out; will-change:opacity,transform; }
+        .reveal-on-scroll.is-visible { opacity:1; transform:translateY(0); }
 
-        /* --- Active Nav Link Style --- */
-        .nav-link-active {
-            color: #4f46e5; /* indigo-600 */
-            font-weight: 700;
-        }
-
+        .nav-link-active { color:#4f46e5; font-weight:700; }
     </style>
-    
 </head>
+<body class="bg-slate-50 text-slate-900 antialiased relative z-0">
 
- <body class="bg-slate-50 text-slate-900 antialiased relative z-0">
+<!-- HEADER -->
+<header class="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/80 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="#home"><span class="text-xl font-bold text-slate-900">Neetu Roy</span></a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#about" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">About</a>
+        <a href="#experience" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Experience</a>
+        <a href="#skills" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Skills</a>
+        <a href="#education" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Education</a>
+        <a href="#contact" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="p-2 rounded-md text-slate-500 hover:bg-slate-100" aria-label="Open menu" aria-expanded="false">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#about" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">About</a>
+        <a href="#experience" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Experience</a>
+        <a href="#skills" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Skills</a>
+        <a href="#education" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Education</a>
+        <a href="#contact" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <!-- ========== HEADER ========== -->
-   <header class="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/80 border-b border-slate-200 transition-colors duration-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo / Name -->
-                <a href="#home" class="flex-shrink-0">
-                   <!-- Using "Neetu Roy" for branding -->
-                   <span class="text-xl font-bold text-slate-900">Neetu Roy</span>
-                </a>
-                
-                <!-- Navigation -->
-                <nav class="hidden md:flex space-x-8">
-                   <a href="#about" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">About</a>
-                   <a href="#experience" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Experience</a>
-                   <a href="#skills" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Skills</a>
-                   <a href="#education" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Education</a>
-                   <a href="#contact" class="nav-link text-base font-medium text-slate-600 hover:text-indigo-600 transition-colors">Contact</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <div class="flex items-center gap-4">
-                   <div class="md:hidden">
-                       <button id="mobile-menu-button" class="p-2 rounded-md text-slate-500 hover:bg-slate-100" aria-label="Open menu" aria-expanded="false">
-                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#about" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">About</a>
-                    <a href="#experience" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Experience</a>
-                    <a href="#skills" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Skills</a>
-                    <a href="#education" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Education</a>
-                    <a href="#contact" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100">Contact</a>
-                </div>
-            </div>
+<main>
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex items-center justify-center py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold animate-fadeInDown"><span class="bg-clip-text text-transparent animate-shimmer">Neetu Roy</span></h1>
+        <h2 class="text-3xl md:text-5xl font-semibold animate-fadeInUp"><span class="bg-clip-text text-transparent animate-shimmer">Senior IT Project Manager & FinServ Transformation Lead</span></h2>
+        <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 animate-fadeIn">Blending technology, empathy, and strategy to lead meaningful transformation.</p>
+        <div class="flex justify-center gap-4 pt-4 animate-zoomIn">
+          <a href="https://linkedin.com/in/chneeturoy" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700">LinkedIn</a>
+          <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-slate-700 bg-white hover:bg-slate-100">Contact Me</a>
         </div>
-    </header>
+      </div>
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <a href="#about" class="animate-pulse-y" aria-label="Scroll down to about section"><svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7"/></svg></a>
+      </div>
+    </div>
+  </section>
 
-    <!-- ========== MAIN CONTENT ========== -->
-    <main>
+  <div class="space-y-24 md:space-y-32 px-4">
+    <!-- ABOUT -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">About Me</h2>
+        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">A snapshot of my professional background and the values that guide me.</p>
+      </div>
 
-        <!-- ========== HERO SECTION ========== -->
-        <section id="home" class="min-h-screen flex items-center justify-center py-20 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="space-y-6">
-                   <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight animate-fadeInDown" style="animation-delay: 100ms;">
-                        <span class="bg-clip-text text-transparent animate-shimmer">
-                            Neetu Roy
-                        </span>
-                    </h1>
-                    
-                    <h2 class="text-3xl md:text-5xl font-semibold animate-fadeInUp" style="animation-delay: 200ms;">
-                       <span class="bg-clip-text text-transparent animate-shimmer bg-gradient-to-r from-indigo-600 to-purple-600">
-                            Senior IT Project Manager & FinServ Transformation Lead
-                        </span>
-                    </h2>
-                    
-                   <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 animate-fadeIn" style="animation-delay: 300ms;">
-                        Blending technology, empathy, and strategy to lead meaningful transformation.
-                    </p>
-                    
-                    <div class="flex justify-center gap-4 pt-4 animate-zoomIn" style="animation-delay: 400ms;">
-                        <a href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:scale-105 hover:-translate-y-0.5">
-                            <svg class="w-5 h-5" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
-                            LinkedIn
-                        </a>
-                       <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-base font-medium rounded-lg text-slate-700 bg-white hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:scale-105 hover:-translate-y-0.5">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Scroll Down Arrow -->
-                <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
-                    <a href="#about" class="animate-pulse-y" aria-label="Scroll down to about section">
-                        <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7"></path></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
- 
-        <div class="space-y-24 md:space-y-32 overflow-hidden px-4">
-            <!-- ========== ABOUT ME SECTION ========== -->
-            <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 reveal-on-scroll">
-                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
-                        About Me
-                    </h2>
-                   <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">A snapshot of my professional background and the values that guide me.</p>
-                </div>
-                
-                <!-- New layout with grid for headshot -->
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-                    <!-- Headshot Image -->
-                    <div class="md:col-span-2 reveal-on-scroll" style="transition-delay: 100ms;">
-                        <img src="DSC01788.jpg" 
-                             alt="Headshot of Neetu Roy" 
-                             class="rounded-xl shadow-2xl w-full h-auto object-cover aspect-square" 
-                             onerror="this.src='https://placehold.co/600x600/e0e7ff/4f46e5?text=Neetu+Roy'; this.onerror=null;">
-                    </div>
-                    
-                    <!-- About Me Text -->
-                    <div class="md:col-span-3 text-lg text-slate-600 space-y-6 text-left">
-                        <p class="reveal-on-scroll" style="transition-delay: 200ms;">
-                            I’m a Senior IT Project Manager and Delivery Lead with 14 years of experience delivering large-scale transformations for banking and financial services. I work across Agile, DevOps and hybrid delivery models and have led multi-stream programmes spanning global teams.
-                        </p>
-                        <p class="reveal-on-scroll" style="transition-delay: 300ms;">
-                            Beyond delivery and governance, I’m passionate about building emotionally aware teams and creating clarity amid complexity. My leadership philosophy blends empathy, structure and curiosity — helping teams perform with both precision and purpose.
-                        </p>
-                        <p class="reveal-on-scroll" style="transition-delay: 400ms;">
-                           I’m currently expanding my strategic toolkit through an <strong class="font-semibold text-slate-800">MSc in Project Management at UCD Smurfit Business School</strong>, pairing practical experience
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ========== EXPERIENCE SECTION ========== -->
-            <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 reveal-on-scroll">
-                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
-                        Career Experience
-                    </h2>
-                   <p class="mt-4 text-lg text-indigo-600 font-semibold">My Professional Journey</p>
-               </div>
-
-               <ol class="relative border-l-2 border-indigo-500">                  
-                    <!-- Barclays -->
-                    <li class="mb-10 ml-4 reveal-on-scroll">
-                       <!-- Removed icon span that was here -->
-                       <h3 class="flex items-center text-2xl font-semibold text-slate-900">
-                            Assistant Vice President - Project Manager
-                           <span class="bg-indigo-100 text-indigo-800 text-sm font-medium ml-2 px-2.5 py-0.5 rounded">Latest</span>
-                        </h3>
-                       <p class="block text-lg font-normal leading-none text-slate-500">Barclays Global Service Center, Pune</p>
-                       <time class="block mb-4 text-base font-normal leading-none text-slate-400">Jun 2024 - Aug 2025</time>
-                       <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 text-left transition-all duration-300 hover:shadow-lg hover:border-slate-300">
-                           <h4 class="text-lg font-semibold text-indigo-700 mb-2">Asia UBS Upgrade Program (12.x to 14.x)</h4>
-                           <ul class="space-y-3 text-base text-slate-600">
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span>Defined program scope, delivery strategy, and risk-based go/no-go decisions.</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span>Leveraged AI for risk assessment and test optimisation, reducing rework and testing cycles.</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span>Managed ETL workloads and coordinated 20-30 downstream integrations across multiple teams.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    
-                    <!-- Persistent Systems -->
-                    <li class="mb-10 ml-4 reveal-on-scroll">
-                       <!-- Removed icon span that was here -->
-                       <h3 class="text-2xl font-semibold text-slate-900">Technical Project Manager / Scrum Master</h3>
-                       <p class="block text-lg font-normal leading-none text-slate-500">Persistent Systems Ltd., Pune</p>
-                       <time class="block mb-4 text-base font-normal leading-none text-slate-400">Mar 2024 - Jun 2024</time>
-                       <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 text-left transition-all duration-300 hover:shadow-lg hover:border-slate-300">
-                           <h4 class="text-lg font-semibold text-indigo-700 mb-2">Zebra Technologies Modernization</h4>
-                           <ul class="space-y-3 text-base text-slate-600">
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span>Led client workshops, SOW planning, and managed a modular architecture build (Angular, Flutter).</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span>Implemented DevOps pipelines to accelerate releases and drove continuous process improvements.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    
-                    <!-- HSBC -->
-                    <li class="mb-10 ml-4 reveal-on-scroll">
-                       <!-- Removed icon span that was here -->
-                       <h3 class="text-2xl font-semibold text-slate-900">Consultant Specialist (Delivery Lead / Scrum Master)</h3>
-                       <p class="block text-lg font-normal leading-none text-slate-500">HSBC Technology India Ltd., Pune & New York</p>
-                       <time class="block mb-4 text-base font-normal leading-none text-slate-400">Jul 2011 - Mar 2024</time>
-                       <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 text-left space-y-4 transition-all duration-300 hover:shadow-lg hover:border-slate-300">
-                           <p class="text-base text-slate-600">Progressed from Developer to Team Lead, mentoring 50+ professionals and delivering numerous high-impact projects over 12+ years.</p>
-                            
-                           <h4 class="text-lg font-semibold text-indigo-700">Key Projects:</h4>
-                           <ul class="space-y-3 text-base text-slate-600">
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span><strong>SSDML Integration (2020-2024):</strong> Automated data transfers to 200+ downstream systems, reducing manual effort and data latency.</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span><strong>Global Platform Replacement (2017-2020):</strong> Eliminated dual-entry and EUC inefficiencies, improving governance and data quality.</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                   <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    <span><strong>NORKOM Reconciliation (2016-2017):</strong> Managed requirements, data profiling, and offshore coordination for onsite delivery in New York.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ol>
-            </section>
-
-            <!-- ========== CORE COMPETENCIES / SKILLS SECTION ========== -->
-            <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 reveal-on-scroll">
-                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
-                        Core Competencies
-                    </h2>
-                   <p class="mt-4 text-lg text-indigo-600 font-semibold">My Expertise & Toolkit</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Skill Card: Program Leadership -->
-                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20 border border-transparent hover:border-slate-200 reveal-on-scroll">
-                        <div class="flex items-center gap-4">
-                           <div class="bg-indigo-100 text-indigo-600 rounded-full p-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.28-1.26-.743-1.676M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.28-1.26.743-1.676M12 12c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM6.9 8.015c.9-.43 1.918-.665 3.015-.665s2.115.235 3.015.665M12 12c-.083 0-.164.002-.245.005M12 12c.083 0 .164.002.245.005M12 12v.005"></path></svg>
-                            </div>
-                           <h3 class="text-xl font-bold text-slate-900">Program Leadership</h3>
-                       </div>
-                       <p class="mt-4 text-slate-600">Agile/SAFe delivery, Scrum, Kanban, Waterfall hybrids, release management, and stakeholder alignment.</p>
-                   </div>
-
-                   <!-- Skill Card: Portfolio Management -->
-                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20 border border-transparent hover:border-slate-200 reveal-on-scroll" style="transition-delay: 100ms;">
-                        <div class="flex items-center gap-4">
-                           <div class="bg-indigo-100 text-indigo-600 rounded-full p-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H3a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-2m0 0V5a2 2 0 012-2h4a2 2 0 012 2v10m-6 0v2a4 4 0 004 4h3a2 2 0 002-2v-4a2 2 0 00-2-2h-4a2 2 0 00-2 2z"></path></svg>
-                            </div>
-                           <h3 class="text-xl font-bold text-slate-900">Portfolio Management</h3>
-                       </div>
-                       <p class="mt-4 text-slate-600">PMO setup, scoping, planning, governance, budgeting, and KPI tracking.</p>
-                   </div>
-
-                   <!-- Skill Card: Transformation -->
-                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20 border border-transparent hover:border-slate-200 reveal-on-scroll" style="transition-delay: 200ms;">
-                        <div class="flex items-center gap-4">
-                           <div class="bg-indigo-100 text-indigo-600 rounded-full p-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2.586a8.472 8.472 0 00-5.434-6.046m-3.4-3.398a8.472 8.472 0 00-6.046 5.434m14.88 3.402a8.472 8.472 0 01-5.434 6.046m3.4 3.398a8.472 8.472 0 01-6.046-5.434m-3.4-3.402A8.472 8.472 0 018.5 4.078M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                           <h3 class="text-xl font-bold text-slate-900">Transformation</h3>
-                       </div>
-                       <p class="mt-4 text-slate-600">Data migration, system modernization, and automation for cost savings and faster delivery.</p>
-                   </div>
-
-                   <!-- Skill Card: Banking Domain -->
-                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20 border border-transparent hover:border-slate-200 reveal-on-scroll" style="transition-delay: 0ms;">
-                        <div class="flex items-center gap-4">
-                           <div class="bg-indigo-100 text-indigo-600 rounded-full p-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0 0l-6 2m6-2v7m0 0v6m0-6H6m6 0h6"></path></svg>
-                            </div>
-                           <h3 class="text-xl font-bold text-slate-900">Banking Domain</h3>
-                       </div>
-                       <p class="mt-4 text-slate-600">FX, Derivatives, FIX Protocols, Investment Banking, and Portfolio Management.</p>
-                   </div>
-
-                   <!-- Skill Card: Stakeholder Management -->
-                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20 border border-transparent hover:border-slate-200 reveal-on-scroll" style="transition-delay: 100ms;">
-                        <div class="flex items-center gap-4">
-                           <div class="bg-indigo-100 text-indigo-600 rounded-full p-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-                            </div>
-                           <h3 class="text-xl font-bold text-slate-900">Stakeholder Management</h3>
-                       </div>
-                       <p class="mt-4 text-slate-600">Global cross-functional teams, vendor relations, and offshore/onshore coordination.</p>
-                   </div>
-                   
-                    <!-- Skill Card: Delivery Governance -->
-                   <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/20 border border-transparent hover:border-slate-200 reveal-on-scroll" style="transition-delay: 200ms;">
-                        <div class="flex items-center gap-4">
-                           <div class="bg-indigo-100 text-indigo-600 rounded-full p-3">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002-2h2a2 2 0 002 2M9 5v.01M12 12v5m-3-2.5h6"></path></svg>
-                            </div>
-                           <h3 class="text-xl font-bold text-slate-900">Delivery Governance</h3>
-                       </div>
-                       <p class="mt-4 text-slate-600">KPI tracking, dependency management, risk mitigation, and release coordination.</p>
-                   </div>
-                </div>
-
-                <!-- Tools & Platforms -->
-                <div class="mt-20 reveal-on-scroll">
-                    <h3 class="text-2xl font-bold text-slate-900 text-center mb-10">Tools & Platforms</h3>
-                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-slate-200">
-                        <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
-                            <!-- Technical Skills -->
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Java">
-                                <img src="https://cdn.simpleicons.org/java/007396" class="w-7 h-7" alt="Java logo"> Java
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Spring">
-                                <img src="https://cdn.simpleicons.org/spring/6DB33F" class="w-7 h-7" alt="Spring logo"> Spring
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Python">
-                                <img src="https://cdn.simpleicons.org/python/3776AB" class="w-7 h-7" alt="Python logo"> Python
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="PL/SQL">
-                                <img src="https://cdn.simpleicons.org/oracle/F80000" class="w-7 h-7" alt="Oracle SQL logo"> PL/SQL
-                            </span>
-                             <!-- Tools -->
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Jira">
-                                <img src="https://cdn.simpleicons.org/jira/0052CC" class="w-7 h-7" alt="Jira logo"> Jira
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Confluence">
-                                <img src="https://cdn.simpleicons.org/confluence/172B4D" class="w-7 h-7" alt="Confluence logo"> Confluence
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="ServiceNow">
-                                <img src="https://cdn.simpleicons.org/servicenow/81B549" class="w-7 h-7" alt="ServiceNow logo"> ServiceNow
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Git">
-                                <img src="https://cdn.simpleicons.org/git/F05032" class="w-7 h-7" alt="Git logo"> Git
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Jenkins">
-                                <img src="https://cdn.simpleicons.org/jenkins/D24939" class="w-7 h-7" alt="Jenkins logo"> Jenkins
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Ansible">
-                                <img src="https://cdn.simpleicons.org/ansible/EE0000" class="w-7 h-7" alt="Ansible logo"> Ansible
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Smartsheet">
-                                <img src="https://cdn.simpleicons.org/smartsheet/0085C7" class="w-7 h-7" alt="Smartsheet logo"> Smartsheet
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="ChatGPT (OpenAI)">
-                                <img src="https://cdn.simpleicons.org/openai/412991" class="w-7 h-7" alt="OpenAI logo"> ChatGPT
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="Gemini (Google)">
-                                <img src="https://cdn.simpleicons.org/google/4285F4" class="w-7 h-7" alt="Google logo"> Gemini
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="IntelliJ IDEA">
-                                <img src="https://cdn.simpleicons.org/intellijidea/000000" class="w-7 h-7" alt="IntelliJ IDEA logo"> IntelliJ
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="YAML">
-                                <img src="https://cdn.simpleicons.org/yaml/CB171E" class="w-7 h-7" alt="YAML logo"> YAML
-                            </span>
-                            <span class="inline-flex items-center gap-2 text-lg font-medium text-slate-700" title="BMC Control-M">
-                                <svg class="w-7 h-7 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                Control-M
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ========== EDUCATION, AWARDS & CERTS ========== -->
-            <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 reveal-on-scroll">
-                   <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
-                        Education & Credentials
-                    </h2>
-                   <p class="mt-4 text-lg text-indigo-600 font-semibold">My Academic & Professional Qualifications</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    
-                    <!-- Education -->
-                    <div class="lg:col-span-1 reveal-on-scroll">
-                       <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                           <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m0 0A5.002 5.002 0 0112 21a5.002 5.002 0 01-4.998-5.251M12 17.747A5.002 5.002 0 0116.998 12.5c0-1.666-.83-3.14-2.073-4.037m-1.853 8.284A5.002 5.002 0 0012 21a5.002 5.002 0 004.998-5.251M12 17.747A5.002 5.002 0 007.002 12.5c0-1.666.83-3.14 2.073-4.037m1.853 8.284A5.002 5.002 0 0112 3a5.002 5.002 0 014.998 5.251M12 3A5.002 5.002 0 007.002 8.251m1.853 8.284A5.002 5.002 0 0112 3c0 1.666-.83 3.14-2.073 4.037M12 3v14.747"></path></svg>
-                            Education
-                        </h3>
-                        <div class="space-y-6">
-                           <div class="p-5 bg-white rounded-lg shadow-sm border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-                               <h4 class="text-lg font-semibold text-slate-800">Master of Science in Project Management</h4>
-                               <p class="text-slate-500">UCD Smurfit Business School, Dublin</p>
-                               <p class="text-sm text-slate-400">(In progress, 2025-2026)</p>
-                           </div>
-                           <div class="p-5 bg-white rounded-lg shadow-sm border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-                               <h4 class="text-lg font-semibold text-slate-800">B.E. Computer Science</h4>
-                               <p class="text-slate-500">G.H. Raisoni College of Engineering, Nagpur University</p>
-                               <p class="text-sm text-slate-400">(2011)</p>
-                           </div>
-                        </div>
-                    </div>
-
-                    <!-- Certifications -->
-                    <div class="lg:col-span-1 reveal-on-scroll" style="transition-delay: 100ms;">
-                       <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                           <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                            Certifications
-                        </h3>
-                        <div class="space-y-3">
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">Professional Scrum Master (PSM I) - 2021</p>
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">Certified Java Proficient - HSBC, 2016</p>
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">Certified Java Learner - HSBC, 2012</p>
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">LOMA 280 - Insurance Certification - 2012</p>
-                        </div>
-                    </div>
-
-                    <!-- Awards -->
-                    <div class="lg:col-span-1 reveal-on-scroll" style="transition-delay: 200ms;">
-                       <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                           <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H2m0 0h5m0 0v-5a1 1 0 011-1h4a1 1 0 011 1v5m-5 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m0 0V5a2 2 0 012-2h2a2 2 0 012 2v16m0 0h-2"></path></svg>
-                            Awards & Achievements
-                        </h3>
-                        <div class="space-y-3">
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">Creative & Entrepreneurial Careers Committee, UCD</p>
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">PMI Ireland Student Club Member</p>
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">GTT Certificate of Recognition - Barclays, 2024</p>
-                           <p class="p-4 bg-white rounded-lg shadow-sm border border-slate-200 text-slate-700 font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">Pat on the Back Award - HSBC, 2019</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ========== CONTACT SECTION ========== -->
-            <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl shadow-xl overflow-hidden p-12 md:p-16 reveal-on-scroll">
-                    <div class="text-center">
-                        <h2 class="text-4xl md:text-5xl font-extrabold">
-                            Get in Touch
-                        </h2>
-                       <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-indigo-100">
-                            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-                        </p>
-                        
-                        <div class="mt-10 flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8">
-                            <!-- Email -->
-                            <a href="mailto:engg.neeturoych@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 border border-transparent text-lg font-medium rounded-lg text-indigo-700 bg-white hover:bg-indigo-50 transition-all transform hover:scale-105 hover:-translate-y-0.5">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                engg.neeturoych@gmail.com
-                            </a>
-                            
-                            <!-- Phone -->
-                            <div class="inline-flex items-center gap-3 px-8 py-4 text-lg font-medium rounded-lg text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.042 11.042 0 005.516 5.516l1.154-2.308a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                (+353) 0894671634
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-        </div> <!-- End content sections wrapper -->
-
-    </main>
-    
-    <!-- ========== FOOTER ========== -->
-   <footer class="bg-slate-100 border-t border-slate-200 mt-24 md:mt-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-               <p class="text-sm text-slate-500">
-                    &copy; <span id="current-year"></span> Neetu Roy. All rights reserved.
-                </p>
-                
-                <div class="flex space-x-6">
-                   <a href="https://linkedin.com/in/chneeturoy" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 transition-colors">
-                        <span class="sr-only">LinkedIn</span>
-                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://wwwmg.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
-                    </a>
-                   <a href="mailto:engg.neeturoych@gmail.com" class="text-slate-400 hover:text-indigo-600 transition-colors">
-                        <span class="sr-only">Email</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
-                    </a>
-                </div>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+        <div class="md:col-span-2 reveal-on-scroll" style="transition-delay:100ms;">
+          <img src="DSC01788.jpg" alt="Headshot of Neetu Roy" class="rounded-xl shadow-2xl w-full h-auto object-cover aspect-square" onerror="this.src='https://placehold.co/600x600/e0e7ff/4f46e5?text=Neetu+Roy'; this.onerror=null;">
         </div>
-    </footer>
-    
-    
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        <div class="md:col-span-3 text-lg text-slate-600 space-y-6 text-left">
+          <p class="reveal-on-scroll" style="transition-delay:200ms;">I’m a Senior IT Project Manager and Delivery Lead with 14 years of experience delivering large-scale transformations for banking and financial services. I work across Agile, DevOps and hybrid delivery models and have led multi-stream programmes spanning global teams.</p>
+          <p class="reveal-on-scroll" style="transition-delay:300ms;">Beyond delivery and governance, I’m passionate about building emotionally aware teams and creating clarity amid complexity. My leadership philosophy blends empathy, structure and curiosity — helping teams perform with both precision and purpose.</p>
+          <p class="reveal-on-scroll" style="transition-delay:400ms;">I’m currently expanding my strategic toolkit through an <strong class="font-semibold text-slate-800">MSc in Project Management at UCD Smurfit Business School</strong>, pairing practical experience with formal learning.</p>
+        </div>
+      </div>
 
-            // --- Mobile Menu Toggle ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuLinks = mobileMenu.querySelectorAll('a.nav-link-mobile');
+      <!-- BEYOND WORK -->
+      <div class="mt-12 max-w-4xl mx-auto reveal-on-scroll" style="transition-delay:500ms;">
+        <h3 class="text-2xl font-semibold text-slate-900 mb-4">Beyond Work</h3>
+        <p class="text-slate-600">Outside the office, I value curiosity, creativity and meaningful connection. I enjoy photography, exploring design and fashion, and spending sunny moments with my little one. These interests shape how I lead — with empathy, balance and a focus on human-centred outcomes.</p>
 
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-                    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                });
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+            <h4 class="font-semibold text-slate-900">Photography</h4>
+            <p class="text-slate-600 mt-2">Capturing candid moments helps me notice small details — a skill I bring to stakeholder management and team empathy.</p>
+          </div>
+          <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+            <h4 class="font-semibold text-slate-900">Creative Design</h4>
+            <p class="text-slate-600 mt-2">I love exploring visual ideas and aesthetics — it informs how I present work and communicate vision.</p>
+          </div>
+          <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+            <h4 class="font-semibold text-slate-900">Family & Balance</h4>
+            <p class="text-slate-600 mt-2">Being a parent keeps me grounded and reminds me that leadership is deeply human.</p>
+          </div>
+        </div>
+      </div>
 
-                // Close mobile menu when a link is clicked
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenuButton.setAttribute('aria-expanded', 'false');
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
-            }
-        
-            // --- Active Nav Link on Scroll ---
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a.nav-link');
+      <!-- CORE VALUES -->
+      <div class="mt-12 max-w-4xl mx-auto reveal-on-scroll" style="transition-delay:600ms;">
+        <h3 class="text-2xl font-semibold text-slate-900 mb-4">Core Values</h3>
+        <div class="flex flex-wrap gap-4">
+          <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full">Empathy</span>
+          <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full">Integrity</span>
+          <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full">Curiosity</span>
+          <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full">Calm Leadership</span>
+        </div>
+      </div>
 
-            const observerOptions = {
-                root: null, // relative to viewport
-                rootMargin: '-50% 0px -50% 0px', // trigger at the vertical center of the viewport
-                threshold: 0
-            };
+      <!-- WHAT DRIVES ME -->
+      <div class="mt-12 max-w-4xl mx-auto reveal-on-scroll" style="transition-delay:700ms;">
+        <h3 class="text-2xl font-semibold text-slate-900 mb-4">What Drives Me</h3>
+        <p class="text-slate-600">I believe leadership is a bridge — connecting people, strategy, and innovation. I’m driven by the chance to help teams grow, to turn complex problems into clear paths, and to build outcomes that matter.</p>
+      </div>
+    </section>
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        
-                        // Remove active class from all links
-                        navLinks.forEach(link => {
-                            link.classList.remove('nav-link-active');
-                        });
+    <!-- EXPERIENCE -->
+    <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">Career Experience</h2>
+        <p class="mt-4 text-lg text-indigo-600 font-semibold">My Professional Journey</p>
+      </div>
 
-                        // Add active class to the corresponding link
-                        const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-                        if (activeLink) {
-                            activeLink.classList.add('nav-link-active');
-                        }
-                    }
-                });
-            }, observerOptions);
+      <ol class="relative border-l-2 border-indigo-500">
+        <li class="mb-10 ml-4 reveal-on-scroll">
+          <h3 class="flex items-center text-2xl font-semibold text-slate-900">Assistant Vice President - Project Manager <span class="bg-indigo-100 text-indigo-800 text-sm font-medium ml-2 px-2.5 py-0.5 rounded">Latest</span></h3>
+          <p class="text-lg text-slate-500">Barclays Global Service Center, Pune — Jun 2024 - Aug 2025</p>
+          <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 mt-4">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">Asia UBS Upgrade Program (12.x to 14.x)</h4>
+            <ul class="space-y-3 text-base text-slate-600">
+              <li>Defined program scope and risk-based go/no-go decisions.</li>
+              <li>Leveraged AI for risk assessment and test optimisation.</li>
+              <li>Managed ETL workloads and coordinated multiple integrations.</li>
+            </ul>
+          </div>
+        </li>
 
-            // Observe each section
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+        <li class="mb-10 ml-4 reveal-on-scroll">
+          <h3 class="text-2xl font-semibold text-slate-900">Technical Project Manager / Scrum Master</h3>
+          <p class="text-lg text-slate-500">Persistent Systems Ltd., Pune — Mar 2024 - Jun 2024</p>
+          <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 mt-4">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">Zebra Technologies Modernization</h4>
+            <ul class="space-y-3 text-base text-slate-600">
+              <li>Led client workshops, SOW planning, and modular architecture build.</li>
+              <li>Implemented DevOps pipelines to accelerate releases.</li>
+            </ul>
+          </div>
+        </li>
 
-            
-            // --- On-Scroll Animations ---
-            const revealElements = document.querySelectorAll('.reveal-on-scroll');
-            
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Animate only once
-                    }
-                });
-            }, {
-                threshold: 0.1 // Trigger when 10% of the element is visible
-            });
+        <li class="mb-10 ml-4 reveal-on-scroll">
+          <h3 class="text-2xl font-semibold text-slate-900">Consultant Specialist (Delivery Lead / Scrum Master)</h3>
+          <p class="text-lg text-slate-500">HSBC Technology India Ltd., Pune & New York — Jul 2011 - Mar 2024</p>
+          <div class="p-6 bg-white rounded-lg shadow-md border border-slate-200 mt-4 space-y-4">
+            <p class="text-base text-slate-600">Progressed from Developer to Team Lead, mentoring 50+ professionals and delivering numerous high-impact projects.</p>
+            <h4 class="text-lg font-semibold text-indigo-700">Key Projects:</h4>
+            <ul class="space-y-3 text-base text-slate-600">
+              <li><strong>SSDML Integration (2020-2024):</strong> Automated data transfers to 200+ downstream systems.</li>
+              <li><strong>Global Platform Replacement (2017-2020):</strong> Improved governance and data quality.</li>
+              <li><strong>NORKOM Reconciliation (2016-2017):</strong> Managed requirements and offshore coordination for onsite delivery in New York.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-            revealElements.forEach(el => {
-                revealObserver.observe(el);
-            });
+    <!-- SKILLS -->
+    <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">Core Competencies</h2>
+        <p class="mt-4 text-lg text-indigo-600 font-semibold">My Expertise & Toolkit</p>
+      </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 reveal-on-scroll">
+          <h3 class="text-xl font-bold">Program Leadership</h3>
+          <p class="text-slate-600 mt-2">Agile/SAFe delivery, Scrum, Kanban, hybrid models, release management.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 reveal-on-scroll">
+          <h3 class="text-xl font-bold">Portfolio Management</h3>
+          <p class="text-slate-600 mt-2">PMO setup, governance, budgeting, and KPI tracking.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 reveal-on-scroll">
+          <h3 class="text-xl font-bold">Transformation</h3>
+          <p class="text-slate-600 mt-2">Data migration, system modernization, automation for efficiency.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 reveal-on-scroll">
+          <h3 class="text-xl font-bold">Banking Domain</h3>
+          <p class="text-slate-600 mt-2">FX, Derivatives, FIX, Investment Banking, Portfolio Management.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 reveal-on-scroll">
+          <h3 class="text-xl font-bold">Stakeholder Management</h3>
+          <p class="text-slate-600 mt-2">Global cross-functional teams, vendor relations, offshore/onshore coordination.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 reveal-on-scroll">
+          <h3 class="text-xl font-bold">Delivery Governance</h3>
+          <p class="text-slate-600 mt-2">KPI tracking, dependency management, risk mitigation.</p>
+        </div>
+      </div>
 
-            // --- Set Current Year in Footer ---
-            const yearEl = document.getElementById('current-year');
-            if (yearEl) {
-                yearEl.textContent = new Date().getFullYear();
-            }
+      <div class="mt-20 reveal-on-scroll">
+        <h3 class="text-2xl font-bold text-slate-900 text-center mb-10">Tools & Platforms</h3>
+        <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+          <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 text-slate-700">
+            <span class="inline-flex items-center gap-2 text-lg font-medium"><img src="https://cdn.simpleicons.org/java/007396" class="w-6 h-6" alt="Java">Java</span>
+            <span class="inline-flex items-center gap-2 text-lg font-medium"><img src="https://cdn.simpleicons.org/python/3776AB" class="w-6 h-6" alt="Python">Python</span>
+            <span class="inline-flex items-center gap-2 text-lg font-medium"><img src="https://cdn.simpleicons.org/jira/0052CC" class="w-6 h-6" alt="Jira">Jira</span>
+            <span class="inline-flex items-center gap-2 text-lg font-medium"><img src="https://cdn.simpleicons.org/confluence/172B4D" class="w-6 h-6" alt="Confluence">Confluence</span>
+            <span class="inline-flex items-center gap-2 text-lg font-medium"><img src="https://cdn.simpleicons.org/openai/412991" class="w-6 h-6" alt="ChatGPT">ChatGPT</span>
+            <span class="inline-flex items-center gap-2 text-lg font-medium"><img src="https://cdn.simpleicons.org/google/4285F4" class="w-6 h-6" alt="Gemini">Gemini</span>
+            <span class="inline-flex items-center gap-2 text-lg font-medium"><img src="https://cdn.simpleicons.org/git/F05032" class="w-6 h-6" alt="Git">Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        }); // End DOMContentLoaded
-    </script>
+    <!-- EDUCATION -->
+    <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">Education & Credentials</h2>
+        <p class="mt-4 text-lg text-indigo-600 font-semibold">Academic & Professional Qualifications</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="reveal-on-scroll">
+          <h3 class="text-2xl font-bold mb-6">Education</h3>
+          <div class="space-y-6">
+            <div class="p-5 bg-white rounded-lg shadow-sm border border-slate-200">
+              <h4 class="text-lg font-semibold">MSc in Project Management</h4>
+              <p class="text-slate-500">UCD Smurfit Business School, Dublin (In progress, 2025-2026)</p>
+            </div>
+            <div class="p-5 bg-white rounded-lg shadow-sm border border-slate-200">
+              <h4 class="text-lg font-semibold">B.E. Computer Science</h4>
+              <p class="text-slate-500">G.H. Raisoni College of Engineering, Nagpur (2011)</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-on-scroll">
+          <h3 class="text-2xl font-bold mb-6">Certifications</h3>
+          <div class="space-y-3">
+            <p class="p-4 bg-white rounded-lg border border-slate-200">Professional Scrum Master (PSM I) - 2021</p>
+            <p class="p-4 bg-white rounded-lg border border-slate-200">Certified Java Proficient - HSBC, 2016</p>
+            <p class="p-4 bg-white rounded-lg border border-slate-200">LOMA 280 - Insurance Certification - 2012</p>
+          </div>
+        </div>
+        <div class="reveal-on-scroll">
+          <h3 class="text-2xl font-bold mb-6">Awards</h3>
+          <div class="space-y-3">
+            <p class="p-4 bg-white rounded-lg border border-slate-200">Creative & Entrepreneurial Careers Committee, UCD</p>
+            <p class="p-4 bg-white rounded-lg border border-slate-200">GTT Certificate of Recognition - Barclays, 2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl shadow-xl p-12 md:p-16 reveal-on-scroll">
+        <div class="text-center">
+          <h2 class="text-4xl md:text-5xl font-extrabold">Get in Touch</h2>
+          <p class="mt-4 max-w-2xl mx-auto text-lg">I'm open to discussing new projects, ideas, or opportunities to be part of your vision.</p>
+          <div class="mt-10 flex flex-col md:flex-row justify-center items-center gap-6">
+            <a href="mailto:neeturoych@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 rounded-lg text-indigo-700 bg-white">neeturoych@gmail.com</a>
+            <div class="inline-flex items-center gap-3 px-8 py-4 rounded-lg text-white">(+353) 0894671634</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-slate-100 border-t border-slate-200 mt-24 md:mt-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="text-sm text-slate-500">&copy; <span id="current-year"></span> Neetu Roy. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="https://linkedin.com/in/chneeturoy" class="text-slate-400 hover:text-indigo-600" target="_blank">LinkedIn</a>
+        <a href="mailto:neeturoych@gmail.com" class="text-slate-400 hover:text-indigo-600">Email</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a.nav-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => link.classList.remove('nav-link-active'));
+        const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add('nav-link-active');
+      }
+    });
+  }, { root:null, rootMargin: '-50% 0px -50% 0px' });
+  sections.forEach(section => observer.observe(section));
+
+  // Reveal on scroll
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Year
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
+</script>
 
 </body>
 </html>
