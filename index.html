@@ -18,13 +18,13 @@
     }
     body {
       font-family: 'DM Sans', sans-serif;
-      background: linear-gradient(180deg, #fff1f2 0%, #fffaf0 40%, #ffffff 100%);
+      background: linear-gradient(180deg, #fff1f2 0%, #fffaf0 50%, #ffffff 100%);
       color: #1f2937;
     }
     h1,h2,h3,h4 { font-family: 'Manrope', sans-serif; }
 
     .portrait {
-      width: 400px; height: 400px; border-radius: 9999px;
+      width: 420px; height: 420px; border-radius: 9999px;
       border: 6px solid var(--gold);
       box-shadow: 0 10px 35px rgba(138,59,63,0.2);
       object-fit: cover;
@@ -49,9 +49,8 @@
     <nav class="hidden md:flex gap-6 text-sm text-rose-700">
       <a href="#about" class="hover:underline">About</a>
       <a href="#beyond" class="hover:underline">Beyond Work</a>
+      <a href="#values" class="hover:underline">Core Values</a>
       <a href="#experience" class="hover:underline">Experience</a>
-      <a href="#skills" class="hover:underline">Skills</a>
-      <a href="#education" class="hover:underline">Education</a>
       <a href="#contact" class="hover:underline">Contact</a>
     </nav>
   </div>
@@ -59,10 +58,11 @@
 
 <!-- HERO -->
 <section id="home" class="min-h-[80vh] flex items-center justify-center px-6">
-  <div class="max-w-7xl w-full grid md:grid-cols-2 gap-10 items-center">
+  <div class="max-w-7xl w-full grid md:grid-cols-2 gap-6 items-center">
     <div>
       <h1 class="text-5xl md:text-6xl font-extrabold text-rose-900">Neetu Roy</h1>
-      <p class="mt-3 italic text-rose-700 text-lg">“Lead with logic, connect with heart.”</p>
+      <p class="mt-2 text-rose-700 text-lg font-medium">Project Manager Empowering Teams with Clarity, Purpose & Empathy</p>
+      <p class="mt-4 italic text-rose-600">“Lead with logic, connect with heart.”</p>
       <p class="mt-2 text-gray-700 max-w-lg">Turning complexity into clarity — with empathy, purpose, and calm.</p>
       <div class="mt-5 flex gap-3">
         <a href="https://linkedin.com/in/chneeturoy" target="_blank" class="px-5 py-2.5 rounded-md bg-rose-600 text-white font-medium hover:bg-rose-700">LinkedIn</a>
@@ -84,48 +84,57 @@
       I blend structure with empathy — ensuring that results are delivered with precision and heart. 
       Currently pursuing my MSc in Project Management at UCD Smurfit Business School, I’m enhancing my strategic, people-first leadership capabilities.
     </p>
+    <p class="text-lg text-gray-700 leading-relaxed mt-4">
+      I’m a happy-go-lucky person and always hopeful, trying to remain positive in life. I’m a very proud mother and wife, blessed with a loving husband and a wonderful son who inspire me every day.
+    </p>
   </div>
 </section>
 
 <!-- BEYOND WORK -->
 <section id="beyond" class="py-16 gradient-bg">
-  <div class="max-w-6xl mx-auto px-6 space-y-10">
-
-    <div class="text-center">
-      <h2 class="text-3xl font-bold text-rose-800">Beyond Work — The Human Side</h2>
-      <p class="text-gray-700 mt-2">What defines me beyond my professional milestones.</p>
-    </div>
+  <div class="max-w-6xl mx-auto px-6 space-y-10 text-center">
+    <h2 class="text-3xl font-bold text-rose-800">Beyond Work — The Human Side</h2>
+    <p class="text-gray-700 max-w-3xl mx-auto">A glimpse into my life, passions, and the values that guide my professional and personal journey.</p>
 
     <div class="grid md:grid-cols-3 gap-8">
-      <!-- The Person I Am -->
-      <div class="section-card p-6 text-center">
+      <div class="section-card p-6">
         <h3 class="text-xl font-semibold text-rose-800 mb-2">The Person I Am</h3>
-        <p class="text-gray-700 leading-relaxed text-sm">
-          Leadership began early in my life — as a class captain and house representative during school, and through college projects that strengthened my love for collaboration. 
-          Being the eldest daughter taught me empathy, responsibility, and courage. 
-          Motherhood reshaped my perspective, grounding me in patience, gratitude, and strength.
+        <p class="text-gray-700 text-sm leading-relaxed">
+          Leadership began early in my life — as a class captain, house representative, and project lead during college. Being the eldest daughter taught me empathy, responsibility, and courage. 
+          Motherhood has reshaped my perspective, grounding me in patience, gratitude, and resilience.
         </p>
       </div>
-
-      <!-- Passions & Joys -->
-      <div class="section-card p-6 text-center">
+      <div class="section-card p-6">
         <h3 class="text-xl font-semibold text-rose-800 mb-2">Passions & Joys</h3>
-        <p class="text-gray-700 leading-relaxed text-sm">
-          I’m a fashion enthusiast who finds joy in expressing creativity through style. 
-          I love listening to music, playing badminton, and spending quality time with my family. 
-          Learning something new always excites me — I believe curiosity keeps life fresh and full of possibility.
+        <p class="text-gray-700 text-sm leading-relaxed">
+          I’m a fashion enthusiast who finds joy in creativity and aesthetics. I love music, badminton, and learning new things that keep my curiosity alive. 
+          Spending time with family and nurturing positivity are my daily sources of energy.
         </p>
       </div>
-
-      <!-- Strengths & Expertise -->
-      <div class="section-card p-6 text-center">
+      <div class="section-card p-6">
         <h3 class="text-xl font-semibold text-rose-800 mb-2">My Strengths & Expertise</h3>
-        <p class="text-gray-700 leading-relaxed text-sm">
-          My calm and structured approach helps teams feel safe and focused. 
-          I value respect, health, and persistence, and I lead with empathy and clarity. 
+        <p class="text-gray-700 text-sm leading-relaxed">
+          My calm and structured approach helps teams feel safe and focused. I value respect, health, and persistence, and I lead with empathy and clarity. 
           My strengths lie in connecting people, nurturing trust, and translating complex challenges into meaningful outcomes.
         </p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section id="values" class="py-12 bg-[#fffefc] text-center">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 mb-4">Core Values</h2>
+    <div class="flex flex-wrap justify-center gap-3">
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Empathy</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Respect</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Persistence</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Integrity</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Growth</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Curiosity</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Health</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full">Calm Leadership</span>
     </div>
   </div>
 </section>
@@ -164,59 +173,30 @@
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- SKILLS -->
-<section id="skills" class="py-16 gradient-bg text-center">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-rose-800 mb-6">Core Competencies & Tools</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="section-card p-6">
-        <h4 class="font-semibold text-rose-800">Program Leadership</h4>
-        <p class="text-gray-700 mt-2 text-sm">Agile/SAFe, Scrum, Kanban, stakeholder alignment, and outcome-driven delivery.</p>
-      </div>
-      <div class="section-card p-6">
-        <h4 class="font-semibold text-rose-800">Delivery Governance</h4>
-        <p class="text-gray-700 mt-2 text-sm">Risk mitigation, dependency mapping, budgeting, and KPI tracking.</p>
-      </div>
-      <div class="section-card p-6">
-        <h4 class="font-semibold text-rose-800">Transformation & Collaboration</h4>
-        <p class="text-gray-700 mt-2 text-sm">Cross-functional team collaboration and digital modernization programs.</p>
-      </div>
+    <!-- VOLUNTEERING -->
+    <div class="section-card p-6 mt-8 text-left">
+      <h3 class="text-xl font-semibold text-rose-800 mb-2">Volunteering Experience</h3>
+      <p class="text-gray-700 text-sm">Worked with CSR teams and attended various community activities such as plantation drives, school visits, and donation camps.</p>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education" class="py-16">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6 text-left">
-    <div class="section-card p-6">
-      <h4 class="font-semibold text-rose-800">Education</h4>
-      <p class="mt-2 text-gray-700 text-sm">MSc Project Management, UCD Smurfit Business School (2025–2026)</p>
-      <p class="mt-1 text-gray-700 text-sm">B.E. Computer Science, G.H. Raisoni College of Engineering (2011)</p>
-    </div>
-    <div class="section-card p-6">
-      <h4 class="font-semibold text-rose-800">Certifications</h4>
-      <ul class="mt-2 list-disc list-inside text-gray-700 text-sm">
-        <li>Professional Scrum Master (PSM I)</li>
-        <li>Certified Java Proficient – HSBC</li>
-        <li>LOMA 280 – Insurance Certification</li>
-      </ul>
-    </div>
-    <div class="section-card p-6">
-      <h4 class="font-semibold text-rose-800">Awards & Recognition</h4>
-      <ul class="mt-2 list-disc list-inside text-gray-700 text-sm">
-        <li>Creative & Entrepreneurial Careers Committee – UCD</li>
-        <li>Certificate of Recognition – Barclays</li>
-        <li>Pat on the Back Award – HSBC</li>
-      </ul>
-    </div>
+<!-- PERSONAL REFLECTION -->
+<section id="reflection" class="py-16 gradient-bg text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 mb-4">Personal Reflection</h2>
+    <p class="text-gray-700 leading-relaxed">
+      Every phase of my journey — from leading classroom teams to managing global projects — has strengthened my belief that leadership isn’t about control, but connection. 
+      I find joy in helping people feel seen, heard, and valued. My calm nature, empathy, and attention to detail help me build trust even in high-pressure environments. 
+      At my core, I’m driven by purpose — to keep learning, leading, and creating spaces where others can thrive alongside me.
+    </p>
+    <p class="mt-6 font-semibold text-rose-800">— Neetu 🌼 | Calm Leader, Creative Thinker, Empathetic Soul</p>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-16 text-center gradient-bg">
+<section id="contact" class="py-16 text-center bg-[#fffefc]">
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-rose-800 mb-4">Get in Touch</h2>
     <p class="text-gray-700 mb-4">I’m always open to meaningful collaborations and conversations.</p>
