@@ -1,139 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Neetu Roy — Project Manager Empowering Teams with Clarity, Purpose & Empathy</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --rose: #f7bfc3;
-      --rose-light: #fff1f2;
-      --ivory: #fffaf0;
-      --gold: #e6b98a;
-      --dark: #8a3b3f;
-      --muted: #6b6b6b;
+    :root{
+      --rose:#f7bfc3; --ivory:#fffaf0; --gold:#e6b98a; --muted:#6b6b6b;
+    }
+    body{ font-family: "DM Sans", sans-serif; background: linear-gradient(180deg,#fff1f2 0%,#fffaf0 50%,#ffffff 100%); color:#1f2937; }
+    h1,h2,h3,h4{ font-family: "Manrope", sans-serif; }
+
+    .name-shimmer{
+      background:linear-gradient(90deg,#8a3b3f,#f7bfc3,#ffd7b5,#8a3b3f);
+      -webkit-background-clip:text; background-clip:text; color:transparent; background-size:300% 100%;
+      animation: shimmer 8s linear infinite; display:inline-block;
+    }
+    @keyframes shimmer{ 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+    .portrait{ width:420px; height:420px; border-radius:9999px; border:6px solid var(--gold); box-shadow:0 10px 35px rgba(138,59,63,0.18); object-fit:cover; object-position:center; }
+    @media (max-width:1024px){ .portrait{ width:300px; height:300px; } }
+    @media (max-width:640px){ .portrait{ width:220px; height:220px; } }
+
+    .section-card{ background:#fffdfc; border:1px solid #fce7eb; border-radius:18px; box-shadow:0 6px 24px rgba(138,59,63,0.06); }
+
+    /* Gallery + animations */
+    .caption{ opacity:0; transform:translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .group:hover .caption, .image-card.show-caption .caption, .image-card:focus .caption{ opacity:1; transform:translateY(0); }
+
+    .reveal{ opacity:0; transform:translateY(36px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.revealed{ opacity:1; transform:translateY(0); }
+
+    /* cinematic wave delay */
+    .image-card:nth-child(1){ transition-delay:.08s } .image-card:nth-child(2){ transition-delay:.16s }
+    .image-card:nth-child(3){ transition-delay:.24s } .image-card:nth-child(4){ transition-delay:.32s }
+    .image-card:nth-child(5){ transition-delay:.40s } .image-card:nth-child(6){ transition-delay:.48s }
+
+    /* family caption golden */
+    .image-card.family .caption{ background: linear-gradient(90deg, rgba(0,0,0,0.64), rgba(230,185,138,0.74)); }
+
+    /* keep image proportions */
+    .image-card img{ aspect-ratio:4/3; object-fit:cover; object-position:center; height:100%; width:100%; display:block; }
+
+    /* make smurfit (3rd item) taller on larger screens */
+    @media(min-width:768px){
+      .image-card.spat--tall img{ aspect-ratio:3/4; object-position:center top; }
+      .gallery-grid { auto-rows: 260px; }
+      .image-card.spat--tall{ grid-row: span 2 / auto; height:540px; }
+      .image-card.family{ height:420px; }
     }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: linear-gradient(180deg, #fff1f2 0%, #fffaf0 50%, #ffffff 100%);
-      color: #1f2937;
+    /* sparkles */
+    .sparkle{ position:absolute; border-radius:50%; pointer-events:none; filter: blur(1px); opacity:0.6;
+      background: radial-gradient(circle, #f7bfc3 0%, #ffd7b5 55%, transparent 100%); animation: floatSparkles 10s linear infinite; }
+    @keyframes floatSparkles{
+      0%{ transform: translateY(0) scale(.9); opacity:.45 }
+      50%{ transform: translateY(-60px) scale(1); opacity:.95 }
+      100%{ transform: translateY(-140px) scale(.85); opacity:.25 }
     }
 
-    h1,h2,h3,h4 { font-family: 'Manrope', sans-serif; }
-
-    .name-shimmer {
-      background: linear-gradient(90deg, #8a3b3f, #f7bfc3, #ffd7b5, #8a3b3f);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      background-size: 300% 100%;
-      animation: shimmer 8s linear infinite;
-      display: inline-block;
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 0% 50% }
-      50% { background-position: 100% 50% }
-      100% { background-position: 0% 50% }
-    }
-
-    .portrait {
-      width: 420px; height: 420px; border-radius: 9999px;
-      border: 6px solid var(--gold);
-      box-shadow: 0 10px 35px rgba(138,59,63,0.18);
-      object-fit: cover;
-    }
-
-    .section-card {
-      background: #fffdfc;
-      border: 1px solid #fce7eb;
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(138,59,63,0.06);
-    }
-
-    .gradient-bg { background: linear-gradient(90deg,#fff6f3,#fffaf0); }
-
-    @media (max-width: 1024px) {
-      .portrait { width: 300px; height: 300px; }
-    }
-    @media (max-width: 640px) {
-      .portrait { width: 220px; height: 220px; }
-    }
-
-    footer { color: var(--muted); }
-
-    /* ---- My World in Pictures Animations ---- */
-    .caption {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .group:hover .caption,
-    .image-card.show-caption .caption,
-    .image-card:focus .caption {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Row fade delay (cinematic flow) */
-    .image-card:nth-child(1) { transition-delay: 0.1s; }
-    .image-card:nth-child(2) { transition-delay: 0.2s; }
-    .image-card:nth-child(3) { transition-delay: 0.3s; }
-    .image-card:nth-child(4) { transition-delay: 0.4s; }
-    .image-card:nth-child(5) { transition-delay: 0.5s; }
-    .image-card:nth-child(6) { transition-delay: 0.6s; }
-
-    /* Golden fade for family photo caption */
-    .image-card:last-child .caption {
-      background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(230,185,138,0.7));
-    }
-
-    /* Maintain proportions */
-    .image-card img {
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
-
-    @media (min-width:768px) {
-      .image-card:nth-child(3) img { aspect-ratio: 3/4; } /* Smurfit taller */
-    }
-
-    /* Footer fade */
-    @keyframes fadeInFooter {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeInFooter {
-      animation: fadeInFooter 2s ease-in-out 0.3s forwards;
-    }
+    /* footer fade */
+    @keyframes fadeInFooter { from{ opacity:0; transform:translateY(10px)} to{ opacity:1; transform:translateY(0) } }
+    .animate-fadeInFooter{ animation: fadeInFooter 2s ease-in-out .3s forwards; color:var(--muted); }
   </style>
 </head>
 <body>
 
 <header class="sticky top-0 bg-white/75 backdrop-blur-md border-b border-rose-50 z-40">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <span class="text-lg font-bold text-rose-800">Neetu Roy</span>
     <nav class="hidden md:flex gap-6 text-sm text-rose-700">
       <a href="#about" class="hover:underline">About</a>
       <a href="#beyond" class="hover:underline">Beyond Work</a>
-      <a href="#values" class="hover:underline">Core Values</a>
+      <a href="#moments" class="hover:underline">My World</a>
       <a href="#experience" class="hover:underline">Experience</a>
       <a href="#education" class="hover:underline">Education</a>
       <a href="#contact" class="hover:underline">Contact</a>
@@ -143,11 +86,9 @@
 
 <!-- HERO -->
 <section id="home" class="min-h-[78vh] flex items-center px-6">
-  <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 items-center">
+  <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 items-center gap-8">
     <div>
-      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-        <span class="name-shimmer">Neetu Roy</span>
-      </h1>
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight"><span class="name-shimmer">Neetu Roy</span></h1>
       <p class="mt-2 text-rose-700 text-lg font-medium">Project Manager Empowering Teams with Clarity, Purpose & Empathy</p>
       <p class="mt-4 italic text-rose-600">“Lead with logic, connect with heart.”</p>
       <p class="mt-2 text-gray-700 max-w-lg">Transforming complexity into progress — driven by strength, integrity, and the will to thrive.</p>
@@ -163,72 +104,272 @@
   </div>
 </section>
 
-<!-- MY WORLD IN PICTURES -->
-<section id="moments" class="py-16 bg-gradient-to-b from-[#fffdfc] via-[#fffaf0] to-[#fffefc] text-center">
+<!-- ABOUT -->
+<section id="about" class="py-14">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-rose-800 mb-4">About Me</h2>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      I’m a Senior IT Project Manager and Delivery Lead with over 14 years of experience in the Banking and Financial Services sector.
+      I blend structure with empathy — ensuring results are delivered with precision and heart. Currently pursuing my MSc in Project Management at UCD Smurfit Business School, I’m strengthening my strategic, people-first leadership capabilities.
+    </p>
+    <p class="text-lg text-gray-700 leading-relaxed mt-4">
+      I’m a happy-go-lucky person and always hopeful, trying to remain positive in life. I’m a very proud mother and wife — blessed with a loving husband and a wonderful son who inspire me every day.
+    </p>
+  </div>
+</section>
+
+<!-- BEYOND WORK -->
+<section id="beyond" class="py-14 bg-gradient-to-r from-[#fff6f3] to-[#fffaf0]">
   <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl font-bold text-rose-800">Beyond Work — What Defines Me</h2>
+      <p class="text-gray-700 mt-2">A glimpse into my life, passions and what I bring to teams beyond my CV.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="section-card p-6">
+        <h3 class="text-xl text-rose-800 mb-2">The Person I Am</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          Leadership started young — class captain and house representative in school, and project lead in college. Being the eldest daughter shaped my sense of responsibility, empathy and resilience.
+          Motherhood taught me patience, strength and perspective — qualities I bring into my leadership every day.
+        </p>
+      </div>
+
+      <div class="section-card p-6">
+        <h3 class="text-xl text-rose-800 mb-2">Passions & Joys</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          I love fashion as a creative outlet, listening to music, and playing badminton for fun and fitness.
+          I’m curious by nature and love learning new things — which keeps both my energy and creativity alive.
+        </p>
+      </div>
+
+      <div class="section-card p-6">
+        <h3 class="text-xl text-rose-800 mb-2">My Strengths & Expertise</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          I lead calmly and clearly, focusing on trust, clarity and practical outcomes. I value respect, health and persistence, and specialise in connecting people, translating complexity into action, and nurturing resilient teams.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 text-center mb-8">Career Experience</h2>
+
+    <div class="space-y-6">
+      <div class="section-card p-6">
+        <h3 class="text-xl font-semibold text-gray-900">Assistant Vice President - Project Manager</h3>
+        <p class="text-sm text-gray-500">Barclays Global Service Center, Pune • Jun 2024 – Aug 2025</p>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Defined program scope, delivery strategy, and risk-based go/no-go criteria.</li>
+          <li>Implemented AI-driven testing and risk optimisation.</li>
+          <li>Led ETL workloads across multiple cross-functional teams.</li>
+        </ul>
+      </div>
+
+      <div class="section-card p-6">
+        <h3 class="text-xl font-semibold text-gray-900">Technical Project Manager / Scrum Master</h3>
+        <p class="text-sm text-gray-500">Persistent Systems Ltd., Pune • Mar 2024 – Jun 2024</p>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Facilitated client workshops, sprint planning, and release strategy.</li>
+          <li>Implemented DevOps pipelines and automation improvements.</li>
+        </ul>
+      </div>
+
+      <div class="section-card p-6">
+        <h3 class="text-xl font-semibold text-gray-900">Consultant Specialist (Delivery Lead / Scrum Master)</h3>
+        <p class="text-sm text-gray-500">HSBC Technology India Ltd., Pune & New York • Jul 2011 – Mar 2024</p>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Progressed from Developer to Team Lead over 12+ years of growth.</li>
+          <li>Delivered key modernization and data integration programmes.</li>
+          <li>Mentored 50+ professionals across global agile teams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VOLUNTEERING -->
+    <div class="section-card p-6 mt-8">
+      <h3 class="text-xl text-rose-800 mb-2">Volunteering Experience</h3>
+      <p class="text-gray-700 text-sm">Worked with CSR teams and attended various community activities such as plantation drives, school visits, and donation camps.</p>
+    </div>
+
+    <!-- EXTRA-CURRICULAR -->
+    <div class="section-card p-6 mt-8">
+      <h3 class="text-xl text-rose-800 mb-2">Extra-Curricular Activities</h3>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Over the years, I’ve actively participated in diverse creative and team-building activities that reflect my energetic and collaborative personality —
+        from <strong>dance performances</strong> and <strong>fashion shows</strong> to <strong>women’s cricket</strong> and <strong>badminton tournaments</strong>,
+        <strong>craft & connect sessions</strong>, and even <strong>office team hikes</strong>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & ACHIEVEMENTS -->
+<section id="education" class="py-16 bg-[#fffefc]">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+    <div class="section-card p-6">
+      <h4 class="text-xl text-rose-800 mb-2">Education</h4>
+      <p class="text-gray-700 text-sm">MSc in Project Management, UCD Smurfit Business School (2025–2026)</p>
+      <p class="text-gray-700 text-sm mt-1">B.E. Computer Science, G.H. Raisoni College of Engineering (2011)</p>
+    </div>
+
+    <div class="section-card p-6">
+      <h4 class="text-xl text-rose-800 mb-2">Certifications</h4>
+      <ul class="list-disc list-inside text-gray-700 text-sm">
+        <li>Professional Scrum Master (PSM I)</li>
+        <li>Certified Java Proficient — HSBC</li>
+        <li>LOMA 280 — Insurance Certification</li>
+      </ul>
+    </div>
+
+    <div class="section-card p-6">
+      <h4 class="text-xl text-rose-800 mb-2">Achievements & Recognition</h4>
+      <ul class="list-disc list-inside text-gray-700 text-sm">
+        <li>Creative & Entrepreneurial Careers Committee — UCD</li>
+        <li>GTT Certificate of Recognition — Barclays, 2024</li>
+        <li>Pat on the Back Award — HSBC, 2019</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MY WORLD IN PICTURES -->
+<section id="moments" class="relative py-16 bg-gradient-to-b from-[#fffdfc] via-[#fffaf0] to-[#fffefc] text-center overflow-hidden">
+  <!-- sparkles container -->
+  <div id="sparkles" class="absolute inset-0 pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
     <h2 class="text-3xl font-bold text-rose-800 mb-4">My World in Pictures</h2>
     <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto mb-10">
-      Work is one part of my story — here’s a glimpse into the world that keeps me inspired and grounded, grateful and full of life. 
+      Work is one part of my story — here’s a glimpse into the world that keeps me inspired and grounded, grateful and full of life.
       While my career shaped my path, it’s these moments that shaped my heart. From connecting with nature to celebrating love and culture, every frame reminds me to stay curious and kind.
     </p>
 
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center auto-rows-[260px]">
+    <div class="gallery-grid grid sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center">
+      <!-- 1 -->
       <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal">
-        <img src="howth-dog.jpg" alt="Howth Cliff Hike" class="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105">
+        <img src="howth-dog.jpg" alt="Howth Cliff Hike">
         <figcaption class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-sm p-3 caption">Met this gentle giant while hiking the Howth Cliff 🐶🌊</figcaption>
       </figure>
 
+      <!-- 2 -->
       <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal">
-        <img src="glendalough.jpeg" alt="Glendalough River" class="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105">
+        <img src="glendalough.jpeg" alt="Glendalough River">
         <figcaption class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-sm p-3 caption">Serenity by the Glendalough River 💧⛰️</figcaption>
       </figure>
 
-      <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal md:row-span-2 md:h-[540px]">
-        <img src="smurfit-campus.JPG" alt="Smurfit Campus" class="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105">
+      <!-- 3 (tall) -->
+      <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal spat--tall">
+        <img src="smurfit-campus.JPG" alt="Smurfit Campus">
         <figcaption class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-sm p-3 caption">A peaceful moment at UCD Smurfit Campus 🌿📚</figcaption>
       </figure>
 
+      <!-- 4 -->
       <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal">
-        <img src="diwali.jpeg" alt="Diwali Celebration" class="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105">
+        <img src="diwali.jpeg" alt="Diwali Celebration">
         <figcaption class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-sm p-3 caption">Celebrating Diwali in Dublin 🪔✨</figcaption>
       </figure>
 
+      <!-- 5 -->
       <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal">
-        <img src="niagara.jpg" alt="Niagara Falls Adventure" class="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105">
+        <img src="niagara.jpg" alt="Niagara Falls Adventure">
         <figcaption class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-sm p-3 caption">Adventure vibes at Niagara Falls 💦🌎</figcaption>
       </figure>
 
-      <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal sm:col-span-2 md:col-span-3 flex justify-center md:h-[420px]">
-        <img src="family.jpeg" alt="With my husband and son" class="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105">
+      <!-- 6 family (centered, smaller height to avoid cutting heads) -->
+      <figure class="relative overflow-hidden rounded-xl shadow-md group image-card reveal family sm:col-span-2 md:col-span-3" style="height:360px;">
+        <img src="family.jpeg" alt="With my husband and son" style="object-position:center top;">
         <figcaption class="absolute inset-x-0 bottom-0 text-white text-sm p-3 caption">My greatest source of strength and happiness — my husband and our little boy 💛</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
+<!-- PERSONAL REFLECTION -->
+<section id="reflection" class="py-16 gradient-bg text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 mb-4">Personal Reflection</h2>
+    <p class="text-gray-700 leading-relaxed">
+      Every phase of my journey — from leading classroom teams to managing global projects — has strengthened my belief that leadership isn’t about control, but connection.
+      I find joy in helping people feel seen, heard and valued. My calm nature, empathy and attention to detail help me build trust even in high-pressure environments.
+      At my core, I’m driven by purpose — to keep learning, leading and creating spaces where others can thrive alongside me.
+    </p>
+    <p class="mt-6 font-semibold text-rose-800">— Neetu 🌼 | Calm Leader, Creative Thinker, Empathetic Soul</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-14 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 mb-4">Get in Touch</h2>
+    <p class="text-gray-700 mb-4">I’m always open to meaningful collaborations and conversations with people who believe in growth, kindness, and connection.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 items-center">
+      <a href="mailto:neeturoych@gmail.com" class="px-5 py-2.5 bg-rose-600 text-white rounded-md hover:bg-rose-700 transition">engg.neeturoych@gmail.com</a>
+      <a href="https://linkedin.com/in/chneeturoy" target="_blank" class="px-5 py-2.5 border border-rose-200 text-rose-700 rounded-md hover:bg-rose-50 transition">LinkedIn</a>
+      <div class="inline-flex items-center gap-3 px-6 py-2.5 text-base font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 transition">(+353) 0894671634</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="py-8 border-t border-rose-100 text-center text-sm text-gray-500">
   <p>© <span id="year"></span> Neetu Roy. All rights reserved.</p>
   <p class="text-sm text-rose-700 mt-3 italic font-medium tracking-wide opacity-0 animate-fadeInFooter">
-  ✨ Designed with love and purpose by <span class="font-semibold">Neetu Roy💗🌼</span> — Keep shining, stay grounded. ✨
-</p>
+    ✨ Designed with love and purpose by <span class="font-semibold">Neetu Roy💗🌼</span> — Keep shining, stay grounded. ✨
+  </p>
 </footer>
 
 <script>
-  // Scroll reveal animation
-  const observer = new IntersectionObserver(entries => {
+  // Scroll reveal + auto-caption (row-by-row)
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
-  document.querySelectorAll('.image-card').forEach(card => {
-    observer.observe(card);
+  document.querySelectorAll('.image-card').forEach((c,i) => {
+    observer.observe(c);
   });
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // Tap to toggle caption (mobile)
+  document.querySelectorAll('.image-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      card.classList.toggle('show-caption');
+      if (card.classList.contains('show-caption')) {
+        setTimeout(()=> card.classList.remove('show-caption'), 3500);
+      }
+    });
+  });
+
+  // Sparkles generator (only inside moments section)
+  (function createSparkles(){
+    const container = document.getElementById('sparkles');
+    if(!container) return;
+    const count = 18;
+    const width = container.clientWidth || window.innerWidth;
+    const height = container.clientHeight || 420;
+    for(let i=0;i<count;i++){
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      const size = (Math.random()*6)+3;
+      s.style.width = s.style.height = `${size}px`;
+      s.style.left = `${Math.random()*100}%`;
+      s.style.bottom = `${Math.random()*120}px`;
+      s.style.animationDelay = `${Math.random()*6}s`;
+      s.style.opacity = (0.35 + Math.random()*0.6).toString();
+      container.appendChild(s);
+    }
+  })();
+
+  // dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
