@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BridgeBuddy — MAD117 Project by Neetu Roy</title>
+  <meta name="description" content="BridgeBuddy: An AI-Assisted Transition Toolkit for International Students in Ireland." />
+  <meta name="author" content="Neetu Roy" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BridgeBuddy — MAD117 Project" />
+  <meta property="og:description" content="An AI-Assisted Transition Toolkit empowering international students." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --rose:#f7bfc3; --ivory:#fffaf0; --gold:#e6b98a; --muted:#6b6b6b;
+    }
+    body{ font-family: "DM Sans", sans-serif; background: linear-gradient(180deg,#fff1f2 0%,#fffaf0 50%,#ffffff 100%); color:#1f2937; }
+    h1,h2,h3,h4{ font-family: "Manrope", sans-serif; }
+
+    .name-shimmer{
+      background:linear-gradient(90deg,#8a3b3f,#f7bfc3,#ffd7b5,#8a3b3f);
+      -webkit-background-clip:text; background-clip:text; color:transparent; background-size:300% 100%;
+      animation: shimmer 8s linear infinite; display:inline-block;
+    }
+    @keyframes shimmer{ 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+    .portrait{ width:420px; height:420px; border-radius:20px; border:6px solid var(--gold); box-shadow:0 10px 35px rgba(138,59,63,0.18); object-fit:cover; object-position:center; }
+    @media (max-width:1024px){ .portrait{ width:300px; height:300px; } }
+    @media (max-width:640px){ .portrait{ width:220px; height:220px; } }
+
+    .section-card{ background:#fffdfc; border:1px solid #fce7eb; border-radius:18px; box-shadow:0 6px 24px rgba(138,59,63,0.06); }
+
+    /* Gallery + animations */
+    .caption{ opacity:0; transform:translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .group:hover .caption, .image-card.show-caption .caption, .image-card:focus .caption{ opacity:1; transform:translateY(0); }
+
+    .reveal{ opacity:0; transform:translateY(36px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.revealed{ opacity:1; transform:translateY(0); }
+
+    .image-card img{ aspect-ratio:4/3; object-fit:cover; object-position:center; height:100%; width:100%; display:block; border-radius:18px; }
+
+    .sparkle{ position:absolute; border-radius:50%; pointer-events:none; filter: blur(1px); opacity:0.6;
+      background: radial-gradient(circle, #f7bfc3 0%, #ffd7b5 55%, transparent 100%); animation: floatSparkles 10s linear infinite; }
+    @keyframes floatSparkles{
+      0%{ transform: translateY(0) scale(.9); opacity:.45 }
+      50%{ transform: translateY(-60px) scale(1); opacity:.95 }
+      100%{ transform: translateY(-140px) scale(.85); opacity:.25 }
+    }
+
+    @keyframes fadeInFooter { from{ opacity:0; transform:translateY(10px)} to{ opacity:1; transform:translateY(0) } }
+    .animate-fadeInFooter{ animation: fadeInFooter 2s ease-in-out .3s forwards; color:var(--muted); }
+  </style>
+</head>
+<body>
+
+<header class="sticky top-0 bg-white/75 backdrop-blur-md border-b border-rose-50 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <span class="text-lg font-bold text-rose-800">MAD117 Project</span>
+    
+    <nav class="hidden md:flex gap-6 text-sm text-rose-700">
+      <a href="#home" class="hover:underline">Home</a>
+      <a href="#mission" class="hover:underline">The Mission</a>
+      <a href="#process" class="hover:underline">Process</a>
+      <a href="#prototype" class="hover:underline">Prototype</a>
+      <a href="#impact" class="hover:underline">Impact (OKRs)</a>
+    </nav>
+
+    <button id="mobile-menu-btn" class="md:hidden text-rose-700 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-rose-50 absolute w-full left-0 top-full shadow-lg">
+    <nav class="flex flex-col p-4 gap-4 text-rose-700 text-center">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#mission" class="mobile-link">The Mission</a>
+      <a href="#process" class="mobile-link">Process</a>
+      <a href="#prototype" class="mobile-link">Prototype</a>
+      <a href="#impact" class="mobile-link">Impact (OKRs)</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="min-h-[78vh] flex items-center px-6">
+  <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 items-center gap-8">
+    <div>
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight"><span class="name-shimmer">BridgeBuddy</span></h1>
+      <p class="mt-2 text-rose-700 text-lg font-medium">An AI-Assisted Transition Toolkit</p>
+      <p class="mt-4 italic text-rose-600">“Empowering International Students in Ireland.”</p>
+      <p class="mt-2 text-gray-700 max-w-lg">Reducing confusion, stress, and adjustment challenges through structured, human-centered design[cite: 2].</p>
+      <div class="mt-5 flex gap-3">
+        <a href="#prototype" class="px-5 py-2.5 rounded-md bg-rose-600 text-white font-medium hover:bg-rose-700">View Prototype</a>
+        <a href="#process" class="px-5 py-2.5 rounded-md border border-rose-200 text-rose-700 hover:bg-rose-50">Explore Process</a>
+      </div>
+    </div>
+
+    <div class="flex justify-center md:justify-end">
+      <!-- NOTE: Replace DSC01788.jpg with a screenshot of your Canva wireframe dashboard -->
+      <img src="DSC01788.jpg" alt="BridgeBuddy Concept" class="portrait">
+    </div>
+  </div>
+</section>
+
+<!-- THE MISSION & SDGs -->
+<section id="mission" class="py-14">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-rose-800 mb-8">The Challenge: Navigating the Unknown</h2>
+    
+    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+      Relocating to a new country causes immense stress for incoming students. Between securing housing amidst a crisis, managing a strict student budget, and understanding bureaucratic mazes like the <strong>PPSN and IRP</strong>, the initial months can be overwhelming. <strong>BridgeBuddy</strong> is a targeted digital initiative designed to reduce that anxiety through accessible guidance and measurable, positive change[cite: 1].
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full font-bold">🎯 SDG 3: Good Health & Wellbeing</span>
+      <span class="px-4 py-2 bg-rose-50 text-rose-800 rounded-full font-bold">🎯 SDG 10: Reduced Inequalities</span>
+    </div>
+
+    <div class="relative bg-white border border-rose-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-500 max-w-3xl mx-auto overflow-hidden group">
+      <div class="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-rose-50 rounded-full blur-3xl opacity-60 group-hover:opacity-100 transition duration-700"></div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+        
+        <div class="flex-shrink-0 text-center md:text-right">
+          <span class="block text-5xl font-extrabold tracking-widest name-shimmer">POV</span>
+          <span class="block text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mt-1">Define Stage</span>
+        </div>
+
+        <div class="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-rose-200 to-transparent"></div>
+
+        <div class="text-center md:text-left">
+          <p class="text-rose-800 font-semibold mb-1">Point of View Statement</p>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Incoming international students in Ireland <strong>need</strong> a centralized, trustworthy roadmap to navigate housing, budgeting, and administration <strong>because</strong> the current fragmented system causes severe financial anxiety and mental burnout before classes even begin[cite: 2].
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROCESS -->
+<section id="process" class="py-14 bg-gradient-to-r from-[#fff6f3] to-[#fffaf0]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl font-bold text-rose-800">The Design Thinking Process</h2>
+      <p class="text-gray-700 mt-2">Moving from empathy mapping to actionable insights[cite: 2].</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="section-card p-6">
+        <h3 class="text-xl text-rose-800 mb-2">1. Empathise</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          Using digital ethnography, we analyzed online student forums to capture the true voice of the customer[cite: 1, 2]. Common themes included frustration with finding affordable housing, navigating Daft.ie scams, and the stress of PPSN delays[cite: 2].
+        </p>
+      </div>
+
+      <div class="section-card p-6">
+        <h3 class="text-xl text-rose-800 mb-2">2. Define</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          Raw qualitative data was synthesized using AI tools to form our Point of View (POV) statement[cite: 2]. This step provided a focused direction to ensure the project solves the right problem for actual users[cite: 2].
+        </p>
+      </div>
+
+      <div class="section-card p-6">
+        <h3 class="text-xl text-rose-800 mb-2">3. Ideate</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          We transformed the problem into an opportunity using a "How Might We" question: <em>How might we simplify the initial bureaucratic checklist (PPSN, bank account, IRP) so students know exactly what to do the week they land?</em>[cite: 2].
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROTOTYPE -->
+<section id="prototype" class="py-16 bg-[#fffefc]">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 text-center mb-4">The Solution: Low-Fidelity Prototyping</h2>
+    <p class="text-gray-700 text-center mb-10 max-w-2xl mx-auto">
+      Focusing on core concepts and user flow without getting bogged down in visual details to rapidly test the administrative roadmap[cite: 2].
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 justify-center">
+      <!-- NOTE: Replace the src with your Canva exports -->
+      <figure class="relative overflow-hidden rounded-2xl shadow-lg group image-card transition duration-700 ease-in-out">
+        <img src="https://via.placeholder.com/800x600.png?text=Canva+Wireframe+1" alt="Prototype Dashboard" />
+      </figure>
+
+      <figure class="relative overflow-hidden rounded-2xl shadow-lg group image-card transition duration-700 ease-in-out">
+        <img src="https://via.placeholder.com/800x600.png?text=Canva+Wireframe+2" alt="Prototype Checklist" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- THE IMPACT (OKRs) -->
+<section id="impact" class="py-10 bg-[#fffefc]">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 text-center mb-8">Measurable Impact (OKRs)</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="section-card p-8">
+        <h3 class="text-2xl font-bold text-rose-800 mb-4">Objective</h3>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Validate the BridgeBuddy concept through rigorous user testing to ensure it reduces transition anxiety and creates a measurable, positive change[cite: 1, 2].
+        </p>
+      </div>
+
+      <div class="section-card p-8 bg-rose-50/50">
+        <h3 class="text-2xl font-bold text-rose-800 mb-4">Key Results</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-3">
+          <li><strong>KR 1:</strong> Conduct empathy research leveraging digital ethnography to map core pain points[cite: 1, 2].</li>
+          <li><strong>KR 2:</strong> Test the low-fidelity prototype asynchronously with 5 users[cite: 1, 2].</li>
+          <li><strong>KR 3:</strong> Achieve an average "ease of finding information" rating of 4 out of 5[cite: 1, 2].</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>  
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 text-center bg-gradient-to-b from-white to-[#fffaf0]">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-rose-800 mb-6">Let's Connect</h2>
+    <p class="text-gray-700 mb-10 text-lg max-w-2xl mx-auto">
+      I’m always open to meaningful collaborations and conversations with people who believe in growth, kindness, and connection.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <a href="mailto:engg.neeturoych@gmail.com" class="flex items-center gap-2 px-6 py-3 bg-white border border-rose-200 text-rose-700 rounded-full shadow-sm hover:shadow-md hover:border-rose-300 transition group">
+        <svg class="w-5 h-5 text-rose-500 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <span class="font-medium">Email Me</span>
+      </a>
+
+      <a href="https://linkedin.com/in/chneeturoy" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white rounded-full shadow-sm hover:shadow-md hover:bg-[#006396] transition group">
+        <svg class="w-5 h-5 fill-current group-hover:scale-110 transition" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <span class="font-medium">LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<button id="scrollToTop" class="fixed bottom-6 right-6 bg-rose-600 text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-rose-700 z-40" aria-label="Scroll to top">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+</button>
+<footer class="py-8 border-t border-rose-100 text-center text-sm text-gray-500">
+  <p>© <span id="year"></span> Neetu Roy. All rights reserved.</p>
+  <p class="text-sm text-rose-700 mt-3 italic font-medium tracking-wide opacity-0 animate-fadeInFooter">
+    ✨ Designed with love and purpose by <span class="font-semibold">Neetu Roy💗🌼</span> — Keep shining, stay grounded. ✨
+  </p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.image-card').forEach((c,i) => {
+    observer.observe(c);
+  });
+
+  // Dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  
+  // Mobile Menu Logic
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('.mobile-link');
+
+    if (btn && menu) {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.classList.toggle('hidden');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    }
+  });
+
+  // Scroll to Top Logic
+  const scrollBtn = document.getElementById('scrollToTop');
+  if (scrollBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+          scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+      
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  }
+</script>
+
+</body>
+</html>
